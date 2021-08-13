@@ -1,2 +1,3 @@
 class RelaisController < ApplicationController
+
 end
