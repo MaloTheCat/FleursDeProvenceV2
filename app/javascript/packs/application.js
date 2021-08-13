@@ -6,6 +6,11 @@
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import "channels"
+import { initMapbox } from '../plugins/init_mapbox';
 
-Rails.start()
-Turbolinks.start()
+// Turbolinks.start()
+
+document.addEventListener('turbolinks:load', () => {
+  Rails.start();
+  initMapbox();
+})
