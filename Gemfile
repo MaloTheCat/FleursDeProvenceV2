@@ -27,6 +27,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 # my gem:
 gem 'geocoder'
+gem 'dotenv-rails'
 
 
 group :development, :test do
