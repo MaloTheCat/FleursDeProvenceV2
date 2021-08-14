@@ -1,0 +1,144 @@
+/* Section 1 */
+
+h1 {
+  font-family: poppins;
+  font-weight: 500;
+  font-size: 2em;
+}
+
+h2 {
+  font-family: poppins;
+  font-weight: 500;
+  font-size: 1.5em;
+  padding-bottom: 20px;
+}
+
+.bck-img {
+  background-image: linear-gradient(45deg,
+    rgba(0, 0, 0, .4) 0%,
+    rgba(0, 0, 0, .4) 100%),
+  url(background-sec1.jpg);
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+  border-radius: 16px;
+  /*transition: background-color 1s;*/
+}
+
+.inner-text {
+  color: white;
+  filter: drop-shadow(0px 0px 2px black);
+  display: flex;
+  line-height: 1.5em;
+  flex-direction: column;
+  justify-content: center;
+  height: inherit;
+  padding-left: 10%;
+}
+
+  /* SECTION 2*/
+
+.section-2 {
+  display: flex;
+  padding: 25px 0px;
+}
+
+.s2-left {
+  width: 50%;
+  padding-right: 10px;
+  text-align: justify;
+  align-self: center;
+}
+
+.s2-right {
+  display: flex;
+  border: 2px solid gray;
+  /*background-color: lightgray;*/
+  width: 50%;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  /*height: 300px;*/
+}
+
+  /* SECTION 3*/
+
+.section-3 {
+  width: 100%;
+  background-color: #ECECEC;
+  display: flex;
+  padding: 25px 0px;
+}
+
+.card-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+}
+
+
+.green-border-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  height: 350px;
+  width: 200px;
+  border: 2px solid #D7E15E;
+  border-radius: 28px;
+  margin: 20px 0;
+}
+
+.section-3 img {
+  box-sizing: border-box; /*Forcer l'image à être dans la card*/
+  display: flex;
+  width: 100%;
+  height: 250px;
+  z-index: 2;
+}
+
+.green-square {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 175px;
+  border-radius: 25px;
+  background-color: #D7E15E;
+  transition: all .4s linear;
+}
+.card-wrap > a:hover {
+  .green-square {
+    position: absolute;
+    bottom: -0;
+    width: 100%;
+    height: 350px;
+    border-radius: 25px;
+    background-color: #D7E15E;
+  }
+}
+
+h3 {
+  z-index: 2;
+  text-align: center;
+  font-family: poppins;
+  font-weight: 600;
+}
+
+.card-price {
+  text-align: center;
+  z-index: 2;
+  font-family: poppins;
+  font-weight: 500;
+  font-size:  1.7em;
+}
+
+.green-border-card > p {
+  z-index: 2;
+  text-align: center;
+  font-family: poppins;
+  font-weight: 400;
+  font-size: .6em;
+  line-height: .2;
+}

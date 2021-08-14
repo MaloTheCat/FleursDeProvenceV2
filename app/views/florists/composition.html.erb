@@ -1,25 +1,12 @@
-<h1 style="text-align:center;font-size:1em">Page Accueil</h1>
+<h1 style="text-align:center;font-size:1em">Page Composition</h1>
 
-<div class="bck-img">
-  <div class="inner-text">
-    <h1><%= @florist.name %></h1>
-    <h2 style="font-weight: 300;font-size: 1em;">Créateur de vos Émotions</h2>
-  </div>
-</div>
-
-<div class="section-2">
-  <div class="s2-left">
+<div class="compo-section-1">
+  <div class="compo-s1-left">
     <h2>Commandez et faites vous livrer en points relais</h2>
-    <p>Grâce à nos partenaires, commandez directement vos bouquets sur notre site et de vous le faire livrer directement dans le point relais le plus proche. Les bouquets sont réalisés et livrés pour le lendemain avec des fleurs fraîches. La livraison est gratuite !</p>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
   </div>
-  <div class="s2-right">
-    <div id="map"
-      style="width: 100%; height: 300px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-    <!-- <div class="map-test" style="height:300px;width:100%">
-    </div> -->
+  <div class="compo-s1-right">
+    <div class="image">Image</div>
   </div>
 </div>
 

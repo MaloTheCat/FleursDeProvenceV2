@@ -1,0 +1,41 @@
+<footer>
+  <div class="placing_footer">
+    <div class="footer part_1">
+      <%= link_to florist_path(@florist) do %>
+        <li>Accueil</li>
+      <% end %>
+      <%= link_to florist_composition_path(@florist) do %>
+        <li>Composition</li>
+      <% end %>
+      <%= link_to florist_evenement_path(@florist) do %>
+        <li>Évènement</li>
+      <% end %>
+      <%= link_to florist_contact_path(@florist) do %>
+        <li>Contact</li>
+      <% end %>
+    </div>
+    <div class="footer part_2">
+      <a href="https://www.facebook.com/FleuresdeProvence/">
+        <li>Facebook</li>
+      </a>
+      <a href="https://www.instagram.com/fleursdeprovence_">
+        <li>instagram</li>
+      </a>
+    </div>
+    <div class="footer part_3">
+      <%= link_to florist_cgv_path(@florist) do %>
+        <li>Condition Générale de vente</li>
+      <% end %>
+      <a href="#">
+        <li>Carte de Fidélité</li>
+      </a>
+      <a href="#">
+        <li>Fleurs de Provence</li>
+      </a>
+      <a href="#">
+        <li>Plan du site</li>
+      </a>
+    </div>
+  </div>
+  <p>Fleurs de Provence® 2021 - Création Jonathan Coz</p>
+</footer>
