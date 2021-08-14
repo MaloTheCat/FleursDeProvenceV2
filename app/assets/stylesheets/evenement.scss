@@ -1,0 +1,39 @@
+  /* SECTION 1*/
+
+.event-section-1 {
+  display: flex;
+  padding: 25px 0px;
+}
+
+.event-s1-left {
+  display: flex;
+  background-color: lightgray;
+  width: 50%;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  height: 300px;
+}
+
+.event-s1-right {
+  width: 50%;
+  padding-left: 10px;
+  text-align: justify;
+  align-self: center;
+}
+
+  /* SECTION 2 */
+
+.event-section-2 {
+  display: flex;
+  padding: 25px 0px;
+}
+
+.realisation-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.realisation-wrap > img {
+  width: 100%;
+}
