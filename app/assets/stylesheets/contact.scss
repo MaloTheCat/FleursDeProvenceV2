@@ -13,8 +13,8 @@
 
 .screen {
   position: relative;
-  /*background: #d0d0d0;*/
-  background: black;
+  background: #d0d0d0;
+  /*background: black;*/
   border-radius: 15px;
 }
 
@@ -33,6 +33,7 @@
 
 .screen-body {
   display: flex;
+  height: 100%;
 }
 
 .screen-body-item {
@@ -48,6 +49,7 @@
 
 .screen-body-item.right {
   padding-left: 30px;
+  margin: auto 0;
 }
 
 .app-title {
@@ -185,20 +187,26 @@ span.rev.phone:after {
   padding: 10px 0;
 }
 
-li > p > i:before {
+li > i {
   position: absolute;
-  top: 15;
+  /*display: inline-block;*/
+  top: 29%;
   left: 0;
-  font-size: 1.5em;
+  font-size: 1.8em;
+}
+
+li:nth-child(1) :not(p) {
+  font-size: 2em;
 }
 
 .app-contact > li {
+  position: relative;
   line-height: 2em;
 }
 
 /* @media screen */
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 640px) {
   .screen-body {
     padding: 40px;
     flex-direction: column;
@@ -221,14 +229,9 @@ li > p > i:before {
   .app-title:after {
     display: none;
   }
-}
 
-@media screen and (max-width: 800px) {
-  li > p > i:before {
-  position: absolute;
-  top: -20px;
-  left: 42%;
-  font-size: 1.5em;
+  .app-contact p {
+    font-size: 1.2em;
   }
 }
 
@@ -247,11 +250,12 @@ li > p > i:before {
     font-size: 1.3em;
   }
 
-  li > p > i:before {
-    position: absolute;
-    top: 15px;
-    left: 0;
-    font-size: 1.4em;
+  li > i {
+    position: initial;
+  }
+
+  li > i:before {
+    font-size: 1.2em;
   }
 
   .app-contact > li {
@@ -260,5 +264,9 @@ li > p > i:before {
 
   .app-form-name {
     display: block;
+  }
+
+  .app-form-group {
+    padding: 10px 0;
   }
 }
