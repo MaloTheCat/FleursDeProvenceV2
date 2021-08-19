@@ -1,6 +1,6 @@
   /* SECTION 1*/
 
-.event-section-1 {
+.event-section {
   display: flex;
   padding: 25px 0px;
 }
@@ -24,11 +24,6 @@
 
   /* SECTION 2 */
 
-.event-section-2 {
-  display: flex;
-  padding: 25px 0px;
-}
-
 .realisation-wrap {
   display: flex;
   flex-wrap: wrap;
@@ -37,3 +32,6 @@
 .realisation-wrap > img {
   width: 100%;
 }
+
+ /* SECTION 3 */
+

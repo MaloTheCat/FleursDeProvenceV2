@@ -28,6 +28,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # my gem:
 gem 'geocoder'
 gem 'dotenv-rails'
+gem 'simple_form'
+gem 'mail_form', '~> 1.9'
+gem 'font-awesome-sass', '~> 5.15.1'
 
 
 group :development, :test do
@@ -45,6 +48,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'amazing_print'
+  # gem 'font-awesome-sass', '~> 5.15.1'
 
 end
 
