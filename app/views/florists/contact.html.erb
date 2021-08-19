@@ -1,1 +1,70 @@
-<h1 style="text-align:center;font-size:1em">Page Contact</h1>
+<!-- <h1 style="text-align:center;font-size:1em">Page Contact</h1> -->
+
+<%#= simple_form @user do |f| %>
+  <%#= f.input :username, label: 'Your username please', error: 'Username is mandatory, please specify one' %>
+  <%#= f.input :password, hint: 'No special characters.' %>
+  <%#= f.input :email, placeholder: 'martin@gmail.com' %>
+  <%#= f.button :submit %>
+<%# end %>
+
+<div class="container">
+  <div class="screen">
+    <div class="screen-body">
+      <div class="screen-body-item left">
+        <div class="app-title">
+          <span>CONTACTEZ</span>
+          <span>NOUS</span>
+        </div>
+        <div class="app-contact">
+          <li>
+            <p><i class="fas fa-home">12 rue du Serre Blanc,<br>
+            Saint Paul 3 Châteaux</i></p>
+            <!-- <span class="icon address"></span> -->
+          </li>
+          <li>
+            <p><i class="fas fa-phone-alt"><span class="rev phone">57</span></i></p>
+          </li>
+          <li>
+            <p><i class="fas fa-envelope">sarl.vdb@wanadoo.fr</i></p>
+          </li>
+
+
+          <div class="contact-horaire">
+            Horaires d’ouverture au public
+            Mardi au samedi
+            13h à 19h30
+
+            <div class="contact-more">
+              <p>Le matin étant réservé exclusivement aux entreprises</p>
+            </div>
+          </div>
+          <%#= image_tag '1' %>
+        </div>
+      </div>
+      <div class="screen-body-item right">
+        <div class="app-form">
+          <div class="app-form-name">
+            <div class="app-form-group">
+              <input class="app-form-control" placeholder="PRÉNOM">
+            </div>
+            <div class="app-form-group">
+              <input class="app-form-control" placeholder="NOM">
+            </div>
+          </div>
+          <div class="app-form-group">
+            <input class="app-form-control" placeholder="EMAIL">
+          </div>
+          <div class="app-form-group">
+            <input class="app-form-control" placeholder="TÉLÉPHONE">
+          </div>
+          <div class="app-form-group message">
+            <input class="app-form-control" placeholder="MESSAGE">
+          </div>
+          <div class="app-form-group buttons">
+            <button class="app-form-button">ENVOYER</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

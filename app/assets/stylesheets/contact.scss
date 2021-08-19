@@ -1,0 +1,264 @@
+.app-contact, .app-title, button, input {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.container {
+  flex: 0 1 700px;
+  min-height: 75vh;
+  margin: auto;
+  padding: 10px;
+}
+
+.screen {
+  position: relative;
+  /*background: #d0d0d0;*/
+  background: black;
+  border-radius: 15px;
+}
+
+.screen:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  bottom: 0;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+  z-index: -1;
+}
+
+.screen-body {
+  display: flex;
+}
+
+.screen-body-item {
+  flex: 1;
+  padding: 50px;
+}
+
+.screen-body-item.left {
+  display: flex;
+  flex-direction: column;
+  padding-right: 30px;
+}
+
+.screen-body-item.right {
+  padding-left: 30px;
+}
+
+.app-title {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  color: #e62328;
+  font-size: 26px;
+  margin-bottom: 25px;
+}
+
+.app-title:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 25px;
+  height: 4px;
+  background: #e62328;
+}
+
+.app-contact {
+  margin-top: auto;
+  font-size: .7em;
+  color: #888;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 1em;
+}
+
+.photo-contact {
+  /*display: block;*/
+  /*width: 100%;*/
+}
+
+.photo-contact > img {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.app-form-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.app-form-group {
+  margin-bottom: 15px;
+}
+
+.app-form-group.message {
+  margin-top: 40px;
+}
+
+.app-form-group.buttons {
+  margin-bottom: 0;
+  text-align: right;
+}
+
+.app-form-control {
+  width: 100%;
+  padding: 10px 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #999;
+  color: red;
+  font-size: 14px;
+  /*text-transform: uppercase;*/
+  outline: none;
+  transition: border-color .2s;
+}
+
+.app-form-control::placeholder {
+  color: #999;
+}
+
+.app-form-control:focus {
+  border-bottom-color: red;
+}
+
+.app-form-button {
+  display: flex;
+  margin: 0 auto;
+  background: none;
+  border: none;
+  color: #e62328;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+.app-form-button:hover {
+  transition: .3s linear;
+  background-color: red;
+  padding: 8px 16px;
+  color: white;
+}
+
+span.rev {
+  unicode-bidi:bidi-override; direction:rtl
+}
+
+span.rev.phone:before {
+  content:"03 03 79 ";
+}
+
+span.rev.phone:after {
+  content:" 40";
+}
+
+.app-contact > li {
+  position: relative;
+  padding: 10px 0;
+}
+
+.fa-home {
+  /*width: 300px;*/
+}
+
+.app-contact p {
+  font-size: 1.5em;
+}
+
+.contact-horaire {
+  padding: 10px 0;
+  font-size: 1.3em;
+}
+
+.contact-more {
+  font-size: .5em;
+  padding: 10px 0;
+}
+
+li > p > i:before {
+  position: absolute;
+  top: 15;
+  left: 0;
+  font-size: 1.5em;
+}
+
+.app-contact > li {
+  line-height: 2em;
+}
+
+/* @media screen */
+
+@media screen and (max-width: 520px) {
+  .screen-body {
+    padding: 40px;
+    flex-direction: column;
+  }
+
+  .screen-body-item.left, .screen-body-item.right {
+    margin-bottom: 30px;
+    padding: 0;
+  }
+
+  .app-title {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .app-title span {
+    margin-right: 12px;
+  }
+
+  .app-title:after {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  li > p > i:before {
+  position: absolute;
+  top: -20px;
+  left: 42%;
+  font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .app-contact > li {
+    position: relative;
+    padding: 10px 0;
+  }
+
+  .app-contact p {
+    font-size: 1.2em;
+  }
+
+  .contact-horaire {
+    padding: 10px 0;
+    font-size: 1.3em;
+  }
+
+  li > p > i:before {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    font-size: 1.4em;
+  }
+
+  .app-contact > li {
+    line-height: 2em;
+  }
+
+  .app-form-name {
+    display: block;
+  }
+}
