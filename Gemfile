@@ -28,7 +28,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # my gem:
 gem 'geocoder'
 gem 'dotenv-rails'
-gem 'simple_form'
+# gem 'simple_form'
 gem 'mail_form', '~> 1.9'
 gem 'font-awesome-sass', '~> 5.15.1'
 

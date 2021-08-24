@@ -4,10 +4,12 @@
       <%=image_tag('logo', alt: "Logo Fleurs de Provence")%>
     </a>
     <div class="page_links">
-      <%= link_to "Accueil", florist_path(@florist) %>
-      <%= link_to "Composition", florist_composition_path(@florist) %>
-      <%= link_to "Évènement", florist_evenement_path(@florist) %>
-      <%= link_to "Contact", florist_contact_path(@florist) %>
+      <%#= link_to "Accueil", florist_path(@florist) %>
+      <%= link_to "Accueil", root_path %>
+      <%= link_to "Composition", composition_path %>
+      <%= link_to "Évènement", evenement_path %>
+      <%= link_to "Contact", contact_path %>
+      <%#= link_to "Contact", florist_contact_path(@florist) %>
     </div>
   </ul>
 </div>

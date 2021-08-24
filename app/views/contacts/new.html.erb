@@ -1,12 +1,5 @@
-<!-- <h1 style="text-align:center;font-size:1em">Page Contact</h1> --> -->
+<h1 style="text-align:center;font-size:1em">Page new Contact</h1>
 
-<%#= simple_form @user do |f| %>
-  <%#= f.input :username, label: 'Your username please', error: 'Username is mandatory, please specify one' %>
-  <%#= f.input :password, hint: 'No special characters.' %>
-  <%#= f.input :email, placeholder: 'martin@gmail.com' %>
-  <%#= f.button :submit %>
-<%# end %>
-<!--
 <div class="container">
   <div class="screen">
     <div class="screen-body">
@@ -30,7 +23,6 @@
             <p>sarl.vdb@wanadoo.fr</p>
           </li>
 
-
           <div class="contact-horaire">
             Horaires d’ouverture au public
             Mardi au samedi
@@ -44,18 +36,18 @@
         </div>
       </div>
       <div class="screen-body-item right">
-        Formulaire qui prend le prénom, nom, téléphone et email du contact et qui l'envoie par mail -->
+        <!-- Formulaire qui prend le prénom, nom, téléphone et email du contact et qui l'envoie par mail -->
         <%#= form_with model: @contact, url: florist_contact_path(@florist), method: "post" do |f| %>
-        <%#= form_with model: @contact do |f| %> <!-- , html: {class:'app-form'}) -->
-          <%#= f.text_field :firstname, placeholder: 'PRÉNOM' %> <!-- , html: {class: "app-form-name app-form-control"} -->
-          <%#= f.text_field :lastname, placeholder: 'NOM' %> <!-- , html: {class: "app-form-name app-form-control"} -->
-          <%#= f.email_field :email, placeholder: 'EMAIL' %> <!-- , html: {class: "app-form-group app-form-control"} -->
-          <%#= f.phone_field :phone, placeholder: 'TÉLÉPHONE' %> <!-- , html: {class: "app-form-group app-form-control"} -->
-          <%#= f.text_field :content, placeholder: 'MESSAGE' %> <!-- , html: {class: "app-form-group message app-form-control"} -->
-          <%#= f.submit "Envoyer" %>
-        <%# end %>
+        <%= form_with(model: @contact, local: true) do |f| %>
+          <%= f.text_field :firstname, placeholder: 'PRÉNOM' %> <!-- , html: {class: "app-form-name app-form-control"} -->
+          <%= f.text_field :lastname, placeholder: 'NOM' %> <!-- , html: {class: "app-form-name app-form-control"} -->
+          <%= f.email_field :email, placeholder: 'EMAIL' %> <!-- , html: {class: "app-form-group app-form-control"} -->
+          <%= f.phone_field :phone, placeholder: 'TÉLÉPHONE' %> <!-- , html: {class: "app-form-group app-form-control"} -->
+          <%= f.text_field :content, placeholder: 'MESSAGE' %> <!-- , html: {class: "app-form-group message app-form-control"} -->
+          <%= f.submit "Envoyer" %>
+        <% end %>
 
-        <!-- <div class="app-form">
+        <!--<div class="app-form">
           <div class="app-form-name">
             <div class="app-form-group">
               <input class="app-form-control" placeholder="PRÉNOM">
@@ -76,10 +68,9 @@
           <div class="app-form-group buttons">
             <button class="app-form-button">ENVOYER</button>
           </div>
-        </div>
+        </div> -->
 
       </div>
     </div>
   </div>
 </div>
- -->
