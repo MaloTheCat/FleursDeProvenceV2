@@ -1,4 +1,4 @@
-class OrderCompositions < ApplicationRecord
+class OrderComposition < ApplicationRecord
   belongs_to :order
-  belongs_to :compositions
+  belongs_to :composition
 end
