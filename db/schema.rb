@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_12_132303) do
+ActiveRecord::Schema.define(version: 2021_08_24_073502) do
+
+  create_table "compositions", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.integer "quantity"
+    t.boolean "disponibility"
+    t.integer "florist_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["florist_id"], name: "index_compositions_on_florist_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "email"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "firstname"
+    t.string "lastname"
+    t.integer "phone"
+    t.integer "fidelity_point"
+  end
 
   create_table "florists", force: :cascade do |t|
     t.string "name"
@@ -25,26 +47,15 @@ ActiveRecord::Schema.define(version: 2021_08_12_132303) do
     t.float "longitude"
   end
 
-  create_table "flowers", force: :cascade do |t|
-    t.string "name"
-    t.integer "price"
-    t.integer "quantity"
-    t.boolean "disponibility"
-    t.integer "florist_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["florist_id"], name: "index_flowers_on_florist_id"
-  end
-
-  create_table "order_flowers", force: :cascade do |t|
+  create_table "order_compositions", force: :cascade do |t|
     t.integer "quantity"
     t.string "size"
     t.integer "order_id", null: false
     t.integer "flower_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["flower_id"], name: "index_order_flowers_on_flower_id"
-    t.index ["order_id"], name: "index_order_flowers_on_order_id"
+    t.index ["flower_id"], name: "index_order_compositions_on_flower_id"
+    t.index ["order_id"], name: "index_order_compositions_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -55,6 +66,8 @@ ActiveRecord::Schema.define(version: 2021_08_12_132303) do
     t.integer "florist_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "contact_id", null: false
+    t.index ["contact_id"], name: "index_orders_on_contact_id"
     t.index ["florist_id"], name: "index_orders_on_florist_id"
     t.index ["relai_id"], name: "index_orders_on_relai_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
@@ -79,9 +92,10 @@ ActiveRecord::Schema.define(version: 2021_08_12_132303) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "flowers", "florists"
-  add_foreign_key "order_flowers", "flowers"
-  add_foreign_key "order_flowers", "orders"
+  add_foreign_key "compositions", "florists"
+  add_foreign_key "order_compositions", "compositions", column: "flower_id"
+  add_foreign_key "order_compositions", "orders"
+  add_foreign_key "orders", "contacts"
   add_foreign_key "orders", "florists"
   add_foreign_key "orders", "relais"
   add_foreign_key "orders", "users"
