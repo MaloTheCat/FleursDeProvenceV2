@@ -12,12 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2021_08_24_073502) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "compositions", force: :cascade do |t|
     t.string "name"
     t.integer "price"
     t.integer "quantity"
     t.boolean "disponibility"
-    t.integer "florist_id", null: false
+    t.bigint "florist_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["florist_id"], name: "index_compositions_on_florist_id"
@@ -50,8 +53,8 @@ ActiveRecord::Schema.define(version: 2021_08_24_073502) do
   create_table "order_compositions", force: :cascade do |t|
     t.integer "quantity"
     t.string "size"
-    t.integer "order_id", null: false
-    t.integer "flower_id", null: false
+    t.bigint "order_id", null: false
+    t.bigint "flower_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["flower_id"], name: "index_order_compositions_on_flower_id"
@@ -61,12 +64,12 @@ ActiveRecord::Schema.define(version: 2021_08_24_073502) do
   create_table "orders", force: :cascade do |t|
     t.integer "total_price"
     t.boolean "state_order"
-    t.integer "user_id", null: false
-    t.integer "relai_id", null: false
-    t.integer "florist_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "relai_id", null: false
+    t.bigint "florist_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "contact_id", null: false
+    t.bigint "contact_id", null: false
     t.index ["contact_id"], name: "index_orders_on_contact_id"
     t.index ["florist_id"], name: "index_orders_on_florist_id"
     t.index ["relai_id"], name: "index_orders_on_relai_id"
