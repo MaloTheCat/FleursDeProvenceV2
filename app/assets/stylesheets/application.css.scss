@@ -116,6 +116,12 @@ footer > p {
   transition: .3s ease;
 }
 
+@media screen and (max-width: 600px) {
+  .placing_footer {
+    flex-direction: column;
+  }
+}
+
 /*footer {
   position: relative;
   border: 2px solid yellow;
