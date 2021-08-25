@@ -32,6 +32,7 @@ gem 'dotenv-rails'
 gem 'mail_form', '~> 1.9'
 gem 'font-awesome-sass', '~> 5.15.1'
 gem 'pg'
+gem 'cloudinary', '~> 1.16.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
