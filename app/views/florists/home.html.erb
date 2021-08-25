@@ -27,9 +27,22 @@
 
 <div class="home-section-3">
   <div class="card-wrap">
-    <a href="#">
+    <% @compos.each do |c| %>
+      <a href="#">
+        <div class="green-border-card">
+          <%= image_tag c.get_image_tag, alt: "photo_title" %>
+          <h3><%= c.name %></h3>
+          <div class="card-price">
+            <p><%= c.price %>€</p>
+          </div>
+          <p>à partir de</p>
+          <div class="green-square"></div>
+        </div>
+      </a>
+    <% end %>
+    <!-- <a href="#">
       <div class="green-border-card">
-        <%=image_tag('bouquet3')%>
+        <%#=image_tag('bouquet3')%>
         <h3>Nom du bouquet</h3>
         <div class="card-price">
           <p>30€</p>
@@ -40,7 +53,7 @@
     </a>
     <a href="#">
       <div class="green-border-card">
-        <%=image_tag('bouquet3')%>
+        <%#=image_tag('bouquet3')%>
         <h3>Nom du bouquet</h3>
         <div class="card-price">
           <p>30€</p>
@@ -51,7 +64,7 @@
     </a>
     <a href="#">
       <div class="green-border-card">
-        <%=image_tag('bouquet3')%>
+        <%#=image_tag('bouquet3')%>
         <h3>Nom du bouquet</h3>
         <div class="card-price">
           <p>30€</p>
@@ -62,7 +75,7 @@
     </a>
     <a href="#">
       <div class="green-border-card">
-        <%=image_tag('bouquet3')%>
+        <%#=image_tag('bouquet3')%>
         <h3>Nom du bouquet</h3>
         <div class="card-price">
           <p>30€</p>
@@ -71,6 +84,39 @@
         <div class="green-square"></div>
       </div>
     </a>
+    <a href="#">
+      <div class="green-border-card">
+        <%#=image_tag('bouquet3')%>
+        <h3>Nom du bouquet</h3>
+        <div class="card-price">
+          <p>30€</p>
+        </div>
+        <p>à partir de</p>
+        <div class="green-square"></div>
+      </div>
+    </a>
+    <a href="#">
+      <div class="green-border-card">
+        <%#=image_tag('bouquet3')%>
+        <h3>Nom du bouquet</h3>
+        <div class="card-price">
+          <p>30€</p>
+        </div>
+        <p>à partir de</p>
+        <div class="green-square"></div>
+      </div>
+    </a>
+    <a href="#">
+      <div class="green-border-card">
+        <%#=image_tag('bouquet3')%>
+        <h3>Nom du bouquet</h3>
+        <div class="card-price">
+          <p>30€</p>
+        </div>
+        <p>à partir de</p>
+        <div class="green-square"></div>
+      </div>
+    </a> -->
   </div>
 </div>
 
