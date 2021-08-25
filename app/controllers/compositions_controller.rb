@@ -1,7 +1,7 @@
 class CompositionsController < ApplicationController
 
   def index
-    @florist = Florist.find(id=1)
+    @florist = Florist.find(id=2)
     @compos = @florist.compositions
   end
 
