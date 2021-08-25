@@ -5,7 +5,7 @@ class FloristsController < ApplicationController
   def home
     @florists = Florist.all
     # @florist = Florist.find(params[:id])
-    @florist = Florist.first
+    @florist = Florist.find(id=6)
 
     # the `geocoded` scope filters only florists with coordinates (latitude & longitude)
     @markers = @florists.geocoded.map do |f|

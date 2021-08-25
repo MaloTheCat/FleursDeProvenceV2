@@ -2,13 +2,17 @@ Relai.destroy_all
 Florist.destroy_all
 Composition.destroy_all
 
+puts "#{Relai.count} relai(s) destroyed"
+puts "#{Florist.count} florist(s) destroyed"
+puts "#{Composition.count} composition(s) destroyed"
+
 puts "Creating the first Relais:"
 
 relai1 = Relai.new(
   name: "Villa Augusta",
   address: "14 Rue du Serre Blanc, Saint Paul 3 Châteaux",
   longitude: "44.34531",
-  latitude: "4.766563",
+  latitude: "4.766563"
 )
 relai1.save!
 
@@ -23,7 +27,7 @@ florist1 = Florist.new(
   phone: "0475973030",
   description: "Magasin principale",
   longitude: "44.34632",
-  latitude: "4.76651",
+  latitude: "4.76651"
 )
 florist1.save!
 
@@ -31,14 +35,30 @@ puts "name: #{florist1.name}, au #{florist1.address}"
 
 puts 'Creating Compositions:'
 
-composition1 = Composition.new(
+compo1 = Composition.new(
   name: "Rose des vents",
   photo_title: "bouquet3",
   price: 30,
   quantity: 10,
-  disponibility: true
+  disponibility: true,
+  florist: florist1
   )
+compo1.save!
 
-puts "#{composition1.quantity} '#{composition1.name}' is created at #{composition1.price} euros"
+puts "#{compo1.quantity} '#{compo1.name}' is created at #{compo1.price} euros"
+
+compo2 = Composition.new(
+  name: "Amour pour toujours",
+  photo_title: "bouquet4",
+  price: 25,
+  quantity: 10,
+  disponibility: true,
+  florist: florist1
+  )
+compo2.save!
+
+puts "#{compo2.quantity} '#{compo2.name}' is created at #{compo2.price} euros"
+
+puts "#{Composition.count} composition(s) created"
 
 puts "Done."
