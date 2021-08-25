@@ -1,5 +1,6 @@
 Relai.destroy_all
 Florist.destroy_all
+Composition.destroy_all
 
 puts "Creating the first Relais:"
 
@@ -26,6 +27,18 @@ florist1 = Florist.new(
 )
 florist1.save!
 
-puts "name : #{florist1.name}, au #{florist1.address}"
+puts "name: #{florist1.name}, au #{florist1.address}"
+
+puts 'Creating Compositions:'
+
+composition1 = Composition.new(
+  name: "Rose des vents",
+  photo_title: "bouquet3",
+  price: 30,
+  quantity: 10,
+  disponibility: true
+  )
+
+puts "#{composition1.quantity} '#{composition1.name}' is created at #{composition1.price} euros"
 
 puts "Done."
