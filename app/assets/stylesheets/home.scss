@@ -146,7 +146,7 @@ h3 {
 
 .home-section-4 {
   width: 100%;
-/*  background-color: #E4E4E4;*/
+  background-color: #E4E4E4;
   display: flex;
   padding: 25px 0px;
 }
@@ -160,18 +160,19 @@ h3 {
 
 .feed-fb {
   display: flex;
-  /*justify-content: space-evenly;*/
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .first-feed-fb {
   /*border: 2px solid yellow;*/
-  height: 200px;
-  flex-grow: 1;
+  /*height: 200px;*/
+  /*flex-grow: 1;*/
 }
 
 .second-feed-fb {
-  height: 200px;
-  flex-grow: 1;
+  /*height: 200px;*/
+  /*flex-grow: 1;*/
 }
 
 .home-s4-right {

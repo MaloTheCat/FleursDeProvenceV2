@@ -6,13 +6,14 @@ Rails.application.routes.draw do
   # end
 
   # get ':id', to: 'contacts#new'
-
+  get 'order', to: 'orders#show'
   get 'composition', to: 'compositions#index'
   get 'evenement', to: 'evenements#index'
   get 'contact', to: 'contacts#new'
     resource :contacts, only: [:new, :create] do
       get "/thanks" => "contacts#thanks"
     end
+
   # get 'composition' => 'florists#composition', as: :'florist_composition'
   # get 'evenement' => 'florists#evenement', as: :'florist_evenement'
   # get 'contact' => 'florists#contact', as: :'florist_contact'
