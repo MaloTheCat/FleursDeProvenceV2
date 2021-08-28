@@ -1,6 +1,33 @@
 <!-- <h1 style="text-align:center;font-size:1em">Page Accueil</h1> -->
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v11.0&appId=178746778867547&autoLogAppEvents=1" nonce="tnCoDuqx"></script>
+
+<!-- Script facebook -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '271026502963979',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v11.0'
+    });
+
+    FB.AppEvents.logPageView();
+
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<!-- End Script facebook -->
+
+<!-- Balise SDK JS -->
+<!-- <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v11.0&appId=178746778867547&autoLogAppEvents=1" nonce="tnCoDuqx"></script> -->
+<!-- End Balise SDK JS -->
 
 <div class="bck-img">
   <div class="inner-text">
@@ -28,7 +55,8 @@
 <div class="home-section-3">
   <div class="card-wrap">
     <% @compos.each do |c| %>
-      <a href="#">
+      <%#=  %>
+      <a href=<%"#{composition_path(c.id)}"%>>
         <div class="green-border-card">
           <%= image_tag c.get_image_tag, alt: "photo_title" %>
           <h3><%= c.name %></h3>
@@ -50,72 +78,6 @@
         <p>à partir de</p>
         <div class="green-square"></div>
       </div>
-    </a>
-    <a href="#">
-      <div class="green-border-card">
-        <%#=image_tag('bouquet3')%>
-        <h3>Nom du bouquet</h3>
-        <div class="card-price">
-          <p>30€</p>
-        </div>
-        <p>à partir de</p>
-        <div class="green-square"></div>
-      </div>
-    </a>
-    <a href="#">
-      <div class="green-border-card">
-        <%#=image_tag('bouquet3')%>
-        <h3>Nom du bouquet</h3>
-        <div class="card-price">
-          <p>30€</p>
-        </div>
-        <p>à partir de</p>
-        <div class="green-square"></div>
-      </div>
-    </a>
-    <a href="#">
-      <div class="green-border-card">
-        <%#=image_tag('bouquet3')%>
-        <h3>Nom du bouquet</h3>
-        <div class="card-price">
-          <p>30€</p>
-        </div>
-        <p>à partir de</p>
-        <div class="green-square"></div>
-      </div>
-    </a>
-    <a href="#">
-      <div class="green-border-card">
-        <%#=image_tag('bouquet3')%>
-        <h3>Nom du bouquet</h3>
-        <div class="card-price">
-          <p>30€</p>
-        </div>
-        <p>à partir de</p>
-        <div class="green-square"></div>
-      </div>
-    </a>
-    <a href="#">
-      <div class="green-border-card">
-        <%#=image_tag('bouquet3')%>
-        <h3>Nom du bouquet</h3>
-        <div class="card-price">
-          <p>30€</p>
-        </div>
-        <p>à partir de</p>
-        <div class="green-square"></div>
-      </div>
-    </a>
-    <a href="#">
-      <div class="green-border-card">
-        <%#=image_tag('bouquet3')%>
-        <h3>Nom du bouquet</h3>
-        <div class="card-price">
-          <p>30€</p>
-        </div>
-        <p>à partir de</p>
-        <div class="green-square"></div>
-      </div>
     </a> -->
   </div>
 </div>
@@ -125,8 +87,13 @@
     <h2>Retrouvez toutes nos actualités sur Facebook</h2>
     <div class="feed-fb">
       <div class="first-feed-fb">
+        <button onclick='FB.AppEvents.logEvent("buttonClicked")'>
+          Click me
+        </button>
+        <!-- <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fvingtxvingt%2Fposts%2F149909360215293&show_text=true" width="500" height="613" style="border:none;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe> -->
       </div>
       <div class="second-feed-fb">
+        <!-- <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fvingtxvingt%2Fposts%2F123042282902001&show_text=true" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe> -->
       </div>
     </div>
   </div>
