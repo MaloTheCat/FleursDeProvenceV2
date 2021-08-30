@@ -9,7 +9,7 @@ require 'open-uri'
   after_validation :geocode, if: :will_save_change_to_address?
 
   def feed_fb
-    feed = open("https://graph.facebook.com/v11.0/me?fields=posts&access_token=EAAHcYljV55QBAFjR2EEBu5uYZAMxLxWv92NaLbUgGtZA1Sga0RfMEIqYXCaGU3HrWRnpmmdEONl1260kCdnpdnoAnKBHqywUKwf15q7UQJ2Tb7KeFuDfaqUMHQerAV9CxeU7pTvMqe82400Tfx6sYU8rKZCRTLxZB76H5FpH5GtrYFojBBC5tE0CYdwDpwzNm4XtRw1okQZDZD")
+    feed = open("https://graph.facebook.com/v11.0/me?fields=posts&access_token=EAAHcYljV55QBABjZAZCT3JlyCiJBS51uS4QhhVZADgii6945WTBp8YcZCP9NYa5W7R2ZC1q7lXDsWN5qk4DDpwZCEQWdzYn3ZCxzPIaMF5t6YGewV8I6ogHXIWcx8DTmINxjbXIQdPhmxZCXdGkrg4qgJ7ZClqZBnPQZANXQnhFTbEJKZC2ePQcF5v5zZB6Mfps0aFWJ3Rj5yT8ivkSnh5aMzEdRA")
     json = JSON.parse(feed.read)
     feedObjects = json["posts"]["data"]
   end
