@@ -13,10 +13,10 @@ Rails.application.routes.draw do
     resource :contacts, only: [:new, :create] do
       get "/thanks" => "contacts#thanks"
     end
-
+  get 'policy' => 'florists#policy'
   # get 'composition' => 'florists#composition', as: :'florist_composition'
   # get 'evenement' => 'florists#evenement', as: :'florist_evenement'
   # get 'contact' => 'florists#contact', as: :'florist_contact'
-  # get 'cgv' => 'florists#cgv', as: :'florist_cgv'
+  get 'cgv' => 'florists#cgv'
 
 end

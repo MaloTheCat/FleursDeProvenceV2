@@ -24,13 +24,15 @@
     </div>
     <div class="footer part_3">
       <%#= link_to florist_cgv_path(@florist) do %>
+      <%= link_to cgv_path do %>
         <li>Condition Générale de vente</li>
-      <%# end %>
+      <% end %>
       <a href="#">
         <li>Carte de Fidélité</li>
       </a>
-      <a href="#">
-        <li>Fleurs de Provence</li>
+      <%= link_to policy_path do %>
+        <li>Politique de Confidentialité</li>
+      <% end %>
       </a>
       <a href="#">
         <li>Plan du site</li>
