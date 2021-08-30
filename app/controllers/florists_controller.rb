@@ -15,6 +15,13 @@ class FloristsController < ApplicationController
         lng: f.longitude
       }
     end
+
+    # def display_feed
+    #   @florist = Florist.find(id=1)
+    #   feed_fb = @florist.feed_fb
+    #   return feed_fb
+    # end
+
   end
 
   # def composition
