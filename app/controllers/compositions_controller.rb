@@ -1,21 +1,38 @@
 class CompositionsController < ApplicationController
 
-  def index
+# before_action :find_florist only: [:index, :show]
+
+  def index  # voir toutes les compositions
     @florist = Florist.find(id=1)
-    @compos = @florist.compositions
+    @compositions = @florist.compositions
+  end
+
+  def show # voir une composition
+    @florist = Florist.find(id=1)
+    @composition = Composition.find(params[:id])
   end
 
   def new
-    @compo = Composition.new
+    @composition = Composition.new
   end
 
   def create
-    @compo = Composition.new
-    if @compo.save
+    @composition = Composition.new
+    if @composition.save
       redirect_to root_path
     else
       render:new
     end
+  end
+
+  private
+
+  # def find_florist
+  #   @florist = Florist.find(id=1)
+  # end
+
+  def composition_params
+    params.require(:composition).permit(:name, :price, :quantity, :disponibility, :photo_title)
   end
 
 end

@@ -12,18 +12,18 @@
 
 <div class="compo-section-2">
   <div class="card-wrap">
-    <% @compos.each do |c| %>
-      <a href="#">
+    <% @compositions.each do |composition| %>
+      <%= link_to composition_path(composition) do %>
         <div class="green-border-card">
-          <%= image_tag c.get_image_tag, alt: "photo_title" %>
-          <h3><%= c.name %></h3>
+          <%= image_tag composition.get_image_tag, alt: "photo_title" %>
+          <h3><%= composition.name %></h3>
           <div class="card-price">
-            <p><%= c.price %>€</p>
+            <p><%= composition.price %>€</p>
           </div>
           <p>à partir de</p>
           <div class="green-square"></div>
         </div>
-      </a>
+      <% end %>
     <% end %>
     <!-- <a href="#">
       <div class="green-border-card">
