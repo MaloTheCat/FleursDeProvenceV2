@@ -1,36 +1,55 @@
 <!-- Script facebook -->
-<script>
-  // window.fbAsyncInit = function() {
-  //   FB.init({
-  //     appId      : '271026502963979',
-  //     cookie     : true,
-  //     xfbml      : true,
-  //     version    : 'v11.0'
-  //   });
+<!-- <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '271026502963979',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v11.0'
+    });
 
-  //   FB.AppEvents.logPageView();
+    FB.AppEvents.logPageView();
 
-  // };
+  };
 
-  // (function(d, s, id){
-  //    var js, fjs = d.getElementsByTagName(s)[0];
-  //    if (d.getElementById(id)) {return;}
-  //    js = d.createElement(s); js.id = id;
-  //    js.src = "https://connect.facebook.net/en_US/sdk.js";
-  //    fjs.parentNode.insertBefore(js, fjs);
-  // }(document, 'script', 'facebook-jssdk'));
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
 
-  // FB.api(
-  //   '/me',
-  //   'GET',
-  //   {"fields":"posts"},
-  //   function(response) {
-  //     // Insert your code here
-  //     console.log(response);
-  //   }
-  // );
-</script>
+  FB.api(
+    '/me',
+    'GET',
+    {"fields":"posts"},
+    function(response) {
+      // Insert your code here
+      console.log(response);
+    }
+  );
+</script> -->
 <!-- End Script facebook -->
+
+<!-- Script Google API -->
+<!-- <script>
+var GoogleAuth; // Google Auth object.
+function initClient() {
+  gapi.client.init({
+      'apiKey': 'YOUR_API_KEY',
+      'clientId': 'YOUR_CLIENT_ID',
+      'scope': 'https://www.googleapis.com/auth/drive.metadata.readonly',
+      'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest']
+  }).then(function () {
+      GoogleAuth = gapi.auth2.getAuthInstance();
+
+      // Listen for sign-in state changes.
+      GoogleAuth.isSignedIn.listen(updateSigninStatus);
+  });
+}
+</script> -->
+<!-- End Script Google API -->
 
 <!-- Balise SDK JS -->
 <div id="fb-root"></div>
@@ -128,7 +147,11 @@
   <div class="home-s5-left">
     <h2>Une confiance partagée depuis 1991</h2>
     <div class="home-google">
-      https://mybusiness.googleapis.com/v4/accounts/{accountId}/locations/{locationId}/reviews/{reviewId}
+      <div class="mapouter">
+        <div class="gmap_canvas">
+          <iframe width="500" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=Fleurs%20de%20provence,%2012%20Rue%20du%20serre%20blanc,&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+        </div>
+      </div>
     </div>
 
   </div>
