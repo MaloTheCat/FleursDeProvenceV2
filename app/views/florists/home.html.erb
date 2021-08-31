@@ -81,19 +81,18 @@ function initClient() {
 
 <div class="home-section-3">
   <div class="card-wrap">
-    <% @compos.each do |c| %>
-      <%#=  %>
-      <a href=<%"#{composition_path(c.id)}"%>>
+    <% @compositions.each do |composition| %>
+      <%= link_to composition_path(composition) do %>
         <div class="green-border-card">
-          <%= image_tag c.get_image_tag, alt: "photo_title" %>
-          <h3><%= c.name %></h3>
+          <%= image_tag composition.get_image_tag, alt: "#{composition.photo_title}" %>
+          <h3><%= composition.name %></h3>
           <div class="card-price">
-            <p><%= c.price %>€</p>
+            <p><%= composition.price %>€</p>
           </div>
           <p>à partir de</p>
           <div class="green-square"></div>
         </div>
-      </a>
+      <% end %>
     <% end %>
     <!-- <a href="#">
       <div class="green-border-card">
