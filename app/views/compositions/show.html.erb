@@ -17,8 +17,6 @@
           <button><li>M</li></button>
           <button><li>L</li></button>
         </ul>
-        <!-- <span>M</span> -->
-        <!-- <span>L</span> -->
       </div>
     </div>
     <p>Sélectionnez votre point de retrait ou entrez votre adresse</p>
@@ -32,7 +30,7 @@
       data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">
     </div>
     <br>
-    <%= link_to 'Acheter', new_order_path %>
+    <%= link_to 'Acheter', new_order_path, class: "btn-compo-buy" %>
   </div>
 </div>
 
