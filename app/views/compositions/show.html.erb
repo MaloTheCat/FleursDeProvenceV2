@@ -1,10 +1,45 @@
-<h1>Page Show de Composition</h1>
+<div class="compo-section-1">
+  <div class="compo-s1-left">
+    <%= image_tag @composition.get_image_tag, alt: "#{@composition.photo_title}" %>
+    <h2><%= @composition.price %>,00€</h2>
+  </div>
+  <div class="compo-s1-right">
+    <h2><%= @composition.name %></h2>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+    <div class="compo-size">
+      <div class="compo-size-text">
+        <p>Taille du bouquet</p>
+        <p>Guide des tailles</p>
+      </div>
+      <div class="compo-size-letter">
+        <ul>
+          <button><li>S</li></button>
+          <button><li>M</li></button>
+          <button><li>L</li></button>
+        </ul>
+        <!-- <span>M</span> -->
+        <!-- <span>L</span> -->
+      </div>
+    </div>
+    <p>Sélectionnez votre point de retrait ou entrez votre adresse</p>
+    <div class="btn-search-relais">
+      <p>Points relais</p>
+      <p>Votre adresse</p>
+    </div>
+    <div id="map"
+      style="width: 100%; height: 300px;"
+      data-markers="<%#= @markers.to_json %>"
+      data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <br>
+    <%= link_to 'Acheter', new_order_path %>
+  </div>
+</div>
 
-<%= image_tag @composition.get_image_tag, alt: "#{@composition.photo_title}" %>
-<br>
-<%= @composition.name %>
-<br>
-<%= @composition.price %>
-<br>
-<%= @composition.disponibility %>
-<br>
+
+<!-- A mettre sur view Home et view Compositions -->
+<%# if @composition.disponibility == true %>
+  <%#=  %>
+<%# else %>
+  <%#=  %>
+<%# end %>

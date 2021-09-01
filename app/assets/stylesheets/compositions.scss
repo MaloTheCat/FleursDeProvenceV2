@@ -1,3 +1,102 @@
-// Place all the styles related to the Compositions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.compositions-section-1 {
+  display: flex;
+  padding: 25px 0px;
+}
+
+.compositions-s1-left {
+  width: 50%;
+  padding-right: 10px;
+  text-align: justify;
+  align-self: center;
+}
+
+.compositions-s1-right{
+  display: flex;
+  background-color: lightgray;
+  width: 50%;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  height: 300px;
+}
+
+/* ------ SHOW selected ------ */
+
+#map {
+  border: 2px solid black;
+}
+
+.compo-section-1 {
+  border: 2px solid black;
+  border-radius: 30px;
+  display: flex;
+  padding: 25px 0px;
+  align-items: stretch; /*Default value*/
+}
+
+.compo-s1-left {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+  width: 100%;
+  background-color: lightblue;
+  align-self: center;
+  text-align: center;
+}
+
+.compo-s1-left > img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.compo-s1-right {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-right: 20px;
+}
+
+.compo-size {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.compo-size-letter > ul > li {
+  font-family: poppins;
+  font-weight: 500;
+  font-size: 1.5em;
+  position: relative;
+}
+
+.compo-size-letter ul > button {
+  background: none;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  border: 2px solid black;
+  font-size: 1.5em;
+  font-weight: 500;
+  font-family: 'Poppins';
+  margin: 5px;
+}
+
+.compo-size-letter ul > button:hover {
+  background: lightgreen;
+  border: none;
+}
+
+.compo-size-letter ul > button:active {
+  background: lightgreen;
+}
+
+.btn-search-relais {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px;
+}
+
+.btn-search-relais > p {
+  border: 2px solid green;
+  padding: 12px;
+}

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root to: 'florists#home'
 
-  get 'order', to: 'orders#show'
+  # get 'order', to: 'orders#show'
+  resources :orders, only: [:show, :index, :new, :create]
   # get 'compositions', to: 'compositions#index'
   # get 'composition/:id', to: 'compositions#show'
   resources :compositions, only: [:show, :index]
