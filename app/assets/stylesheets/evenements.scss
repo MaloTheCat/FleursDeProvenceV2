@@ -1,3 +1,37 @@
-// Place all the styles related to the Evenements controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+  /* SECTION 1*/
+
+.event-section {
+  display: flex;
+  padding: 25px 0px;
+}
+
+.event-s1-left {
+  display: flex;
+  background-color: lightgray;
+  width: 50%;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  height: 300px;
+}
+
+.event-s1-right {
+  width: 50%;
+  padding-left: 10px;
+  text-align: justify;
+  align-self: center;
+}
+
+  /* SECTION 2 */
+
+.realisation-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.realisation-wrap > img {
+  width: 100%;
+}
+
+ /* SECTION 3 */
+

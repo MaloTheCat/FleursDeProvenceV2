@@ -53,7 +53,6 @@ h2 {
 
 .home-s2-right {
   display: flex;
-  border: 2px solid gray;
   /*background-color: lightgray;*/
   width: 50%;
   justify-content: center;
@@ -148,7 +147,6 @@ h3 {
   border: 2px solid black;
   border-radius: 30px;
   width: 100%;
-  /*background-color: #E4E4E4;*/
   margin: 20px 0;
   display: flex;
   padding: 25px 0px;
@@ -169,26 +167,18 @@ h3 {
 }
 
 .first-feed-fb {
-  /*border: 2px solid yellow;*/
-  /*height: 200px;*/
-  /*flex-grow: 1;*/
 }
 
 .second-feed-fb {
-  /*height: 200px;*/
-  /*flex-grow: 1;*/
 }
 
 .home-s4-right {
-  /*display: flex;*/
-  /*justify-content: center;*/
   padding-right: 20px;
   margin: auto;
 }
 
 .flex-fb {
   flex-grow: 1;
-  /*width: 400px;*/
   height: 300px;
   overflow: hidden;
 }
@@ -205,8 +195,6 @@ h3 {
 }
 
 .home-s5-left {
-  /*background-color: #E4E4E4;*/
-  /*border: 2px solid green;*/
   padding-left: 20px;
   display: flex;
   flex-direction: column;
@@ -215,17 +203,11 @@ h3 {
 }
 
 .home-s5-right {
-  /*border: 2px solid red;*/
-  /*background-color: #E4E4E4;*/
-  /*display: flex;*/
   margin: auto;
-  flex-grow: 1;
-  /*width: 70%;*/
+  padding-right: 20px;
 }
 
 .home-s5-right > img {
   border-radius: 16px;
-  /*margin-left: 20px;*/
-  /*max-width: 400px;*/
   height: 400px;
 }
