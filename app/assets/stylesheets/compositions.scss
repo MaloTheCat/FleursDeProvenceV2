@@ -31,6 +31,7 @@
   border-radius: 30px;
   display: flex;
   padding: 25px 0px;
+  margin: 20px 0;
   align-items: stretch; /*Default value*/
 }
 
@@ -96,13 +97,14 @@
 
 .btn-search-relais {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  /*justify-content: space-between;*/
   padding: 20px 20px;
 }
 
 .btn-search-relais > p {
   border: 2px solid green;
-  padding: 12px;
+  padding: 12px 24px;
 }
 
 .btn-compo-buy {
@@ -110,4 +112,17 @@
   padding: 12px 20px;
   color: white;
   text-align: center;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 700px) {
+  .compo-section-1 {
+    flex-direction: column;
+    padding: 25px 25px;
+  }
+
+  .compo-s1-left {
+    margin-bottom: 25px;
+  }
 }
