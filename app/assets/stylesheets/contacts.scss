@@ -1,4 +1,4 @@
-.app-contact, .app-title, button, input {
+.app-contact, .app-title, .app-form-btn, input {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   letter-spacing: 1.4px;
@@ -189,7 +189,6 @@ span.rev.phone:after {
 
 li > i {
   position: absolute;
-  /*display: inline-block;*/
   top: 29%;
   left: 0;
   font-size: 1.8em;
