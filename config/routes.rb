@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   # get 'order', to: 'orders#index'
   get 'policy' => 'florists#policy'
   get 'cgv' => 'florists#cgv'
+  # get 'checkout' => "checkouts#show"
+  # get 'billing' => "billing#show"
 end
 
   # get ':id', to: 'florists#home', as: :florist

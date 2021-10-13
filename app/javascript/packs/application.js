@@ -9,6 +9,7 @@ require("channels")
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import { initMapbox } from '../plugins/init_mapbox';
+import { initPriceSelected } from '../plugins/init_price_selected';
 import "channels"
 
 // Turbolinks.start()
@@ -16,4 +17,5 @@ import "channels"
 document.addEventListener('turbolinks:load', () => {
   // Rails.start();
   initMapbox();
+  initPriceSelected();
 })

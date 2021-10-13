@@ -28,11 +28,13 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # my gem:
 gem 'geocoder'
 gem 'dotenv-rails'
-# gem 'simple_form'
 gem 'mail_form', '~> 1.9'
 gem 'font-awesome-sass', '~> 5.15.1'
 gem 'pg'
 gem 'cloudinary', '~> 1.16.0'
+gem 'sinatra'
+gem 'pay', '~> 3.0'
+gem 'stripe', '>= 2.8', '< 6.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
