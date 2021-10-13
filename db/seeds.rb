@@ -1,12 +1,12 @@
+Composition.destroy_all
 Relai.destroy_all
 Florist.destroy_all
-Composition.destroy_all
 
-puts "#{Relai.count} relai(s) destroyed"
-puts "#{Florist.count} florist(s) destroyed"
-puts "#{Composition.count} composition(s) destroyed"
+puts "#{Relai.count} relai(s) are up"
+puts "#{Florist.count} florist(s) are up"
+puts "#{Composition.count} composition(s) are up"
 
-puts "Creating the first Relais:"
+puts "Creating the first Relai:"
 
 relai1 = Relai.new(
   name: "Villa Augusta",
@@ -17,6 +17,17 @@ relai1 = Relai.new(
 relai1.save!
 
 puts "name : #{relai1.name}, au #{relai1.address}"
+puts "Creating the second Relai:"
+
+relai2 = Relai.new(
+  name: "Maison Buffet gourmet",
+  address: "29 Av. frédéric Mistral, Saint Paul 3 Châteaux",
+  longitude: "44.349240",
+  latitude: "4.774910"
+)
+relai2.save!
+
+puts "name : #{relai2.name}, au #{relai2.address}"
 
 puts 'creating a Master Florist:'
 
