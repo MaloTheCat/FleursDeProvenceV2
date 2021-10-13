@@ -1,7 +1,16 @@
+<!-- <h2>
+  <%#= @composition.id %>
+  <%#= @composition.name %>
+  <div class="size-s">S</div>
+  <div class="size-m">M</div>
+  <div class="size-l">L</div>
+  <%#= @composition.price %>
+</h2> -->
+
 <div class="compo-section-1">
   <div class="compo-s1-left">
     <%= image_tag @composition.get_image_tag, alt: "#{@composition.photo_title}" %>
-    <h2><%= @composition.price %>,00€</h2>
+    <h2 id="price"><%= @composition.price %></h2><h2>€</h2>
   </div>
   <div class="compo-s1-right">
     <h2><%= @composition.name %></h2>
@@ -11,17 +20,17 @@
         <p>Taille du bouquet</p>
         <p>Guide des tailles</p>
       </div>
-      <!-- <div class="compo-size-letter">
-        <ul>
-          <button><li>S</li></button>
-          <button><li>M</li></button>
-          <button><li>L</li></button>
-        </ul>
-      </div> -->
     </div>
-    <%= form_with(model: @order, local: true) do |f| %>
+    <%= @relais.name %>
+    <%= form_with(model: @order) do |f| %>
       <%= f.hidden_field :id %>
-      <%= f.text_field :content, placeholder: 'MESSAGE', class: "" %>
+      <%#= f.label :id %>
+      <%= f.select :size, [["S", "#{@composition.price}"], ["M", "#{@composition.price+10}"], ["L", "#{@composition.price+20}"]]%>
+      <%= Relai.first %>
+      <%= f.select :relai, ["#{Relai.first}"] %>
+      <%#= f.options_for_select(Relai.all, :address, :name) %>
+      <%#= f.collection_select Relai.first(:address, :name) %>
+      <%#= f.text_field :content, placeholder: 'MESSAGE', class: "" %>
       <%= f.submit "Acheter", class: "app-form-button" %>
     <% end %>
     <!-- <p>Sélectionnez votre point de retrait ou entrez votre adresse</p>
@@ -39,6 +48,7 @@
   </div>
 </div>
 
+<%#= render partial: "pay/stripe/checkout_button", locals: {session: @checkout_session, title: "Acheter"} %>
 
 <!-- A mettre sur view Home et view Compositions -->
 <%# if @composition.disponibility == true %>

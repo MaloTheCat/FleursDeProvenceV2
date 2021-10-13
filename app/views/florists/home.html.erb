@@ -41,17 +41,6 @@
         </div>
       <% end %>
     <% end %>
-    <!-- <a href="#">
-      <div class="green-border-card">
-        <%#=image_tag('bouquet3')%>
-        <h3>Nom du bouquet</h3>
-        <div class="card-price">
-          <p>30€</p>
-        </div>
-        <p>à partir de</p>
-        <div class="green-square"></div>
-      </div>
-    </a> -->
   </div>
 </div>
 
@@ -70,22 +59,17 @@
     </div>
   </div>
   <div class="home-s4-right">
-    <div class="flex-fb">
-      <div  class="fb-page"
-            data-href="https://www.facebook.com/Fleursdeprovencesaintpaultroischateaux"
-            data-tabs="timeline"
-            data-width="400"
-            data-height=""
-            data-small-header="false"
-            data-adapt-container-width="false"
-            data-hide-cover="false"
-            data-show-facepile="false">
-        <blockquote cite="https://www.facebook.com/Fleursdeprovencesaintpaultroischateaux"
-                    class="fb-xfbml-parse-ignore">
-          <a href="https://www.facebook.com/Fleursdeprovencesaintpaultroischateaux">Fleurs De Provence</a>
-        </blockquote>
-      </div>
+
+    <!-- START Facebook result API-->
+    <div id="fb-root"></div>
+    <script async="1" defer="1" crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&amp;version=v12.0" nonce="dpbw7etR"></script>
+    <div class="fb-page" data-href="https://www.facebook.com/Fleursdeprovencesaintpaultroischateaux?fields=posts" data-small-header="true" data-adapt-container-width="1" data-hide-cover="" data-show-facepile="1" data-show-posts="1">
+      <blockquote cite="https://www.facebook.com/Fleursdeprovencesaintpaultroischateaux?fields=posts" class="fb-xfbml-parse-ignore">
+        <a href="https://www.facebook.com/Fleursdeprovencesaintpaultroischateaux?fields=posts">Fleurs De Provence</a>
+      </blockquote>
     </div>
+    <!-- END Facebook result Api-->
+
   </div>
 </div>
 
@@ -103,6 +87,5 @@
   </div>
   <div class="home-s5-right">
     <%= cl_image_tag("11_dwjrnw") %>
-    <%#= image_tag '11' %>
   </div>
 </div>

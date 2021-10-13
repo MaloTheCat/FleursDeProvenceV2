@@ -23,6 +23,10 @@ module FleursDeProvenceV2
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    config.action_mailer.default_url_options = {
+      # host: "fleursdeprovence.fr"
+      host: "https://fleursdeprovence.herokuapp.com"
+    }
 
     # Configuration for the application, engines, and railties goes here.
     #
