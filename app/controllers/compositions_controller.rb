@@ -10,6 +10,7 @@ class CompositionsController < ApplicationController
   def show # voir une composition
     @florist = Florist.find(id=1)
     @composition = Composition.find(params[:id])
+    # @composition.get_price_by_size
   end
 
   def new
