@@ -14,4 +14,14 @@ class Composition < ApplicationRecord
     # image_tag
   end
 
+  # def get_price_by_size
+  #   case @composition.size
+  #   when @composition.size == "M"
+  #     @composition.price + 10
+  #   when @composition.size == "L"
+  #     @composition.price + 20
+  #   else
+  #     @composition.price
+  #   end
+  # end
 end
