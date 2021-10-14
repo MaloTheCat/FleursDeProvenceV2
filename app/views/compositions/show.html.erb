@@ -22,17 +22,18 @@
       </div>
     </div>
 
-    <%#= @relais.name %>
-    <%= form_with(model: @order) do |f| %>
+    <%#= Relai.first.name %>
+    <%= form_with(model: @order, local: true) do |f| %>
       <%= f.hidden_field :id %>
       <%#= f.label :id %>
       <%= f.select :size, [["S", "#{@composition.price}"], ["M", "#{@composition.price+10}"], ["L", "#{@composition.price+20}"]]%>
 
-      <% Relai.each do |relai| %>
-        <%= relai.name %>
-      <% end %>
+      <%# @relais.each do |relai| %>
+        <%#= relai.name %>
+      <%# end %>
 
-      <%= f.select :relai, ["#{Relai.all.name}"] %>
+      <%= f.select :relai, [Relai.all.name, :id, :name] %>
+      <%= f.select :relai, ["#{Relai.first.name}"] %>
       <%#= f.options_for_select(Relai.all, :address, :name) %>
       <%#= f.collection_select Relai.first(:address, :name) %>
       <%#= f.text_field :content, placeholder: 'MESSAGE', class: "" %>

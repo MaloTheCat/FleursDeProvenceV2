@@ -3,25 +3,18 @@ class FloristsController < ApplicationController
   before_action :find_florist, only: [:composition, :evenement, :contact, :cgv]
 
   def home
-    @florists = Florist.all
     # @florist = Florist.find(params[:id])
+    @florists = Florist.all
     @florist = Florist.find(id=1)
     @compositions = @florist.compositions
+    @relais = Relai.all
 
     # the `geocoded` scope filters only florists with coordinates (latitude & longitude)
-    @markers = @florists.geocoded.map do |f|
-      {
+    @markers = @florists.geocoded.map do |f| {
         lat: f.latitude,
         lng: f.longitude
       }
     end
-
-    # def display_feed
-    #   @florist = Florist.find(id=1)
-    #   feed_fb = @florist.feed_fb
-    #   return feed_fb
-    # end
-
   end
 
   # def composition

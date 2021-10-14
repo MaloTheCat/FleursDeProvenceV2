@@ -1,6 +1,7 @@
 class Composition < ApplicationRecord
   belongs_to :florist
 
+
   def get_image_tag
     image_tag = "#{photo_title}.png"
     # image_tag = ""

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_30_170243) do
+ActiveRecord::Schema.define(version: 2021_10_14_115535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,17 +80,6 @@ ActiveRecord::Schema.define(version: 2021_09_30_170243) do
     t.float "longitude"
   end
 
-  create_table "order_compositions", force: :cascade do |t|
-    t.integer "quantity"
-    t.string "size"
-    t.bigint "order_id", null: false
-    t.bigint "flower_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["flower_id"], name: "index_order_compositions_on_flower_id"
-    t.index ["order_id"], name: "index_order_compositions_on_order_id"
-  end
-
   create_table "orders", force: :cascade do |t|
     t.integer "total_price"
     t.boolean "state_order"
@@ -104,6 +93,17 @@ ActiveRecord::Schema.define(version: 2021_09_30_170243) do
     t.index ["florist_id"], name: "index_orders_on_florist_id"
     t.index ["relai_id"], name: "index_orders_on_relai_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "orders_compositions", force: :cascade do |t|
+    t.integer "quantity"
+    t.string "size"
+    t.bigint "order_id", null: false
+    t.bigint "flower_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["flower_id"], name: "index_orders_compositions_on_flower_id"
+    t.index ["order_id"], name: "index_orders_compositions_on_order_id"
   end
 
   create_table "pay_charges", force: :cascade do |t|
@@ -206,12 +206,12 @@ ActiveRecord::Schema.define(version: 2021_09_30_170243) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "compositions", "florists"
-  add_foreign_key "order_compositions", "compositions", column: "flower_id"
-  add_foreign_key "order_compositions", "orders"
   add_foreign_key "orders", "contacts"
   add_foreign_key "orders", "florists"
   add_foreign_key "orders", "relais"
   add_foreign_key "orders", "users"
+  add_foreign_key "orders_compositions", "compositions", column: "flower_id"
+  add_foreign_key "orders_compositions", "orders"
   add_foreign_key "pay_charges", "pay_customers", column: "customer_id"
   add_foreign_key "pay_charges", "pay_subscriptions", column: "subscription_id"
   add_foreign_key "pay_payment_methods", "pay_customers", column: "customer_id"
