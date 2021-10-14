@@ -22,35 +22,18 @@
       </div>
     </div>
 
-    <%#= Relai.first.name %>
     <%= form_with(model: @order, local: true) do |f| %>
       <%= f.hidden_field :id %>
-      <%#= f.label :id %>
       <%= f.select :size, [["S", "#{@composition.price}"], ["M", "#{@composition.price+10}"], ["L", "#{@composition.price+20}"]]%>
-
-      <%# @relais.each do |relai| %>
-        <%#= relai.name %>
-      <%# end %>
-
-      <%= f.select :relai, [Relai.all.name, :id, :name] %>
-      <%= f.select :relai, ["#{Relai.first.name}"] %>
-      <%#= f.options_for_select(Relai.all, :address, :name) %>
-      <%#= f.collection_select Relai.first(:address, :name) %>
-      <%#= f.text_field :content, placeholder: 'MESSAGE', class: "" %>
+      <p>Sélectionnez votre point de retrait</p>
+      <%= f.collection_select :relai, @relais, :id, :name %>
+    <div id="map"
+      style="width: 100%; height: 300px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
       <%= f.submit "Acheter", class: "app-form-button" %>
     <% end %>
-    <!-- <p>Sélectionnez votre point de retrait ou entrez votre adresse</p>
-     <div class="btn-search-relais">
-      <p>Points relais</p>
-      <p>Votre adresse</p>
-    </div>
-     <div id="map"
-      style="width: 100%; height: 300px;"
-      data-markers="<%#= @markers.to_json %>"
-      data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-    <br>-->
-    <%#= link_to 'Acheter', new_order_path, class: "btn-compo-buy" %>
   </div>
 </div>
 
