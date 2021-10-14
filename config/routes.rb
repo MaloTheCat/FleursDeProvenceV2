@@ -1,19 +1,21 @@
 Rails.application.routes.draw do
   root to: 'florists#home'
 
-  # get 'order', to: 'orders#show'
   resources :orders, only: [:show, :index, :new, :create]
-  # get 'compositions', to: 'compositions#index'
-  # get 'composition/:id', to: 'compositions#show'
   resources :compositions, only: [:show, :index]
-  get 'evenement', to: 'evenements#index'
-  get 'contact', to: 'contacts#new'
-  resource :contacts, only: [:new, :create] do
+  resources :contacts, only: [:new, :create] do
     get "/thanks" => "contacts#thanks"
   end
-  # get 'order', to: 'orders#index'
+  resources :compositions, only: [:show] do
+    resources :orders, only: [:show, :new, :create]
+  end
+
+  get 'evenement' => 'evenements#index'
+  get 'contact' => 'contacts#new'
   get 'policy' => 'florists#policy'
   get 'cgv' => 'florists#cgv'
+
+  # get 'order', to: 'orders#index'
   # get 'checkout' => "checkouts#show"
   # get 'billing' => "billing#show"
 end

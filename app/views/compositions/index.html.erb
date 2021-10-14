@@ -7,11 +7,11 @@
     <div class="image">Image</div>
   </div>
 </div>
-
 <div class="compositions-section-2">
   <div class="card-wrap">
     <% @compositions.each do |composition| %>
-      <%= link_to composition_path(composition) do %>
+      <%= link_to new_composition_order_path(composition) do %>
+      <%#= link_to composition_path(composition) do %>
         <div class="green-border-card">
           <%= image_tag composition.get_image_tag, alt: "photo_title" %>
           <h3><%= composition.name %></h3>
