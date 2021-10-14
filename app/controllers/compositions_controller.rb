@@ -8,6 +8,7 @@ class CompositionsController < ApplicationController
 
   def show # voir une composition
     @composition = Composition.find(params[:id])
+    @relais = Relai.all
   end
 
   # def new

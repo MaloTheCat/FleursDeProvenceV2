@@ -27,6 +27,7 @@ module FleursDeProvenceV2
       # host: "fleursdeprovence.fr"
       host: "https://fleursdeprovence.herokuapp.com"
     }
+    # config.autoloader = :classic
 
     # Configuration for the application, engines, and railties goes here.
     #
