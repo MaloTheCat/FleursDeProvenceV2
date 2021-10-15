@@ -18,8 +18,8 @@
   <div class="home-s2-right">
     <div id="map"
       style="width: 100%; height: 300px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      data-markers="<%#= @markers.to_json %>"
+      data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">
     </div>
     <!-- <div class="map-test" style="height:300px;width:100%">
     </div> -->
@@ -31,7 +31,7 @@
     <% @compositions.each do |composition| %>
       <%= link_to composition_path(composition) do %>
         <div class="green-border-card">
-          <%= image_tag composition.get_image_tag, alt: "#{composition.photo_title}" %>
+          <%= image_tag composition.photo_title, alt: "#{composition.photo_title}" %>
           <h3><%= composition.name %></h3>
           <div class="card-price">
             <p><%= composition.price %>€</p>
