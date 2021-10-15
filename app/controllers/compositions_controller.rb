@@ -4,6 +4,7 @@ class CompositionsController < ApplicationController
 
   def index  # voir toutes les compositions
     @compositions = @florist.compositions
+    # @composition = Composition.find(params[:id])
   end
 
   def show # voir une composition
@@ -31,7 +32,7 @@ class CompositionsController < ApplicationController
   end
 
   def composition_params
-    params.require(:composition).permit(:name, :price, :quantity, :disponibility, :photo_title)
+    params.require(:composition).permit(:id, :name, :price, :quantity, :disponibility, :photo_title)
   end
 
 end

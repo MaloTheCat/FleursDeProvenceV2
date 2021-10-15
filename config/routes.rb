@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root to: 'florists#home'
 
-  resources :orders, only: [:show, :index, :new, :create]
-  resources :compositions, only: [:show, :index]
+  # resources :orders, only: [:show, :index, :new, :create]
+  # resources :compositions, only: [:show, :index]
 
   resources :contacts, only: [:new, :create] do
     get "/thanks" => "contacts#thanks"
@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   resources :compositions, only: [:show, :index] do
     resources :orders, only: [:show, :new, :create, :index]
   end
+
+  #works with <%#= link_to new_order_path(composition) do %> in INDEX COMPOSITION VIEW
+  # scope "/compositions" do
+  #   resources :orders, only: [:show, :new, :create, :index]
+  # end
 
   get 'evenement' => 'evenements#index'
   get 'policy' => 'florists#policy'
