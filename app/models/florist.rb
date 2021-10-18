@@ -9,7 +9,4 @@ require 'open-uri'
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
-  # def get_image_tag
-  #   image_tag = "#{photo_title}.png"
-  # end
 end

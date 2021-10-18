@@ -1,4 +1,6 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'contact@jonathan-coz.com'
+  default from: 'contact@fleursdeprovence.fr'
   layout 'mailer'
 end
+
+# Celui qui envoie le mail

@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       ContactMailer.contact_mail(@contact).deliver
-      redirect_to thanks_contacts_path
+      redirect_to thanks_path
     else
       # raise
       render :new
@@ -19,6 +19,7 @@ class ContactsController < ApplicationController
   end
 
   private
+
   def contact_params
     params.require(:contact).permit(:firstname, :lastname, :phone, :email, :content)
   end
