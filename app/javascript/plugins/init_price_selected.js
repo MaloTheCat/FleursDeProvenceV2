@@ -14,9 +14,10 @@ const initPriceSelected = () => {
   // });
 // -------------------
   // PERFECT OK
+
   let size = document.getElementById('size');
-    size.addEventListener('change', (event) => {
-      document.getElementById("price").innerText = `${event.target.value}`;
-    });
+  size.addEventListener('change', (event) => {
+    document.getElementById("price").innerText = `${event.target.value}`;
+  });
 };
 export { initPriceSelected };
