@@ -52,7 +52,8 @@ compo1 = Composition.new(
   price: 30,
   quantity: 10,
   disponibility: true,
-  florist: florist1
+  florist: florist1,
+  size: ""
   )
 compo1.save!
 
@@ -64,12 +65,17 @@ compo2 = Composition.new(
   price: 25,
   quantity: 10,
   disponibility: true,
-  florist: florist1
+  florist: florist1,
+  size: ""
   )
 compo2.save!
 
 puts "#{compo2.quantity} '#{compo2.name}' is created at #{compo2.price} euros"
 
 puts "#{Composition.count} composition(s) created"
+
+puts "#{Relai.count} relai(s) are up"
+puts "#{Florist.count} florist(s) are up"
+puts "#{Composition.count} composition(s) are up"
 
 puts "Done."

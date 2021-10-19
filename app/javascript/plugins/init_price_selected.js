@@ -1,23 +1,29 @@
 const initPriceSelected = () => {
-// -----------------
-// WORKS FINE
   // let size = document.getElementById('size');
   // size.addEventListener('change', (event) => {
-  //   console.log(event.target.value);
-  //   if (event.target.value == "M") {
-  //     console.log("it's a 'M' value");
-  //   } else if (event.target.value == "L") {
-  //     console.log("it's a 'L' value");
-  //   } else {
-  //     console.log("It's a 'S' value");
-  //   }
+  //   document.getElementById("price").innerText = `${event.target.value}`;
   // });
-// -------------------
-  // PERFECT OK
 
+  const displayElementS = document.getElementById('price-id-s');
+  const displayElementM = document.getElementById('price-id-m');
+  const displayElementL = document.getElementById('price-id-l');
   let size = document.getElementById('size');
+
   size.addEventListener('change', (event) => {
-    document.getElementById("price").innerText = `${event.target.value}`;
+    let innerPrice = document.getElementById("price").innerText = `${event.target.value}`;
+    if (size.options[size.selectedIndex].innerText == "M") {
+      displayElementS.style.display = 'none';
+      displayElementM.style.display = 'block';
+      displayElementL.style.display = 'none';
+    } else if (size.options[size.selectedIndex].innerText == "L") {
+      displayElementS.style.display = 'none';
+      displayElementM.style.display = 'none';
+      displayElementL.style.display = 'block';
+    } else {
+      displayElementS.style.display = 'block';
+      displayElementM.style.display = 'none';
+      displayElementL.style.display = 'none';
+    }
   });
 };
 export { initPriceSelected };

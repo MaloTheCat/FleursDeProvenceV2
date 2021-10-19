@@ -3,6 +3,8 @@ class CreateRelais < ActiveRecord::Migration[6.1]
     create_table :relais do |t|
       t.string :address
       t.string :name
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end

@@ -5,7 +5,7 @@ class FloristsController < ApplicationController
   def home
     # @florist = Florist.find(params[:id])
     @florists = Florist.all
-    @florist = Florist.find(id=1)
+    @florist = Florist.first
     @compositions = @florist.compositions
     @relais = Relai.all
 

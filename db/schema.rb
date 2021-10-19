@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_14_115535) do
+ActiveRecord::Schema.define(version: 2021_10_18_141035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,26 +45,33 @@ ActiveRecord::Schema.define(version: 2021_10_14_115535) do
 
   create_table "compositions", force: :cascade do |t|
     t.string "name"
+    t.string "size"
     t.integer "price"
     t.integer "quantity"
     t.boolean "disponibility"
+    t.string "photo_title"
     t.bigint "florist_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "photo_title"
-    t.string "size"
     t.index ["florist_id"], name: "index_compositions_on_florist_id"
   end
 
   create_table "contacts", force: :cascade do |t|
     t.string "email"
     t.text "content"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.string "firstname"
     t.string "lastname"
-    t.integer "phone"
+    t.string "phone"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
     t.integer "fidelity_point"
+    t.bigint "florist_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["florist_id"], name: "index_customers_on_florist_id"
   end
 
   create_table "florists", force: :cascade do |t|
@@ -74,36 +81,21 @@ ActiveRecord::Schema.define(version: 2021_10_14_115535) do
     t.integer "phone"
     t.integer "opening_hours"
     t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
     t.float "longitude"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer "total_price"
     t.boolean "state_order"
-    t.bigint "user_id", null: false
     t.bigint "relai_id", null: false
-    t.bigint "florist_id", null: false
+    t.bigint "composition_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "contact_id", null: false
-    t.index ["contact_id"], name: "index_orders_on_contact_id"
-    t.index ["florist_id"], name: "index_orders_on_florist_id"
+    t.index ["composition_id"], name: "index_orders_on_composition_id"
     t.index ["relai_id"], name: "index_orders_on_relai_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
-  end
-
-  create_table "orders_compositions", force: :cascade do |t|
-    t.integer "quantity"
-    t.string "size"
-    t.bigint "order_id", null: false
-    t.bigint "flower_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["flower_id"], name: "index_orders_compositions_on_flower_id"
-    t.index ["order_id"], name: "index_orders_compositions_on_order_id"
   end
 
   create_table "pay_charges", force: :cascade do |t|
@@ -187,18 +179,8 @@ ActiveRecord::Schema.define(version: 2021_10_14_115535) do
   create_table "relais", force: :cascade do |t|
     t.string "address"
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
     t.float "longitude"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email", null: false
-    t.integer "phone"
-    t.integer "fidelity_point"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -206,12 +188,9 @@ ActiveRecord::Schema.define(version: 2021_10_14_115535) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "compositions", "florists"
-  add_foreign_key "orders", "contacts"
-  add_foreign_key "orders", "florists"
+  add_foreign_key "customers", "florists"
+  add_foreign_key "orders", "compositions"
   add_foreign_key "orders", "relais"
-  add_foreign_key "orders", "users"
-  add_foreign_key "orders_compositions", "compositions", column: "flower_id"
-  add_foreign_key "orders_compositions", "orders"
   add_foreign_key "pay_charges", "pay_customers", column: "customer_id"
   add_foreign_key "pay_charges", "pay_subscriptions", column: "subscription_id"
   add_foreign_key "pay_payment_methods", "pay_customers", column: "customer_id"

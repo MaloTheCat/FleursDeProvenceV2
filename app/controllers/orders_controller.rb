@@ -23,14 +23,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @florist = Florist.find(id=1)
-
+    @florist = Florist.first
     @composition = Composition.find(params[:composition_id])
+    # @relai = Relai.find_by('id') # Should be :relai_id. Return 'Couldn't find Relai without an ID'
+    # @relai = Relai.find(order_compo_params)
+    @relai = Relai.find(params[:order][:relai])
 
-    @relais = Relai.all
-    # @relai = Relai.find(params[:relai_id]) # Why put :composition_id? Should be :relai_id. Return 'Couldn't find Relai without an ID'
-
-    @order = Order.new(params[order_compo_params])
+    @order = Order.new(order_compo_params)
 
     # @contact = Contact.new(contact_params)
     # @contact.order = @order
@@ -54,23 +53,17 @@ class OrdersController < ApplicationController
     #   composition: params.require(:composition).permit(:id, :name, :price, :size),
     #   # relai: params.require(:relai).permit(:id, :name, :address)
     # }
-    params.permit(order:[ :total_price, :state_order], composition:[ :name, :price, :size])
+    # params.permit(order:[ :total_price, :state_order, :relai_id, :composition_id, :customer_id], composition:[ :name, :price, :size], florist:[ :id])
+    # params.require(:order).permit(:total_price, :state_order, florist_attributes: [:id], relai_attributes: [:id, :name], composition_attributes:[ :name, :price, :size])
+    params.require(:order).permit(
+      :total_price, :state_order,
+      florist_attributes: [:id],
+      composition_attributes:[:name, :price, :size],
+      relai_attributes: [:id, :name, :address])
+    # :total_price, :state_order,
+    #   florist_attributes: [],
+    #   relai_attributes: [],
+    #   composition_attributes: [])
   end
-
-  # def relai_params
-  #   params.require(:relai).permit(:id, :name, :address)
-  # end
-
-  # def contact_params
-  #   params.require(:contact).permit(:order_id)
-  # end
-
-  # def find_florist
-  #   @florist = Florist.find(id=1)
-  # end
-
-  # def composition_params
-  #   params.require(:composition).permit(:name, :price, :quantity, :disponibility, :photo_title)
-  # end
 
 end

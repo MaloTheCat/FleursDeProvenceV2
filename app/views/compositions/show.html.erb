@@ -1,19 +1,10 @@
-<!-- <h2>
-  <%#= @composition.id %>
-  <%#= @composition.name %>
-  <div class="size-s">S</div>
-  <div class="size-m">M</div>
-  <div class="size-l">L</div>
-  <%#= @composition.price %>
-</h2> -->
-
-<div class="compo-section-1">
+<!-- <div class="compo-section-1">
   <div class="compo-s1-left">
-    <%= image_tag @composition.photo_title, alt: "#{@composition.photo_title}" %>
-    <h2 id="price"><%= @composition.price %></h2><h2>€</h2>
+    <%#= image_tag @composition.photo_title, alt: "#{@composition.photo_title}" %>
+    <h2 id="price"><%#= @composition.price %></h2><h2>€</h2>
   </div>
   <div class="compo-s1-right">
-    <h2><%= @composition.name %></h2>
+    <h2><%#= @composition.name %></h2>
     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
     <div class="compo-size">
       <div class="compo-size-text">
@@ -22,26 +13,36 @@
       </div>
     </div>
 
-    <%= form_with(model: @order, local: true) do |f| %>
-      <%= f.hidden_field :id %>
-      <%= f.select :size, [["S", "#{@composition.price}"], ["M", "#{@composition.price+10}"], ["L", "#{@composition.price+20}"]]%>
+    <%#= form_with(model: @order, local: true) do |f| %>
+      <%#= f.hidden_field :id %>
+      <%#= f.select :size, [["S", "#{@composition.price}"], ["M", "#{@composition.price+10}"], ["L", "#{@composition.price+20}"]]%>
       <p>Sélectionnez votre point de retrait</p>
-      <%= f.collection_select :relai, @relais, :id, :name %>
+      <%#= f.collection_select :relai, @relais, :id, :name %>
+      <%##= f.association :relais %>
+      <%#= f.fields_for :composition do |f| %>
+        <%#= f.label :composition %>
+        <%#= f.text_field :composition %>
+      <%# end %>
+      <%##= f.fields_for :relai do |f| %>
+        <%##= f.label :relai %>
+        <%##= f.text_field :relai %>
+      <%## end %>
     <div id="map"
       style="width: 100%; height: 300px;"
-      data-markers="<%#= @markers.to_json %>"
-      data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">
+      data-markers="<%##= @markers.to_json %>"
+      data-mapbox-api-key="<%##= ENV['MAPBOX_API_KEY'] %>">
     </div>
-      <%= f.submit "Acheter", class: "app-form-button" %>
-    <% end %>
+      <%#= f.submit "Acheter", class: "app-form-button" %>
+    <%# end %>
   </div>
 </div>
 
 <%#= render partial: "pay/stripe/checkout_button", locals: {session: @checkout_session, title: "Acheter"} %>
 
-<!-- A mettre sur view Home et view Compositions -->
+ A mettre sur view Home et view Compositions -->
 <%# if @composition.disponibility == true %>
   <%#=  %>
 <%# else %>
   <%#=  %>
 <%# end %>
+ -->

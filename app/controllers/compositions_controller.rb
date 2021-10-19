@@ -28,7 +28,7 @@ class CompositionsController < ApplicationController
   private
 
   def find_florist
-    @florist = Florist.find(id=1)
+    @florist = Florist.first
   end
 
   def composition_params
