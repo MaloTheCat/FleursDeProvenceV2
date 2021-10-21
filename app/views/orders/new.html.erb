@@ -14,16 +14,6 @@
     </div>
 
     <%= form_with(model: @order, url: composition_orders_path(@composition), local: true) do |f| %>  <!-- url: composition_orders_path(@composition) or url: composition_orders_path(:composition_id) return a Routing Error: No route matches [PATCH] -->
-      <% case @composition.id %>
-      <% when 1 %>
-        <div id="price-id-s" class='app-form-button'><%= link_to 'Price 30', 'https://buy.stripe.com/test_fZe5nD4AHfuA4yA147' %></div>
-        <div id="price-id-m" class='app-form-button'><%= link_to 'Price 40', 'https://buy.stripe.com/test_5kA7vL3wDbekc123ce' %></div>
-        <div id="price-id-l" class='app-form-button'><%= link_to 'Price 50', 'https://buy.stripe.com/test_dR67vLffleqw5CEaEI' %></div>
-      <% when 2 %>
-        <div id="price-id-s" class='app-form-button'><%= link_to 'Price 25', 'https://buy.stripe.com/test_3cs6rHaZ5dmse9adQV' %></div>
-        <div id="price-id-m" class='app-form-button'><%= link_to 'Price 35', 'https://buy.stripe.com/test_00g6rH2sz828aWYaEE' %></div>
-        <div id="price-id-l" class='app-form-button'><%= link_to 'Price 45', 'https://buy.stripe.com/test_8wM3fv9V1gyE9SU6op' %></div>
-      <% end  %>
 
       <%= f.hidden_field :id %>
       <%= f.select :size, [["S", "#{@composition.price}"], ["M", "#{@composition.price+10}"], ["L", "#{@composition.price+20}"]], {}, id:'size' %>
@@ -53,6 +43,16 @@
         data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">
       </div>
       <%= f.submit "Acheter", class: "app-form-button" %>
+      <% case @composition.id %>
+      <% when 1 %>
+        <div id="price-id-s" class='app-form-button'><%= link_to 'Price 30', 'https://buy.stripe.com/test_fZe5nD4AHfuA4yA147' %></div>
+        <div id="price-id-m" class='app-form-button'><%= link_to 'Price 40', 'https://buy.stripe.com/test_5kA7vL3wDbekc123ce' %></div>
+        <div id="price-id-l" class='app-form-button'><%= link_to 'Price 50', 'https://buy.stripe.com/test_dR67vLffleqw5CEaEI' %></div>
+      <% when 2 %>
+        <div id="price-id-s" class='app-form-button'><%= link_to 'Price 25', 'https://buy.stripe.com/test_3cs6rHaZ5dmse9adQV' %></div>
+        <div id="price-id-m" class='app-form-button'><%= link_to 'Price 35', 'https://buy.stripe.com/test_00g6rH2sz828aWYaEE' %></div>
+        <div id="price-id-l" class='app-form-button'><%= link_to 'Price 45', 'https://buy.stripe.com/test_8wM3fv9V1gyE9SU6op' %></div>
+      <% end  %>
     <% end %>
 
   </div>
