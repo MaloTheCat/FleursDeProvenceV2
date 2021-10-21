@@ -9,14 +9,16 @@ require("channels")
 import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
 import { initPriceSelected } from '../plugins/init_price_selected';
-// import { initMapbox } from '../plugins/init_mapbox';
+import { initMapbox } from '../plugins/init_mapbox';
 import "channels"
 
   // Turbolinks.start()
 
 document.addEventListener('turbolinks:load', () => {
-// document.addEventListener(() => {
-  // Rails.start();
-  initPriceSelected();
-  // initMapbox();
+  if (document.getElementsByClassName('orders new').length > 0) {
+    initPriceSelected();
+  } else {
+    console.log("Il n'y a pas de class orders new");
+  };
+  initMapbox();
 })
