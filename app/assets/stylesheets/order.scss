@@ -9,3 +9,31 @@
 #price-id-l {
   display: none;
 }
+.app-form-button {
+  text-align: center;
+}
+
+.app-form-button a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  margin: 0 auto;
+  /*background: none;*/
+  /*border: none;*/
+  color: #e62328;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  /*outline: none;*/
+}
+
+.app-form-button:hover {
+  transition: .3s linear;
+  background-color: red;
+  padding: 8px 16px;
+  color: white;
+}
+
+.app-form-button:hover a {
+  color: white;
+}

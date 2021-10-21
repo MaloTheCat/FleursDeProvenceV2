@@ -13,17 +13,19 @@ const initPriceSelected = () => {
     let innerPrice = document.getElementById("price").innerText = `${event.target.value}`;
     if (size.options[size.selectedIndex].innerText == "M") {
       displayElementS.style.display = 'none';
-      displayElementM.style.display = 'block';
+      displayElementM.style.display = 'flex';
       displayElementL.style.display = 'none';
     } else if (size.options[size.selectedIndex].innerText == "L") {
       displayElementS.style.display = 'none';
       displayElementM.style.display = 'none';
-      displayElementL.style.display = 'block';
+      displayElementL.style.display = 'flex';
     } else {
-      displayElementS.style.display = 'block';
+      displayElementS.style.display = 'flex';
       displayElementM.style.display = 'none';
       displayElementL.style.display = 'none';
     }
   });
+  // console.log(document.getElementById('price-id-s').previousSibling.previousSibling.className);
+
 };
 export { initPriceSelected };
