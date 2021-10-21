@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'evenement' => 'evenements#index'
   get 'policy' => 'florists#policy'
   get 'cgv' => 'florists#cgv'
+  get 'fidelity' => 'florists#fidelity'
 
   # get 'order', to: 'orders#index'
   # get 'checkout' => "checkouts#show"

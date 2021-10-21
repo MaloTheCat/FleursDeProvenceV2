@@ -26,6 +26,5 @@ const initPriceSelected = () => {
     }
   });
   // console.log(document.getElementById('price-id-s').previousSibling.previousSibling.className);
-
 };
 export { initPriceSelected };

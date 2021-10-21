@@ -241,12 +241,20 @@ h3 {
     padding-right: 10px;
   }
 
+  .home-section-5 {
+    text-align: center;
+  }
 
   .home-s5-right {
     display: none;
   }
 
-  .home-section-5 {
-    text-align: center;
+  #gmap_canvas {
+    width: 320px;
   }
+
+  .home-s5-left {
+  padding-left: 0px
+  }
+
 }
