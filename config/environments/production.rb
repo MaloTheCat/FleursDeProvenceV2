@@ -91,6 +91,7 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  config.active_storage.service = :cloudinary
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
@@ -137,6 +138,5 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
-  # config.active_storage.service = :cloudinary
 
 end
