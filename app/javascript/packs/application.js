@@ -18,7 +18,7 @@ document.addEventListener('turbolinks:load', () => {
   if (document.getElementsByClassName('orders new').length > 0) {
     initPriceSelected();
   } else {
-    console.log("Il n'y a pas de class orders new");
+   //  console.log("Il n'y a pas de class orders new");
   };
   initMapbox();
 })
