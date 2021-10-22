@@ -48,7 +48,7 @@ puts 'Creating Compositions:'
 
 compo1 = Composition.new(
   name: "Rose des vents",
-  photo_title: "bouquet3",
+  photo_title: "bouquet3.png",
   price: 30,
   quantity: 10,
   disponibility: true,
@@ -61,7 +61,7 @@ puts "#{compo1.quantity} '#{compo1.name}' is created at #{compo1.price} euros"
 
 compo2 = Composition.new(
   name: "Amour pour toujours",
-  photo_title: "bouquet4",
+  photo_title: "bouquet4.png",
   price: 25,
   quantity: 10,
   disponibility: true,
