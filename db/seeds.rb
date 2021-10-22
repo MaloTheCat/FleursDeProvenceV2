@@ -48,7 +48,7 @@ puts 'Creating Compositions:'
 
 compo1 = Composition.new(
   name: "Rose des vents",
-  photo_title: "bouquet3",
+  photo_title: "https://res.cloudinary.com/dhj5ygysw/image/upload/v1634892902/bouquet3_uwdgpr.png",
   price: 30,
   quantity: 10,
   disponibility: true,
@@ -61,7 +61,7 @@ puts "#{compo1.quantity} '#{compo1.name}' is created at #{compo1.price} euros"
 
 compo2 = Composition.new(
   name: "Amour pour toujours",
-  photo_title: "bouquet4",
+  photo_title: "https://res.cloudinary.com/dhj5ygysw/image/upload/v1634892858/bouquet4_grfdxt.png",
   price: 25,
   quantity: 10,
   disponibility: true,

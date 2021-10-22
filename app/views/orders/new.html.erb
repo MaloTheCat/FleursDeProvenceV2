@@ -1,6 +1,6 @@
 <div class="compo-section-1">
   <div class="compo-s1-left">
-    <%= image_tag @composition.photo_title, alt: "#{@composition.photo_title}" %>
+    <%= cl_image_tag @composition.photo_title, alt: "#{@composition.photo_title}" %>
     <h2 id="price"><%= @composition.price %></h2><h2>€</h2>
   </div>
   <div class="compo-s1-right">
