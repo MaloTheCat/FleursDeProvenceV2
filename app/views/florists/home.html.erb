@@ -31,7 +31,7 @@
     <% @compositions.each do |composition| %>
       <%= link_to new_composition_order_path(composition) do %>
         <div class="green-border-card">
-          <%= cl_image_tag composition.photo_title, alt: "#{composition.photo_title}" %>
+          <%= cl_image_tag composition.photo_title, alt: "#{composition.photo_title}", cloud_name: dhj5ygysw %>
           <h3><%= composition.name %></h3>
           <div class="card-price">
             <p><%= composition.price %>€</p>
