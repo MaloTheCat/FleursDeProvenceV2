@@ -25,7 +25,7 @@ module FleursDeProvenceV2
     config.load_defaults 6.1
     config.action_mailer.default_url_options = {
       # host: "fleursdeprovence.fr"
-      host: "https://fleursdeprovence.herokuapp.com"
+      host: "https://fleursdeprovence-v2.herokuapp.com"
     }
     # config.autoloader = :classic
 
