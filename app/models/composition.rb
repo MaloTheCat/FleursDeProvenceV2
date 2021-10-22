@@ -1,4 +1,6 @@
 class Composition < ApplicationRecord
+  has_one_attached :photo
+
   belongs_to :florist
   has_many :orders
 
