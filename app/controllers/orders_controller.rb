@@ -15,7 +15,12 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @composition = Composition.find(params[:composition_id])
+    @order = @order.composition
     @relais = Relai.all
+
+    # @relai = Relai.find_by(:id)
+    # @relai = Relai.find(:id)
+    # @order = @order.relais
     # @relai = Relai.find(params[:relai_id])
     # @order = @composition.order
     # @orders = @contact.orders
