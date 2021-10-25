@@ -72,6 +72,19 @@ compo2.save!
 
 puts "#{compo2.quantity} '#{compo2.name}' is created at #{compo2.price} euros"
 
+compo3 = Composition.new(
+  name: "Iris magique",
+  photo_title: "bouquet5.png",
+  price: 25,
+  quantity: 10,
+  disponibility: true,
+  florist: florist1,
+  size: ""
+  )
+compo3.save!
+
+puts "#{compo3.quantity} '#{compo3.name}' is created at #{compo3.price} euros"
+
 puts "#{Composition.count} composition(s) created"
 
 puts "#{Relai.count} relai(s) are up"

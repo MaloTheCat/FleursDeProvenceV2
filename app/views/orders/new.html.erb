@@ -5,20 +5,34 @@
   </div>
   <div class="compo-s1-right">
     <h2><%= @composition.name %></h2>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-    <div class="compo-size">
+    <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p> -->
+    <!-- <div class="compo-size">
       <div class="compo-size-text">
         <p>Taille du bouquet</p>
         <p>Guide des tailles</p>
       </div>
-    </div>
+    </div> -->
 
+<!-- Avoir ces informations pour envoyer un mail -->
+<!-- Tout ca permet de créer un Order -->
+    <%#= @composition %> <!-- Base de la composition -->
+    <%#= @composition.name %> <!-- Nom de la compo -->
+    <%#= @composition.price %> <!-- Prix de la compo -->
+    <%#= @composition.size %> <!-- Taille de la compo -->
+    <%#= @relai %> <!-- Base du relai -->
+    <%#= @relai.name %> <!-- Nom du relai -->
+    <%#= @relai.address %> <!-- Adresse du relai -->
+    <%#= @customer %> <!-- Base du customer -->
+    <%#= @customer.firstname %> <!-- Prénom de la personne -->
+    <%#= @customer.lastname %> <!-- Nom de la personne -->
+    <%#= @customer.email %> <!-- Email de la personne -->
+<!-- Order.new = order.customer ; order.relai ; order.composition -->
 
     <%= form_with(model: @order, url: composition_orders_path(@composition), local: true) do |f| %>  <!-- url: composition_orders_path(@composition) or url: composition_orders_path(:composition_id) return a Routing Error: No route matches [PATCH] -->
 
       <%= f.hidden_field :id %>
       <%= f.select :size, [["S", "#{@composition.price}"], ["M", "#{@composition.price+10}"], ["L", "#{@composition.price+20}"]], {}, id:'size' %>
-      <p>Sélectionnez votre point de retrait</p>
+      <!-- <p>Sélectionnez votre point de retrait</p> -->
       <%= f.collection_select :relai, @relais, :id, :name %>
 
         <!-- @relai.id = <%#= @relai %> </br>
@@ -38,21 +52,26 @@
         <%#= f.association :composition, @compositions, [:id], :name %>
       <%# end %>
 
-      <div id="map"
+      <!-- div id="map"
         style="width: 100%; height: 300px;"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-      <%= f.submit "Acheter", class: "app-form-button no-display" %>
+        data-markers="<%#= @markers.to_json %>"
+        data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">
+      </div> -->
+      <%#= f.submit "Acheter", class: "app-form-button no-display" %>
       <% case @composition.id %>
-      <% when 3 %>
+      <% when 5 %>
         <div id="price-id-s" class='app-form-button'><%= link_to 'Acheter', 'https://buy.stripe.com/test_fZe5nD4AHfuA4yA147' %></div>
         <div id="price-id-m" class='app-form-button'><%= link_to 'Acheter', 'https://buy.stripe.com/test_5kA7vL3wDbekc123ce' %></div>
         <div id="price-id-l" class='app-form-button'><%= link_to 'Acheter', 'https://buy.stripe.com/test_dR67vLffleqw5CEaEI' %></div>
-      <% when 4 %>
+      <% when 6 %>
         <div id="price-id-s" class='app-form-button'><%= link_to 'Acheter', 'https://buy.stripe.com/test_3cs6rHaZ5dmse9adQV' %></div>
         <div id="price-id-m" class='app-form-button'><%= link_to 'Acheter', 'https://buy.stripe.com/test_00g6rH2sz828aWYaEE' %></div>
         <div id="price-id-l" class='app-form-button'><%= link_to 'Acheter', 'https://buy.stripe.com/test_8wM3fv9V1gyE9SU6op' %></div>
+      <% when 7 %>
+        <div id="price-id-s" class='app-form-button'><%= link_to 'Acheter', 'https://buy.stripe.com/test_eVa8zPaZ52HO2qs4go' %></div>
+        <div id="price-id-m" class='app-form-button'><%= link_to 'Acheter', 'https://buy.stripe.com/test_bIY2br7MT8289SU14d' %></div>
+        <div id="price-id-l" class='app-form-button'><%= link_to 'Acheter', 'https://buy.stripe.com/test_3cs9DT8QXaag2qseV1' %></div>
+
       <% end  %>
     <% end %>
 
