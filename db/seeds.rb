@@ -53,7 +53,7 @@ compo1 = Composition.new(
   quantity: 10,
   disponibility: true,
   florist: florist1,
-  size: ""
+  size: "S"
   )
 compo1.save!
 
@@ -66,7 +66,7 @@ compo2 = Composition.new(
   quantity: 10,
   disponibility: true,
   florist: florist1,
-  size: ""
+  size: "S"
   )
 compo2.save!
 

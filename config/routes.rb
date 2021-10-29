@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   #   resources :orders, only: [:show, :new, :create, :index]
   # end
 
+
+  get 'test' => 'orders#test'               # Page de test pour le form
+
   get 'evenement' => 'evenements#index'
   get 'policy' => 'florists#policy'
   get 'cgv' => 'florists#cgv'

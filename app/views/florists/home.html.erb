@@ -11,6 +11,7 @@
 </div>
 
 <div class="home-section-2">
+  <%= link_to "Page test", test_path %>  <!-- Page de test -->
   <div class="home-s2-left">
     <h2>Commandez et faites vous livrer en points relais</h2>
     <p>Grâce à nos partenaires, commandez directement vos bouquets sur notre site et de vous le faire livrer directement dans le point relais le plus proche. Les bouquets sont réalisés et livrés pour le lendemain avec des fleurs fraîches. La livraison est gratuite !</p>
@@ -18,8 +19,8 @@
   <div class="home-s2-right">
     <div id="map"
       style="width: 100%; height: 300px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      data-markers="<%#= @markers.to_json %>"
+      data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">
     </div>
     <!-- <div class="map-test" style="height:300px;width:100%">
     </div> -->

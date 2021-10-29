@@ -1,0 +1,22 @@
+<%#= form_with(model: @order, url: composition_orders_path(:composition_id), local: true) do |compo| %>
+  <%#= compo.fields_for :order do |fo| %>
+    <%#= fo.label :relai, 'Ici la liste des relais :' %>
+    <%#= fo.collection_select :relai, @relais, :id, :name %>
+  <%# end %>
+<br>
+<br>
+  <%#= compo.fields_for :composition do |fc| %>
+    <%#= fc.label :composition, "ici la liste des compositions :" %>
+    <%#= fc.collection_select :composition, @compositions, :id, :name %>
+  <%# end %>
+
+  <%##= Composition.all.first.name %>
+  <%##= compo.collection_select :relai, @relais, :id, :name %>
+  <%#= compo.submit "Envoyer", class: "app-form-button" %>
+<%# end %>
+
+<%#= Composition.all.first.name %> ;
+<%#= Relai.all.first.name %> ;
+<%#= Relai.all.second.name %>
+
+
