@@ -6,7 +6,7 @@ class FloristsController < ApplicationController
     # @florist = Florist.find(params[:id])
     @florists = Florist.all
     @florist = Florist.first
-    @compositions = @florist.compositions
+    @compositions = @florist.compositions     # Récupérer toutes les compositions du fleuriste
     @relais = Relai.all
 
     # the `geocoded` scope filters only florists with coordinates (latitude & longitude)
@@ -16,19 +16,6 @@ class FloristsController < ApplicationController
       }
     end
   end
-
-  # def composition
-  # end
-
-  # def evenement
-  # end
-
-  # def contact
-  #   @contact = Contact.new
-  # end
-
-  # def cgv
-  # end
 
 private
   # def find_florist

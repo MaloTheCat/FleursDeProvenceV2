@@ -8,5 +8,6 @@ class Composition < ApplicationRecord
   validates :price, presence: true
   # validates :size, presence: true
 
+  accepts_nested_attributes_for :orders
 
 end

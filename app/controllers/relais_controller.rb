@@ -4,8 +4,8 @@ class RelaisController < ApplicationController
     @relais = Relai.all
   end
 
-  def get
-    @relai = Relai.first
-  end
+  # def get
+  #   @relai = Relai.first
+  # end
 
 end
