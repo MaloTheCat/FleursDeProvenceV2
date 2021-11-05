@@ -5,12 +5,20 @@ class CustomersController < ApplicationController
   end
 
   def create
-    @customer = Customer.create(customer_params)
+    @customer = Customer.new(customer_params)
+    @customer.save
   end
 
   private
 
   def customer_params
-    params.permit(order:[ :total_price, :state_order], relai:[ :name, :address], composition: [ :name, :size, :price])
+    params.require(:customer).permit(:firstname, :lastname)
+
+    # params.permit(
+      # customer: [:firstname, :lastname])
+      # florist:[ :florist_id,]
+      # order:[ :total_price, :state_order],
+      # relai:[ :name, :address],
+      # composition: [ :name, :size, :price])
   end
 end

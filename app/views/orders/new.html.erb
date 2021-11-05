@@ -17,8 +17,15 @@
       <%= compo.hidden_field :id %>
       <%= compo.label :size, "Taille" %>
       <%= compo.select :size, [["S", "#{@composition.price}"], ["M", "#{@composition.price+10}"], ["L", "#{@composition.price+20}"]], {}, id:'size' %>
+
       <p>Sélectionnez votre point de retrait</p>
       <%= compo.collection_select :relai_id, @relais, :id, :name %>
+      <br>
+      <%#= fields_for :customer do |customer| %>
+        <%#= customer.text_field :lastname, placeholder: 'Votre Nom' %>
+        <%#= customer.text_field :firstname, placeholder: 'votre Prénom' %>
+      <%# end %>
+
       <%= compo.collection_select :composition_id, @compositions, :id, :name, {selected: @composition.id}, {class: "no-display"} %>
       <%= compo.submit "MAIL", class: "app-form-button" %>
 
