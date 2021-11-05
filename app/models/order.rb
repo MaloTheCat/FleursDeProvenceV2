@@ -6,4 +6,5 @@ class Order < ApplicationRecord
   # validates :customer_id, presence: true
   validates :relai_id, presence: true
   validates :composition_id, presence: true
+
 end

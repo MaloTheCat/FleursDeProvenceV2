@@ -1,3 +1,6 @@
-<p>Nom du bouquet :<%= @order.composition.name %></p>
+<h3>M/Mme <%#= @order.customer.firstname %>, <%#= @order.customer.lastname %> a commandé sur www.fleursdeprovence.fr !</h3>
+
+<p>Nom du bouquet :<%= @order.composition.name %> pour un prix de :</p>
+<p><%= @order.composition.price %></p>
+
 <p>Taille :<%= @order.composition.size %></p>
-<p>Prix :<%= @order.composition.price %></p>
