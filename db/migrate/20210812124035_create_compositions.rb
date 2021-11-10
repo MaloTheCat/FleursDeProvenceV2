@@ -2,8 +2,8 @@ class CreateCompositions < ActiveRecord::Migration[6.1]
   def change
     create_table :compositions do |t|
       t.string :name
-      t.string :size
-      t.integer :price
+
+      t.integer :base_price
       t.integer :quantity
       t.boolean :disponibility
       t.string :photo_title

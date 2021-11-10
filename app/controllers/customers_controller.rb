@@ -19,6 +19,6 @@ class CustomersController < ApplicationController
       # florist:[ :florist_id,]
       # order:[ :total_price, :state_order],
       # relai:[ :name, :address],
-      # composition: [ :name, :size, :price])
+      # composition: [ :name, :size, :base_price])
   end
 end
