@@ -1,6 +1,6 @@
 # # This migration comes from pay (originally 1)
-# class CreatePayTables < ActiveRecord::Migration[6.0]
-#   def change
+class CreatePayTables < ActiveRecord::Migration[6.0]
+  def change
 #     create_table :pay_customers do |t|
 #       t.belongs_to :owner, polymorphic: true, index: false
 #       t.string :processor, null: false
@@ -69,5 +69,5 @@
 #       t.public_send Pay::Adapter.json_column_type, :event
 #       t.timestamps
 #     end
-#   end
-# end
+  end
+end

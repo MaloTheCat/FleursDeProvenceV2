@@ -49,41 +49,41 @@ puts 'Creating Compositions:'
 compo1 = Composition.new(
   name: "Rose des vents",
   photo_title: "bouquet3.png",
-  price: 30,
+  base_price: 30,
   quantity: 10,
   disponibility: true,
-  florist: florist1,
-  size: "S"
+  florist: florist1
+  # size: "S"
   )
 compo1.save!
 
-puts "#{compo1.quantity} '#{compo1.name}' is created at #{compo1.price} euros"
+puts "#{compo1.quantity} '#{compo1.name}' is created at #{compo1.base_price} euros"
 
 compo2 = Composition.new(
   name: "Amour pour toujours",
   photo_title: "bouquet4.png",
-  price: 25,
+  base_price: 25,
   quantity: 10,
   disponibility: true,
-  florist: florist1,
-  size: "S"
+  florist: florist1
+  # size: "S"
   )
 compo2.save!
 
-puts "#{compo2.quantity} '#{compo2.name}' is created at #{compo2.price} euros"
+puts "#{compo2.quantity} '#{compo2.name}' is created at #{compo2.base_price} euros"
 
 compo3 = Composition.new(
   name: "Iris magique",
   photo_title: "bouquet5.png",
-  price: 25,
+  base_price: 35,
   quantity: 10,
   disponibility: true,
-  florist: florist1,
-  size: ""
+  florist: florist1
+  # size: "S"
   )
 compo3.save!
 
-puts "#{compo3.quantity} '#{compo3.name}' is created at #{compo3.price} euros"
+puts "#{compo3.quantity} '#{compo3.name}' is created at #{compo3.base_price} euros"
 
 puts "#{Composition.count} composition(s) created"
 

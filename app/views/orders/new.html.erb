@@ -1,7 +1,7 @@
 <div class="compo-section-1">
   <div class="compo-s1-left">
     <%= cl_image_tag image_path(@composition.photo_title), alt: "#{@composition.photo_title}" %>
-    <h2 id="price"><%= @composition.price %></h2><h2>€</h2>
+    <h2 id="price"><%= @composition.base_price %></h2><h2>€</h2>
   </div>
   <div class="compo-s1-right">
     <h2><%= @composition.name %></h2>
@@ -15,9 +15,33 @@
 
     <%= form_with(model: @order, url: composition_orders_path(@composition), local: true) do |compo| %>
       <%= compo.hidden_field :id %>
-      <%= compo.label :size, "Taille" %>
-      <%= compo.select :size, [["S", "#{@composition.price}"], ["M", "#{@composition.price+10}"], ["L", "#{@composition.price+20}"]], {}, id:'size' %>
+      <%#= compo.hidden_field :composition_id %>
 
+      <%# priceBySize = {'S' => @composition.base_price, 'M' => @composition.base_price+10, 'L' => @composition.base_price+20} %>
+      <%# priceBySize.each do |s| %>
+        <%#= s.radio_button :size, size[0] %>
+        <!-- <label for="<%#= size[1] %>"><%#= size[0] %></label> -->
+      <%# end %>
+
+      <%#= compo.label :size, "Taille" %>
+      <%#= compo.select :size, [["S", "#{@composition.base_price}"], ["M", "#{@composition.base_price+10}"], ["L", "#{@composition.base_price+20}"]], {}, id:'size' %>
+      <%#= compo.collection_select :composition_id, @composition.size, @composition.size, id:'size' %>
+
+      <%#= fields_for :size do |fsize| %>
+        <%#= fsize.radio_button :size %>
+      <%# end %>
+
+      <%= compo.label :size, 'S' %>
+      <%= compo.radio_button :size, @composition.size[0], checked: true %>
+
+      <%= compo.label :size, 'M' %>
+      <%= compo.radio_button :size, @composition.size[1] %>
+
+      <%= compo.label :size, 'L' %>
+      <%= compo.radio_button :size, @composition.size[2] %>
+      <br>
+      <br>Composition.size : <%= @composition.size %>
+      <br>
       <p>Sélectionnez votre point de retrait</p>
       <%= compo.collection_select :relai_id, @relais, :id, :name %>
       <br>
