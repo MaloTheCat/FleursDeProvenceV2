@@ -17,14 +17,8 @@
       <%= compo.hidden_field :id %>
       <%#= compo.hidden_field :composition_id %>
 
-      <%# priceBySize = {'S' => @composition.base_price, 'M' => @composition.base_price+10, 'L' => @composition.base_price+20} %>
-      <%# priceBySize.each do |s| %>
-        <%#= s.radio_button :size, size[0] %>
-        <!-- <label for="<%#= size[1] %>"><%#= size[0] %></label> -->
-      <%# end %>
-
       <%#= compo.label :size, "Taille" %>
-      <%#= compo.select :size, [["S", "#{@composition.base_price}"], ["M", "#{@composition.base_price+10}"], ["L", "#{@composition.base_price+20}"]], {}, id:'size' %>
+      <%= compo.select :size, [["S", "#{@composition.base_price}"], ["M", "#{@composition.base_price+10}"], ["L", "#{@composition.base_price+20}"]], {}, id:'size' %>
       <%#= compo.collection_select :composition_id, @composition.size, @composition.size, id:'size' %>
 
       <%#= fields_for :size do |fsize| %>
