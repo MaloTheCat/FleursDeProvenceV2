@@ -15,26 +15,39 @@
 
     <%= form_with(model: @order, url: composition_orders_path(@composition), local: true) do |compo| %>
       <%= compo.hidden_field :id %>
-      <%#= compo.hidden_field :composition_id %>
-
-      <%#= compo.label :size, "Taille" %>
-      <%= compo.select :size, [["S", "#{@composition.base_price}"], ["M", "#{@composition.base_price+10}"], ["L", "#{@composition.base_price+20}"]], {}, id:'size' %>
+      <%#= compo.select :size, [["S", "#{@composition.base_price}"], ["M", "#{@composition.base_price+10}"], ["L", "#{@composition.base_price+20}"]], {}, id:'size' %>
       <%#= compo.collection_select :composition_id, @composition.size, @composition.size, id:'size' %>
 
-      <%#= fields_for :size do |fsize| %>
-        <%#= fsize.radio_button :size %>
+      <%#= fields_for @compositions do |compos| %>
+            <!-- collection_radio_button -- method ------------ collection ----------------- value_method -- text_method -- options = {}, html_options = {}, &block) -->
+        <%#= compos.collection_radio_buttons :size, Composition.where(name:@composition.name), :base_price, :size, options = {class:'size'}, html_options = {class:'size'} %>
+      <%#= raise %>
       <%# end %>
-
-      <%= compo.label :size, 'S' %>
-      <%= compo.radio_button :size, @composition.size[0], checked: true %>
-
-      <%= compo.label :size, 'M' %>
-      <%= compo.radio_button :size, @composition.size[1] %>
-
-      <%= compo.label :size, 'L' %>
-      <%= compo.radio_button :size, @composition.size[2] %>
+      <div id="radioBtns">
+        <span class="">S</span>
+        <input type="radio" class="size" name="radio" value="S" checked />
+        <span class="">M</span>
+        <input type="radio" class="size" name="radio" value="M" />
+        <span class="">L</span>
+        <input type="radio" class="size" name="radio" value="L" />
+      </div>
+  <!-- radio_button(object_name, method, tag_value, options = {}) -->
+      <%#= compo.label @composition.size, 'S' %>
+      <%#= compo.radio_button :size, @composition.size[0], checked: true %>
+      <%#= compo.label :size, 'M' %>
+      <%#= compo.radio_button :size, @composition.size[1] %>
+      <%#= compo.label :size, 'L' %>
+      <%#= compo.radio_button :size, @composition.size[2] %>
       <br>
-      <br>Composition.size : <%= @composition.size %>
+      <br>
+      Composition.size : <%#= @composition.size.name %>
+      <%# if @composition.size[1] %>
+        <!-- le M est sélectionné -->
+      <%# elsif @composition.size[2] %>
+        <!-- le L est sélectionné -->
+      <%# else %>
+        <!-- le S est sélectionné -->
+      <%# end %>
       <br>
       <p>Sélectionnez votre point de retrait</p>
       <%= compo.collection_select :relai_id, @relais, :id, :name %>

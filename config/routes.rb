@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/thanks" => "contacts#thanks"
 
   resources :compositions, only: [:show, :index] do
-    resources :orders, only: [:show, :new, :create, :index] #do
+    resources :orders, only: [:show, :new, :create, :index]
   end
 
   get "/thanks_purchase" => "orders#thanksPurchase"

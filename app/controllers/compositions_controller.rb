@@ -4,7 +4,6 @@ class CompositionsController < ApplicationController
 
   def index  # voir toutes les compositions
     @compositions = @florist.compositions
-    # @composition = Composition.find(params[:id])
   end
 
   def show # voir une composition

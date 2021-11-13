@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_102533) do
+ActiveRecord::Schema.define(version: 2021_11_13_111647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(version: 2021_11_05_102533) do
   end
 
   create_table "compositions", force: :cascade do |t|
-    t.string "name"
-    t.integer "base_price"
-    t.integer "quantity"
+    t.string "name", null: false
+    t.integer "base_price", null: false
+    t.integer "quantity", null: false
     t.boolean "disponibility"
     t.string "photo_title"
     t.bigint "florist_id", null: false
@@ -74,10 +74,10 @@ ActiveRecord::Schema.define(version: 2021_11_05_102533) do
   end
 
   create_table "florists", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.string "email"
-    t.integer "phone"
+    t.string "name", null: false
+    t.string "address", null: false
+    t.string "email", null: false
+    t.integer "phone", null: false
     t.integer "opening_hours"
     t.string "description"
     t.float "latitude"
@@ -93,15 +93,23 @@ ActiveRecord::Schema.define(version: 2021_11_05_102533) do
     t.bigint "composition_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "size_id"
     t.index ["composition_id"], name: "index_orders_on_composition_id"
     t.index ["relai_id"], name: "index_orders_on_relai_id"
+    t.index ["size_id"], name: "index_orders_on_size_id"
   end
 
   create_table "relais", force: :cascade do |t|
-    t.string "address"
-    t.string "name"
+    t.string "address", null: false
+    t.string "name", null: false
     t.float "latitude"
     t.float "longitude"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sizes", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -111,4 +119,5 @@ ActiveRecord::Schema.define(version: 2021_11_05_102533) do
   add_foreign_key "compositions", "florists"
   add_foreign_key "orders", "compositions"
   add_foreign_key "orders", "relais"
+  add_foreign_key "orders", "sizes"
 end

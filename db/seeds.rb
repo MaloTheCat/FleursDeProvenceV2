@@ -57,7 +57,7 @@ compo1 = Composition.new(
   )
 compo1.save!
 
-puts "#{compo1.quantity} '#{compo1.name}' is created at #{compo1.base_price} euros"
+puts "creating #{compo1.name} at #{compo1.base_price}€"
 
 compo2 = Composition.new(
   name: "Amour pour toujours",
@@ -70,7 +70,7 @@ compo2 = Composition.new(
   )
 compo2.save!
 
-puts "#{compo2.quantity} '#{compo2.name}' is created at #{compo2.base_price} euros"
+puts "creating #{compo2.name} at #{compo2.base_price}€"
 
 compo3 = Composition.new(
   name: "Iris magique",
@@ -83,12 +83,23 @@ compo3 = Composition.new(
   )
 compo3.save!
 
-puts "#{compo3.quantity} '#{compo3.name}' is created at #{compo3.base_price} euros"
+puts "Creating Sizes"
 
-puts "#{Composition.count} composition(s) created"
+sizeSmall = Size.create(
+  name: "S"
+)
+sizeMedium = Size.create(
+  name: "M"
+)
+sizeLarge = Size.create(
+  name: "L"
+)
 
-puts "#{Relai.count} relai(s) are up"
-puts "#{Florist.count} florist(s) are up"
-puts "#{Composition.count} composition(s) are up"
+puts 'Sizes created'
+
+puts "#{Composition.count} compositions created & #{Composition.count} compositions are up"
+puts "#{Size.count} sizes created & #{Size.count} Sizes are up"
+puts "#{Florist.count} florist(s) created & #{Florist.count} florist(s) are up"
+puts "#{Relai.count} relais created & #{Relai.count} relais are up"
 
 puts "Done."
