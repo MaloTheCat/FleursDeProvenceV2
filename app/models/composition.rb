@@ -10,32 +10,17 @@ class Composition < ApplicationRecord
 
   accepts_nested_attributes_for :orders
 
-  # def setPrice
-  #   size = ["S", "M", "L"]
-  #   if size == "M"
-  #     @composition.price = @composition.price + 10
-  #   elsif size == "L"
-  #     @composition.price = @composition.price + 20
-  #   else
-  #     price
-  #   end
-  # end
-
-  def size
-    size = ["S", "M", "L"]
-    if size == "M"
-      @composition.base_price = @composition.base_price + 10
-      return size
-    elsif size == "L"
-      @composition.base_price = @composition.base_price + 20
-      return size
+  def setPrice(size)
+    case size
+    when "S"
+      price = base_price
+    when "M"
+      price = base_price + 10
+    when "L"
+      price = base_price + 20
     else
-      return size
+      price = base_price
     end
-
-    # S
-    # M
-    # L
   end
 
 end
