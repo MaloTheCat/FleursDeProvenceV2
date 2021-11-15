@@ -19,8 +19,7 @@ class FloristsController < ApplicationController
 
 private
   # def find_florist
-  #   # @florist = Florist.find(id=4)
-  #   @florist = Florist.find(params[:id])
+  #   @florist = Florist.first
   # end
 
   # def florist_params
