@@ -1,7 +1,7 @@
 class OrderMailer < ApplicationMailer
   def order_mail(order)
     @order = order
-    mail to:"contact@fleursdeprovence.fr", subject: "Contact du site web Fleurs de Provence"
+    mail to:ENV["IONOS_USERNAME_KEY"], subject: "Contact du site web Fleurs de Provence"
   end
 end
 

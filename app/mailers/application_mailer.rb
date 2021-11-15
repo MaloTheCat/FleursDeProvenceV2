@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'contact@fleursdeprovence.fr'
+  default from: ENV['IONOS_USERNAME_KEY']
   layout 'mailer'
 end
 
