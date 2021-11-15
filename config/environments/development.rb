@@ -88,8 +88,11 @@ Rails.application.configure do
     address: 'smtp.ionos.fr',
     domain: 'ionos.fr',
     port: 587,
+    # port: 465,
+    # port: 25,
     user_name: 'contact@fleursdeprovence.fr',
     password: ENV["IONOS_KEY"],
+    # password: "EvelyneEtPatrick26130",
     authentication: 'plain',
     enable_starttls_auto: true
   }
