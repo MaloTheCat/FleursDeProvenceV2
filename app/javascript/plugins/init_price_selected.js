@@ -1,12 +1,6 @@
 const initPriceSelected = () => {
 
   // --- VERSION AVEC collection_select ---
-
-  // let size = document.getElementById('size');
-  // size.addEventListener('change', (event) => {
-  //   document.getElementById("price").innerText = `${event.target.value}`;
-  // });
-
   // const displayElementS = document.getElementById('price-id-s');
   // const displayElementM = document.getElementById('price-id-m');
   // const displayElementL = document.getElementById('price-id-l');
@@ -28,7 +22,6 @@ const initPriceSelected = () => {
   //     displayElementL.style.display = 'none';
   //   }
   // });
-  // console.log(document.getElementById('price-id-s').previousSibling.previousSibling.className);
 
   // --- VERSION AVEC collection_radio_button ---
 
