@@ -1,12 +1,12 @@
 class FloristsController < ApplicationController
 
-  before_action :find_florist, only: [:composition, :evenement, :contact, :cgv]
+  # before_action :find_florist, only: [:composition, :evenement, :contact, :cgv]
 
   def home
-    # @florist = Florist.find(params[:id])
     @florists = Florist.all
     @florist = Florist.first
     @compositions = @florist.compositions     # Récupérer toutes les compositions du fleuriste
+
     @relais = Relai.all
 
     # the `geocoded` scope filters only florists with coordinates (latitude & longitude)

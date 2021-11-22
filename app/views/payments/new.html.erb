@@ -1,0 +1,37 @@
+<div class="global-order-container">
+  <h1 style="text-align:center;"><strong>Récapitulatif de votre commande</strong></h1>
+  </br>
+  <h3>État de la commande : <%= @order.state %></h3>
+  </br>
+  <div class="order-container">
+    <div class="order-left">
+      <%= cl_image_tag image_path(@order.composition.photo_title) %>
+    </div>
+    <div class="order-right">
+      <strong>Composition choisie :</strong>
+      <%= @order.composition.name %>
+      </br>
+      <strong>Prix total :</strong>
+      <%= humanized_money(@order.composition.price) %>€
+      </br>
+      <strong>Taille de la composition choisie :</strong>
+      <%= @order.size.name %>
+      </br>
+      <strong>Relai choisi :</strong>
+      <%= @order.relai.name %>
+      au
+      <%= @order.relai.address %>
+      <button id="pay" class="app-form-button">Acheter</button>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        const paymentButton = document.getElementById('pay');
+        paymentButton.addEventListener('click', () => {
+          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+          stripe.redirectToCheckout({
+            sessionId: '<%= @order.checkout_session_id %>'
+          });
+        });
+      </script>
+    </div>
+  </div>
+</div>

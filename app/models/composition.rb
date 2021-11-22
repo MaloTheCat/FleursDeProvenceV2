@@ -4,22 +4,24 @@ class Composition < ApplicationRecord
   belongs_to :florist
   has_many :orders
 
+  monetize :price_cents
+
   validates :name, presence: true
-  validates :base_price, presence: true
+  # validates :base_price, presence: true
   # validates :size, presence: true
 
-  accepts_nested_attributes_for :orders
+  # accepts_nested_attributes_for :orders
+
+  # Stripe::SKU.list({@order.composition(attributes[size]=S)})
 
   def setPrice(size)
     case size
-    when "S"
-      price = base_price
     when "M"
-      price = base_price + 10
+      price.to_i + 10
     when "L"
-      price = base_price + 20
+      price.to_i + 20
     else
-      price = base_price
+      price.to_i
     end
   end
 

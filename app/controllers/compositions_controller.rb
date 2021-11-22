@@ -7,7 +7,8 @@ class CompositionsController < ApplicationController
   end
 
   def show # voir une composition
-    @composition = Composition.find(params[:id])
+    # @composition = Composition.find(params[:id])
+    @composition = Stripe::Product.retrieve(params[:id])
     @relais = Relai.all
   end
 
@@ -31,7 +32,7 @@ class CompositionsController < ApplicationController
   end
 
   def composition_params
-    params.require(:composition).permit(:id, :name, :base_price, :quantity, :disponibility, :photo_title)
+    params.require(:composition).permit(:id, :name, :price, :quantity, :disponibility, :photo_title)
   end
 
 end

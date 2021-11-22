@@ -13,12 +13,5 @@ class CustomersController < ApplicationController
 
   def customer_params
     params.require(:customer).permit(:firstname, :lastname)
-
-    # params.permit(
-      # customer: [:firstname, :lastname])
-      # florist:[ :florist_id,]
-      # order:[ :total_price, :state_order],
-      # relai:[ :name, :address],
-      # composition: [ :name, :size, :base_price])
   end
 end

@@ -16,6 +16,7 @@
 .app-form-button {
   text-align: center;
   width: 100px;
+  justify-content: center;
 }
 
 .app-form-button a {
@@ -41,4 +42,25 @@
 
 .app-form-button:hover a {
   color: white;
+}
+
+.global-order-container {
+  width: 100%;
+}
+
+.order-container {
+  display: flex;
+}
+
+.order-left > img {
+  width: 100%;
+  max-width: 500px;
+}
+
+.order-right {
+  text-align: justify;
+  width: 100%;
+  /*margin-left: 20px;*/
+  /*width: 45%;*/
+  /*display: block;*/
 }

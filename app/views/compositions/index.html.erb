@@ -10,12 +10,12 @@
 <div class="compositions-section-2">
   <div class="card-wrap">
     <% @compositions.each do |composition| %>
-      <%= link_to new_composition_order_path(composition) do %>
+      <%= link_to composition_path(composition) do %>
         <div class="green-border-card">
           <%= cl_image_tag image_path(composition.photo_title), alt: "photo_title" %>
           <h3><%= composition.name %></h3>
           <div class="card-price">
-            <p><%= composition.base_price %>€</p>
+            <p><%= humanized_money(composition.price) %>€</p>
           </div>
           <p>à partir de</p>
           <div class="green-square"></div>

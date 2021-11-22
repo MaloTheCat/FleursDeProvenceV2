@@ -1,7 +1,8 @@
 <!-- <h3>M/Mme <%#= @order.customer.firstname %>, <%#= @order.customer.lastname %> a commandé sur www.fleursdeprovence.fr !</h3> -->
 
 <h3><%= @order.composition.name %><br>
-Prix : <%= @order.composition.setPrice(@order.size.name) %><br>
+Prix : <%= humanized_money(@order.composition.setPrice(@order.size.name)) %><br>
 Taille : <%= @order.size.name %><br>
 Relais: <%= @order.relai.name %> </h3>
+
 

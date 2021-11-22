@@ -1,0 +1,87 @@
+<div class="compo-section-1">
+  <div class="compo-s1-left">
+    <%= cl_image_tag image_path(@composition.photo_title), alt: "#{@composition.photo_title}" %>
+    <h2 id="price"><%= humanized_money(@composition.price) %></h2><h2>€</h2>
+  </div>
+  <div class="compo-s1-right">
+    <h2><%= @composition.name %></h2>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+    <div class="compo-size">
+      <div class="compo-size-text">
+        <p>Taille du bouquet</p>
+        <p>Guide des tailles</p>
+      </div>
+    </div>
+    <%= form_tag orders_path do %>
+      <%= hidden_field_tag 'composition_id', @composition.id %>
+      <p>Sélectionnez votre point de retrait</p>
+      <%= collection_select @relai, :relai_id, @relais, :id, :name %>
+      <div id="radioBtns">
+        <span class="">S</span>
+        <input type="radio" class="size" name="radio" value="S" checked />
+        <span class="">M</span>
+        <input type="radio" class="size" name="radio" value="M" />
+        <span class="">L</span>
+        <input type="radio" class="size" name="radio" value="L" />
+      </div>
+      <%= submit_tag 'Purchase', class: 'app-form-button' %>
+    <% end %>
+
+    <%#= form_with url: composition_path(@composition) do |compo| %>
+      <%#= compo.hidden_field :id %>
+      <br>
+      <br>
+      <%#= fields_for :customer do |customer| %>
+        <%#= customer.text_field :lastname, placeholder: 'Votre Nom' %>
+        <%#= customer.text_field :firstname, placeholder: 'votre Prénom' %>
+      <%# end %>
+
+      <!-- Pas besoin car on est déjà dans @composition -->
+      <%#= compo.collection_select :composition, @compositions, :id, :name, {selected: @composition.id}, {class: "no-display"} %>
+      <%#= compo.submit "MAIL", class: "app-form-button" %>
+
+      <div id="map"
+        style="width: 100%; height: 300px;"
+        data-markers="<%#= @markers.to_json %>"
+        data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+      <!-- -------- Uncomment this to get all buttons price ---------  -->
+    <%# case @composition.id %>
+      <%# when 1 %>
+        <!-- <div id="price-id-s" class='app-form-button'><%#= link_to 'Acheter', 'https://buy.stripe.com/test_fZe5nD4AHfuA4yA147' %></div>
+        <div id="price-id-m" class='app-form-button'><%#= link_to 'Acheter', 'https://buy.stripe.com/test_5kA7vL3wDbekc123ce' %></div>
+        <div id="price-id-l" class='app-form-button'><%#= link_to 'Acheter', 'https://buy.stripe.com/test_dR67vLffleqw5CEaEI' %></div>
+      <%# when 2 %>
+        <div id="price-id-s" class='app-form-button'><%#= link_to 'Acheter', 'https://buy.stripe.com/test_3cs6rHaZ5dmse9adQV' %></div>
+        <div id="price-id-m" class='app-form-button'><%#= link_to 'Acheter', 'https://buy.stripe.com/test_00g6rH2sz828aWYaEE' %></div>
+        <div id="price-id-l" class='app-form-button'><%#= link_to 'Acheter', 'https://buy.stripe.com/test_8wM3fv9V1gyE9SU6op' %></div>
+      <%# when 3 %>
+        <div id="price-id-s" class='app-form-button'><%#= link_to 'Acheter', 'https://buy.stripe.com/test_eVa8zPaZ52HO2qs4go' %></div>
+        <div id="price-id-m" class='app-form-button'><%#= link_to 'Acheter', 'https://buy.stripe.com/test_bIY2br7MT8289SU14d' %></div>
+        <div id="price-id-l" class='app-form-button'><%#= link_to 'Acheter', 'https://buy.stripe.com/test_3cs9DT8QXaag2qseV1' %></div> -->
+    <%# end  %>
+  <%# end %>
+
+  </div>
+</div>
+
+<%#= render partial: "pay/stripe/checkout_button", locals: {session: @checkout_session, title: "Acheter"} %>
+
+<!-- A mettre sur view Home et view Compositions -->
+<%# if @composition.disponibility == true %>
+  <%#=  %>
+<%# else %>
+  <%#=  %>
+<%# end %>
+
+      <%#= f.fields_for :order do |ff| %>
+        <%#= ff.collection_select :relai, @relais, :id, :name %>
+        <%#= ff.association :relai, @relais, :relai_id, :name %>
+        <%#= ff.label :relai %>
+        <%#= ff.text_field :composition %>
+      <%# end %>
+
+      <%#= f.fields_for :composition do |f| %>
+        <%#= f.label :composition %>
+        <%#= f.association :composition, @compositions, [:id], :name %>
+      <%# end %>

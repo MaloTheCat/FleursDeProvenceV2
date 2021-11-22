@@ -5,10 +5,15 @@ Rails.application.routes.draw do
   get "/thanks" => "contacts#thanks"
 
   resources :compositions, only: [:show, :index] do
-    resources :orders, only: [:show, :new, :create, :index]
+    # resources :orders, only: [:show, :new, :create, :index]
+  end
+
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
   end
 
   get "/thanks_purchase" => "orders#thanksPurchase"
+  get "/checkout" => "orders#checkout" #, :defaults => { :format => 'json' }
 
   get 'evenement' => 'evenements#index'
   get 'policy' => 'florists#policy'
