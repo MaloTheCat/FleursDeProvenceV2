@@ -6,27 +6,10 @@ class CompositionsController < ApplicationController
   end
 
   def show # voir une composition
-    # @composition = Composition.find(params[:id])
-    # @composition = Stripe::Product.retrieve(params[:composition_id]) # Récupérer la composition
-    @composition = Stripe::Product.retrieve(params[:id]) # Récupérer la composition
-    @compositionPrices = Stripe::Price.list(product: @composition)
-
+    @composition = Stripe::Price.retrieve(params[:id])
+    # @compositionPrices = Stripe::Price.list(product: @composition)
     @relais = Relai.all
-
   end
-
-  # def new
-  #   @composition = Composition.new
-  # end
-
-  # def create
-  #   @composition = Composition.new
-  #   if @composition.save
-  #     redirect_to root_path
-  #   else
-  #     render:new
-  #   end
-  # end
 
   private
 

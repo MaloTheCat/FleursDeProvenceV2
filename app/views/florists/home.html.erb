@@ -23,26 +23,6 @@
     </div>
   </div>
 </div>
-
-<!-- <div class="home-section-3">
-  <div class="card-wrap">
-    <%# @compositions.each do |composition| %>
-      <%#= link_to composition_path(composition) do %>
-        <div class="green-border-card">
-          <%#= cl_image_tag image_path(composition.photo_title), alt: "#{composition.photo_title}"%>
-          <h3><%#= composition.name %></h3>
-
-          <div class="card-price">
-            <p><%#= humanized_money(composition.price) %>€</p>
-          </div>
-          <p>à partir de</p>
-          <div class="green-square"></div>
-        </div>
-      <%# end %>
-    <%# end %>
-  </div>
-</div> -->
-
 <div class="home-section-3">
   <!-- START Itération pour l'index -->
   <%# for i in (5).downto(0) %>
@@ -50,18 +30,39 @@
   <%# end %>
   <!-- FIN Itération pour l'index -->
 
+  <!-- <div class="card-wrap">
+    <%# Stripe::Product.list().count do |product| %>
+      <%#= link_to composition_path(product.id) do %>                 Afficher le lien de la compo
+        <div class="green-border-card">
+          <%# product.images.map do |image| %>
+            <img src=<%#= image %> alt='<%#= product.name %>'></img>    Afficher la photo de la compo
+          <%# end %>
+          <h3><%#= product.name %></h3>                           Afficher le nom de la compo
+          <%# Stripe::Price.list({product: product.id}).map do |pp| %>
+            <%# if pp[:nickname].match?(/\w[S]/) %>              <div class="card-price">
+                <%#= pp[:unit_amount]/100 %>€</br>                Afficher le prix compo
+              </div>
+              <p>à partir de</p>
+              <div class="green-square"></div>
+            <%# end %>
+          <%# end %>
+        </div>
+      <%# end %>
+    <%# end %>
+  </div> -->
+
   <div class="card-wrap">
-    <% Stripe::Product.list().count do |product| %>
-      <!-- <a href=<%= "/compositions/1" %> > -->
-      <%= link_to composition_path(product.id) do %>               <!--  Afficher le lien de la compo -->
+    <% Stripe::Price.list().count do |product| %>
+      <%= link_to composition_path(product.id) do %>
         <div class="green-border-card">
           <% product.images.map do |image| %>
-            <img src=<%= image %> alt='<%= product.name %>'></img>  <!--  Afficher la photo de la compo -->
+            <img src=<%= image %> alt='<%= product.name %>'></img>
           <% end %>
-          <h3><%= product.name %></h3>                          <!--  Afficher le nom de la compo -->
+          <h3><%= product.name %></h3>
           <% Stripe::Price.list({product: product.id}).map do |pp| %>
-            <% if pp[:nickname].match?(/\w[S]/) %>              <div class="card-price">
-                <%= pp[:unit_amount]/100 %>€</br>               <!--  Afficher le prix compo -->
+            <% if pp[:nickname].match?(/\w[S]/) %>
+              <div class="card-price">
+                <%= pp[:unit_amount]/100 %>€</br>
               </div>
               <p>à partir de</p>
               <div class="green-square"></div>
@@ -69,9 +70,13 @@
           <% end %>
         </div>
       <% end %>
-      <!-- </a> -->
     <% end %>
   </div>
+
+
+
+
+
 </div>
 
 <div class="home-section-4">
