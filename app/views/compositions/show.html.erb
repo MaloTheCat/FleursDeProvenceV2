@@ -1,7 +1,16 @@
 <div class="compo-section-1">
   <div class="compo-s1-left">
-    <%= cl_image_tag image_path(@composition.photo_title), alt: "#{@composition.photo_title}" %>
-    <h2 id="price"><%= humanized_money(@composition.price) %></h2><h2>€</h2>
+    <% @composition.images.map do |image| %>
+      <img src=<%= image %>></img>
+    <% end %>
+
+    <%#= humanized_money(@composition.price) %>
+      <% Stripe::Price.list({product: @composition.id}).map do |pp| %>
+        <% if pp[:nickname].match?(/\w[S]/) %>
+          <h2 id="price"><%= pp[:unit_amount]/100 %></h2><h2>€</h2>
+        <% end %>
+      <% end %>
+
   </div>
   <div class="compo-s1-right">
     <h2><%= @composition.name %></h2>
@@ -12,56 +21,114 @@
         <p>Guide des tailles</p>
       </div>
     </div>
-    <%= form_tag orders_path do %>
+    <%= form_with(url:orders_path) do |form| %>
       <%= hidden_field_tag 'composition_id', @composition.id %>
+      <%= form.hidden_field 'prices_id', @compositionPrices %>
+
       <p>Sélectionnez votre point de retrait</p>
-      <%= collection_select @relai, :relai_id, @relais, :id, :name %>
-      <div id="radioBtns">
+      <%= form.collection_select :relai_id, @relais, :id, :name %> </br>
+
+      ID Composition : <%= @composition.id %></br><hr>
+      <%# @compositionPrices.map do |price| %>
+        <br>
+        <%#= price.id %> -
+        <!-- <span class=""><%#= price.nickname %></span> - -->
+        <!-- <span class=""><%#= price.unit_amount/100 %></span> -->
+        <br><br>
+      <%# end %>
+
+      <%= collection_radio_buttons :price, :price_id, @compositionPrices, :id, :nickname %>
+      <!-- radio_button    ( object_name,     method,    tag_value,    options = {}) -->
+      <%#= form.radio_button object_name, method, tag_value %>
+        <%#= form.collection_radio_buttons @compositionPrices.id, @compositionPrices.nickname, @compositionPrices.unit_amount, :id, option={class:'radio'}  %>
+      <%#= @composition.prices.each do |price| %>
+        <%#= form.fields_for price, index: price.id do |price_form| %>
+          <%#= price_form.text_field :unit_amount %>
+        <%# end %>
+      <%# end %>
+
+      <%# @person.addresses.each do |address| %>
+        <%#= person_form.fields_for address, index: address.id do |address_form| %>
+          <%#= address_form.text_field :city %>
+
+<!--  person = composition
+      addresses = prices
+      id[23,45] = id
+      city = unit_amount
+      -->
+
+      <!-- <div id="radioBtns">
         <span class="">S</span>
         <input type="radio" class="size" name="radio" value="S" checked />
         <span class="">M</span>
         <input type="radio" class="size" name="radio" value="M" />
         <span class="">L</span>
         <input type="radio" class="size" name="radio" value="L" />
-      </div>
-      <%= submit_tag 'Purchase', class: 'app-form-button' %>
-    <% end %>
+      </div> -->
 
-    <%#= form_with url: composition_path(@composition) do |compo| %>
-      <%#= compo.hidden_field :id %>
+                  <!-- doesn't work as a radio_button -->
+                  <%# @compositionPrices.map do |price| %>
+                    <!-- <span class=""><%#= price.nickname %></span> -->
+                    <%#= form.radio_button price.nickname, price.unit_amount, options={} %>
+                  <%# end %>
+                  <!-- ------------------------------ -->
+
+
+      <!-- radio_button( object_name,     method,    tag_value,    options = {}) -->
+        <%#= radio_button :price_id, price.id, price.unit_amount %>
+        <%#= radio_button(type) :price_id, price(.all), price.id(value) %>
+
+      <!-- collection_radio_buttons( object ; method ; collection ; value_method ; text_method ; options = {} ; html_options = {},    options = {}) -->
+        <%#= price.collection_radio_buttons :price, price, :id, price.unit_amount, price.nickname %>
+
+      <!-- <span class=""><%#= price.id %></span>
+        <input type="radio" class="size" name="radio" value="<%#= price.id %>" checked />
+        <span class=""><%#= price.nickname %></span></br> -->
+
+          <!-- <%# for price.nickname in price %>
+            <%# if price.nickname.match?(/[S]/) %>
+              <span class="">S</span>
+              <input type="radio" class="size" name="radio" value="S" checked />
+            <%# elsif price.nickname.match?(/[M]/) %>
+              <span class="">M</span>
+              <input type="radio" class="size" name="radio" value="M" checked />
+            <%# else %>
+              <span class="">L</span>
+              <input type="radio" class="size" name="radio" value="L" checked />
+            <%# end %>
+          <%# end %> -->
+
+
+
+
+
+        <%#= price.unit_amount/100 %>        <!-- => Price -->
+        <%#= price.nickname %>               <!-- => Size -->
+
+        <%#= price.select :size, [["S", "#{@price.nickname}"], ["M", "#{@price.nickname}"], ["L", "#{@composition.base_price+20}"]], {}, id:'size' %>
+      <%# end %>
+      <%#= radio_button @compositionPrice, :nickname, @price, option = {value["S", "M", "L"]} %>
+<!--       <div id="radioBtns">
+        <span class="">S</span>
+        <input type="radio" class="size" name="radio" value="S" checked />
+        <span class="">M</span>
+        <input type="radio" class="size" name="radio" value="M" />
+        <span class="">L</span>
+        <input type="radio" class="size" name="radio" value="L" />
+      </div> -->
+      <%= form.submit 'Purchase', class: 'app-form-button' %>
+    <% end %>
       <br>
       <br>
       <%#= fields_for :customer do |customer| %>
         <%#= customer.text_field :lastname, placeholder: 'Votre Nom' %>
         <%#= customer.text_field :firstname, placeholder: 'votre Prénom' %>
       <%# end %>
-
-      <!-- Pas besoin car on est déjà dans @composition -->
-      <%#= compo.collection_select :composition, @compositions, :id, :name, {selected: @composition.id}, {class: "no-display"} %>
-      <%#= compo.submit "MAIL", class: "app-form-button" %>
-
       <div id="map"
         style="width: 100%; height: 300px;"
         data-markers="<%#= @markers.to_json %>"
         data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">
       </div>
-      <!-- -------- Uncomment this to get all buttons price ---------  -->
-    <%# case @composition.id %>
-      <%# when 1 %>
-        <!-- <div id="price-id-s" class='app-form-button'><%#= link_to 'Acheter', 'https://buy.stripe.com/test_fZe5nD4AHfuA4yA147' %></div>
-        <div id="price-id-m" class='app-form-button'><%#= link_to 'Acheter', 'https://buy.stripe.com/test_5kA7vL3wDbekc123ce' %></div>
-        <div id="price-id-l" class='app-form-button'><%#= link_to 'Acheter', 'https://buy.stripe.com/test_dR67vLffleqw5CEaEI' %></div>
-      <%# when 2 %>
-        <div id="price-id-s" class='app-form-button'><%#= link_to 'Acheter', 'https://buy.stripe.com/test_3cs6rHaZ5dmse9adQV' %></div>
-        <div id="price-id-m" class='app-form-button'><%#= link_to 'Acheter', 'https://buy.stripe.com/test_00g6rH2sz828aWYaEE' %></div>
-        <div id="price-id-l" class='app-form-button'><%#= link_to 'Acheter', 'https://buy.stripe.com/test_8wM3fv9V1gyE9SU6op' %></div>
-      <%# when 3 %>
-        <div id="price-id-s" class='app-form-button'><%#= link_to 'Acheter', 'https://buy.stripe.com/test_eVa8zPaZ52HO2qs4go' %></div>
-        <div id="price-id-m" class='app-form-button'><%#= link_to 'Acheter', 'https://buy.stripe.com/test_bIY2br7MT8289SU14d' %></div>
-        <div id="price-id-l" class='app-form-button'><%#= link_to 'Acheter', 'https://buy.stripe.com/test_3cs9DT8QXaag2qseV1' %></div> -->
-    <%# end  %>
-  <%# end %>
-
   </div>
 </div>
 

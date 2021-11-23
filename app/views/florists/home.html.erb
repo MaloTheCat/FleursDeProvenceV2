@@ -55,8 +55,8 @@
       <!-- <a href=<%= "/compositions/1" %> > -->
       <%= link_to composition_path(product.id) do %>               <!--  Afficher le lien de la compo -->
         <div class="green-border-card">
-          <% product.images.map do |p| %>
-            <img src=<%= p %> alt='<%= product.name %>'></img>  <!--  Afficher la photo de la compo -->
+          <% product.images.map do |image| %>
+            <img src=<%= image %> alt='<%= product.name %>'></img>  <!--  Afficher la photo de la compo -->
           <% end %>
           <h3><%= product.name %></h3>                          <!--  Afficher le nom de la compo -->
           <% Stripe::Price.list({product: product.id}).map do |pp| %>

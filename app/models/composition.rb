@@ -4,7 +4,8 @@ class Composition < ApplicationRecord
   belongs_to :florist
   has_many :orders
 
-  monetize :price_cents
+  # monetize :price_cents
+  monetize :amount_cents
 
   validates :name, presence: true
   # validates :base_price, presence: true

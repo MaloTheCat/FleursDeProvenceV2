@@ -1,5 +1,4 @@
 class CompositionsController < ApplicationController
-
   before_action :find_florist, only: [:index, :show]
 
   def index  # voir toutes les compositions
@@ -8,8 +7,12 @@ class CompositionsController < ApplicationController
 
   def show # voir une composition
     # @composition = Composition.find(params[:id])
-    @composition = Stripe::Product.retrieve(params[:id])
+    # @composition = Stripe::Product.retrieve(params[:composition_id]) # Récupérer la composition
+    @composition = Stripe::Product.retrieve(params[:id]) # Récupérer la composition
+    @compositionPrices = Stripe::Price.list(product: @composition)
+
     @relais = Relai.all
+
   end
 
   # def new

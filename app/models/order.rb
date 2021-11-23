@@ -5,9 +5,10 @@ class Order < ApplicationRecord
   belongs_to :size
 
   monetize :amount_cents
+  # monetize :price_cents
 
   # validates :customer_id, presence: true
-  validates :relai_id, presence: true
-  validates :composition_id, presence: true
-  validates :size_id, presence: true
+  # validates :relai_id, presence: true
+  # validates :composition_id, presence: true
+  # validates :size_id, presence: true
 end

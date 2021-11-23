@@ -15,28 +15,33 @@ class OrdersController < ApplicationController
   # end
 
   def create
-    # case size
-    # when "M"
-    #   @composition = Composition.find(params[:composition_id])
-    # when "L"
-
-    # end
-
-
+    @composition = Stripe::Product.retrieve(params[:composition_id]) # Récupérer la composition
+    #
     # @composition = Composition.find(params[:composition_id])    # Afficher la composition selectionnée
-    # @composition = Stripe::Product.find(params[:product])    # Afficher la composition selectionnée
+    # @composition = Stripe::Product.find(params[:product])       # Afficher la composition selectionnée
     # @new_composition = Stripe::SKU.list({@order.composition(attributes[size]=S)})
-    @relais = Relai.all                                         # Afficher la collection de relais
-    @size = Size.find_by(name: "#{params[:radio]}")             # Envoyer les sizes en params pour les avoir dans le mail
-    @relai = Relai.find(params[:relai_id])                      # Récupère le relais choisi
-    @order = Order.create!(                                     # Créer un Order avec :
-      composition: @composition,                                #  - la composition
-      amount: @composition.price.to_i,                          #  - son prix
-      state: 'pending',                                         #  - le statut
-      relai: @relai,                                            #  - le relai
-      size: @size                                               #  - la taille
-    )
+    @relais = Relai.all                                           # Afficher la collection de relais
+    @size = Stripe::Price.retrieve(id: "#{params[:price][:price_id]}")       # Envoyer les sizes en params pour les avoir dans le mail
+    @relai = Relai.find(params[:relai_id])                        # Récupère le relais choisi
+    # @order = Order.create!(                                       # Créer un Order avec :
+    #   composition: @composition,                            #  - la composition
+    #   amount: @size,                                  #  - son prix
+    #   state: 'pending',                                           #  - le statut
+    #   relai_id: @relai.id,                                              #  - le relai
+    #   size_id: @size                                                 #  - la taille
+    #   # raise
+    # )
 
+# Order.create(
+#   amount_cents: (integer)
+#   state: (string)
+#   / relai_id: (integer)
+#   / composition_id: (integer)
+#   checkout_session_id: (string)
+#   / size_id: (integer)
+#   )
+
+# Stripe::Price.retrieve('price_1JoOWHFE4oPSz5YOisNo4edv')
 
     # ----- GET SIZE -----
     # Stripe::Price.retrieve('price_1JxC8kFE4oPSz5YOc391IZ9I').nickname  ==> Renvoie "S"
@@ -64,8 +69,8 @@ class OrdersController < ApplicationController
       payment_method_types: ['card'],
       line_items: [{
         name: @composition.name,
-        images: [@composition.photo_title],
-        amount: @composition.price_cents,
+        images: @composition.images[0],
+        amount: @size.unit_amount,
         currency: 'eur',
         quantity: '1'
       }],
