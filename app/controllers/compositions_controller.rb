@@ -7,7 +7,6 @@ class CompositionsController < ApplicationController
 
   def show # voir une composition
     @composition = Stripe::Price.retrieve(params[:id])
-    # @compositionPrices = Stripe::Price.list(product: @composition)
     @relais = Relai.all
   end
 

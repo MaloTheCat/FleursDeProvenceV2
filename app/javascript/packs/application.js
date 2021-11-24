@@ -10,7 +10,7 @@ import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
 import { initPriceSelected } from '../plugins/init_price_selected';
 // import { initMapbox } from '../plugins/init_mapbox';
-import "channels"
+import "channels";
 
   // Turbolinks.start()
 

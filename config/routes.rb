@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new, :create]
   get "/thanks" => "contacts#thanks"
 
-  resources :compositions, only: [:show, :index] do
-    # resources :orders, only: [:show, :new, :create, :index]
-  end
+  resources :compositions, only: [:show, :index]
 
   resources :orders, only: [:show, :create] do
     resources :payments, only: :new
   end
+
+  # post "orders/create", to: "orders#create"#, :defaults => { format: 'json' }
 
   get "/thanks_purchase" => "orders#thanksPurchase"
   get "/checkout" => "orders#checkout" #, :defaults => { :format => 'json' }
