@@ -50,35 +50,25 @@
       <%# end %>
     <%# end %>
   </div> -->
-
+<%#= @compositions %>
   <div class="card-wrap">
-    <% Stripe::Price.list({limit:50}).map do |price| %>
-      <%= link_to composition_path(price.id) do %>
-        <div class="green-border-card">
-          <% Stripe::Product.retrieve(price.product).images.map do |image| %>
-              <img src=<%= image %> alt='<%= Stripe::Product.retrieve(price.product).name %>'></img>
-          <% end %>
-          <h3><%= Stripe::Product.retrieve(price.product).name %></h3>
-          <%# if price[:nickname].match?(/\w[S]/) %>
-            <div class="card-price">
-              <%= price[:unit_amount]/100 %>€</br>
-            </div>
+    <%#= raise %>
+    <% @compositions.map do |composition| %>
+      <% if composition.product.active? && composition.nickname.match?(/[S]/) %>
+        <%= link_to composition_path(composition.id) do %>
+          <div class="green-border-card">
+            <% composition.product.images.map do |image| %>
+                <img src=<%= image %> alt='<%= @compositionsProduct %>'></img>
+            <% end %>
+            <h3><%= composition.product.name %></h3>
+            <div class="card-price"><%= composition.unit_amount/100 %>€</br></div>
             <p>à partir de</p>
             <div class="green-square"></div>
-          <%# end %>
-        </div>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>
-
-
-
-<!--  line 58: get the price.product => "prod_KcR0HgpfzldOj8"
-      Add Stripe::Product.retrieve('price.product').images.map do |image| image end => ["https://files.stripe.com/links/MDB8YWNjdF8xSmJtR3ZGRTRvUFN6NVlPfGZsX3Rlc3RfVk1tZXBqS043dmw0dE54MExENnFQVUJu00NetXQdxn"]
-
-      -->
-
-
 </div>
 
 <div class="home-section-4">

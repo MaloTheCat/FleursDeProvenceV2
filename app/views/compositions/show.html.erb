@@ -1,119 +1,26 @@
 <div class="compo-section-1">
   <div class="compo-s1-left">
-    <% Stripe::Product.retrieve(@composition.product).images.map do |image| %>
-      <img src=<%= image %> alt=''></img>
+    <% @composition.product.images.map do |image| %>
+      <img src=<%= image %> alt='<%= @composition.product.name %>'></img>
     <% end %>
     <h2 id="price"><%= @composition.unit_amount/100 %>€</h2>
   </div>
   <div class="compo-s1-right">
-    <h2><%= Stripe::Product.retrieve(@composition.product).name %></h2>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+    <h2><%= @composition.product.name %></h2>
+    <p><%= @composition.product.description %></p></br>
     <div class="compo-size">
       <div class="compo-size-text">
         <p>Taille du bouquet</p>
         <p>Guide des tailles</p>
       </div>
     </div>
-    <!-- Other sizes from @composition.id -->
-
 
     <%= form_with(url:orders_path) do |form| %>
       <%= hidden_field_tag 'composition_id', @composition.id %>
-
-
-    <!------------------------------------------------------------>
-
-    <hr style='height:5px; background-color:black; border:none; margin: 10px 0px'>
-      <!-- ID Composition : <%#= @composition %> -->
-      <% Stripe::Price.list(product: 'prod_KTLC6QnTF2VrPm').map do |line| %>
-        <%= line %><hr>
+      <% @sorted = @compositionsProduct.sort_by { |hash| hash[:nickname] }.reverse %>
+      <% @sorted.map do |compoPrice| %>
+        <%= link_to "#{compoPrice.nickname}", composition_path(compoPrice.id) %>
       <% end %>
-    <hr style='height:5px; background-color:black; border:none; margin: 10px 0px'>
-      <%# @compositionPrices.map do |price| %>
-
-        <%#= price.id %> -
-        <!-- <span class=""><%#= price.nickname %></span> - -->
-        <!-- <span class=""><%#= price.unit_amount/100 %></span> -->
-      <%# end %>
-
-      <%#= collection_radio_buttons :price, :price_id, @compositionPrices, :id, :nickname %>
-      <!-- radio_button    ( object_name,     method,    tag_value,    options = {}) -->
-      <%#= form.radio_button object_name, method, tag_value %>
-        <%#= form.collection_radio_buttons @compositionPrices.id, @compositionPrices.nickname, @compositionPrices.unit_amount, :id, option={class:'radio'}  %>
-      <%#= @composition.prices.each do |price| %>
-        <%#= form.fields_for price, index: price.id do |price_form| %>
-          <%#= price_form.text_field :unit_amount %>
-        <%# end %>
-      <%# end %>
-
-      <%# @person.addresses.each do |address| %>
-        <%#= person_form.fields_for address, index: address.id do |address_form| %>
-          <%#= address_form.text_field :city %>
-
-
-      <!-- <div id="radioBtns">
-        <span class="">S</span>
-        <input type="radio" class="size" name="radio" value="S" checked />
-        <span class="">M</span>
-        <input type="radio" class="size" name="radio" value="M" />
-        <span class="">L</span>
-        <input type="radio" class="size" name="radio" value="L" />
-      </div> -->
-
-                  <!-- doesn't work as a radio_button -->
-                  <%# @compositionPrices.map do |price| %>
-                    <!-- <span class=""><%#= price.nickname %></span> -->
-                    <%#= form.radio_button price.nickname, price.unit_amount, options={} %>
-                  <%# end %>
-                  <!-- ------------------------------ -->
-
-
-      <!-- radio_button( object_name,     method,    tag_value,    options = {}) -->
-        <%#= radio_button :price_id, price.id, price.unit_amount %>
-        <%#= radio_button(type) :price_id, price(.all), price.id(value) %>
-
-      <!-- collection_radio_buttons( object ; method ; collection ; value_method ; text_method ; options = {} ; html_options = {},    options = {}) -->
-        <%#= price.collection_radio_buttons :price, price, :id, price.unit_amount, price.nickname %>
-
-      <!-- <span class=""><%#= price.id %></span>
-        <input type="radio" class="size" name="radio" value="<%#= price.id %>" checked />
-        <span class=""><%#= price.nickname %></span></br> -->
-
-          <!-- <%# for price.nickname in price %>
-            <%# if price.nickname.match?(/[S]/) %>
-              <span class="">S</span>
-              <input type="radio" class="size" name="radio" value="S" checked />
-            <%# elsif price.nickname.match?(/[M]/) %>
-              <span class="">M</span>
-              <input type="radio" class="size" name="radio" value="M" checked />
-            <%# else %>
-              <span class="">L</span>
-              <input type="radio" class="size" name="radio" value="L" checked />
-            <%# end %>
-          <%# end %> -->
-
-
-
-
-
-        <%#= price.unit_amount/100 %>        <!-- => Price -->
-        <%#= price.nickname %>               <!-- => Size -->
-
-        <%#= price.select :size, [["S", "#{@price.nickname}"], ["M", "#{@price.nickname}"], ["L", "#{@composition.base_price+20}"]], {}, id:'size' %>
-      <%# end %>
-      <%#= radio_button @compositionPrice, :nickname, @price, option = {value["S", "M", "L"]} %>
-<!--       <div id="radioBtns">
-        <span class="">S</span>
-        <input type="radio" class="size" name="radio" value="S" checked />
-        <span class="">M</span>
-        <input type="radio" class="size" name="radio" value="M" />
-        <span class="">L</span>
-        <input type="radio" class="size" name="radio" value="L" />
-      </div> -->
-
-      <!------------------------------------------------------------>
-
-
       <p>Sélectionnez votre point de retrait</p>
       <%= form.collection_select :relai_id, @relais, :id, :name %> </br>
       <%= form.submit 'Purchase', params: {id: @composition.id}, remote: true, class: 'app-form-button' %>
