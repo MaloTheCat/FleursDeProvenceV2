@@ -9,18 +9,34 @@
 </div>
 <div class="compositions-section-2">
   <div class="card-wrap">
-    <% @compositions.each do |composition| %>
-      <%= link_to composition_path(composition) do %>
-        <div class="green-border-card">
-          <%= cl_image_tag image_path(composition.photo_title), alt: "photo_title" %>
-          <h3><%= composition.name %></h3>
-          <div class="card-price">
-            <p><%= humanized_money(composition.price) %>€</p>
+    <% @compositions.map do |composition| %>
+      <% if composition.product.active? && composition.nickname.match?(/[S]/) %>
+        <%= link_to composition_path(composition.id) do %>
+          <div class="green-border-card">
+            <% composition.product.images.map do |image| %>
+                <img src=<%= image %> alt='<%= @compositionsProduct %>'></img>
+            <% end %>
+            <h3><%= composition.product.name %></h3>
+            <div class="card-price"><%= composition.unit_amount/100 %>€</br></div>
+            <p>à partir de</p>
+            <div class="green-square"></div>
           </div>
-          <p>à partir de</p>
-          <div class="green-square"></div>
-        </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>
 </div>
+
+    <!-- <%# @compositions.each do |composition| %>
+      <%#= link_to composition_path(composition) do %>
+        <div class="green-border-card">
+          <%#= cl_image_tag image_path(composition.photo_title), alt: "photo_title" %>
+          <h3><%#= composition.name %></h3>
+          <div class="card-price">
+            <p><%#= humanized_money(composition.price) %>€</p>
+          </div>
+          <p>à partir de</p>
+          <div class="green-square"></div>
+        </div>
+      <%# end %>
+    <%# end %> -->

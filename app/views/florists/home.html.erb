@@ -24,35 +24,8 @@
   </div>
 </div>
 <div class="home-section-3">
-  <!-- START Itération pour l'index -->
-  <%# for i in (5).downto(0) %>
-      <%#= i if i>0 %>
-  <%# end %>
-  <!-- FIN Itération pour l'index -->
 
-  <!-- <div class="card-wrap">
-    <%# Stripe::Product.list().count do |product| %>
-      <%#= link_to composition_path(product.id) do %>                 Afficher le lien de la compo
-        <div class="green-border-card">
-          <%# product.images.map do |image| %>
-            <img src=<%#= image %> alt='<%#= product.name %>'></img>    Afficher la photo de la compo
-          <%# end %>
-          <h3><%#= product.name %></h3>                           Afficher le nom de la compo
-          <%# Stripe::Price.list({product: product.id}).map do |pp| %>
-            <%# if pp[:nickname].match?(/\w[S]/) %>              <div class="card-price">
-                <%#= pp[:unit_amount]/100 %>€</br>                Afficher le prix compo
-              </div>
-              <p>à partir de</p>
-              <div class="green-square"></div>
-            <%# end %>
-          <%# end %>
-        </div>
-      <%# end %>
-    <%# end %>
-  </div> -->
-<%#= @compositions %>
   <div class="card-wrap">
-    <%#= raise %>
     <% @compositions.map do |composition| %>
       <% if composition.product.active? && composition.nickname.match?(/[S]/) %>
         <%= link_to composition_path(composition.id) do %>

@@ -8,15 +8,16 @@ require("channels")
 
 import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
-import { initPriceSelected } from '../plugins/init_price_selected';
-// import { initMapbox } from '../plugins/init_mapbox';
+// import { initPriceSelected } from '../plugins/init_price_selected';
+import { initMapbox } from '../plugins/init_mapbox';
+import { initMapboxRelai } from '../plugins/init_mapbox_relais';
 import "channels";
 
   // Turbolinks.start()
 
 document.addEventListener('turbolinks:load', () => {
   if (document.getElementsByClassName('compositions show').length > 0) {
-    initPriceSelected();
+    initMapboxRelai();
   };
-  // initMapbox();
+  initMapbox();
 })

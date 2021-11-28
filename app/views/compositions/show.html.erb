@@ -22,16 +22,18 @@
         <%= link_to "#{compoPrice.nickname}", composition_path(compoPrice.id) %>
       <% end %>
       <p>Sélectionnez votre point de retrait</p>
-      <%= form.collection_select :relai_id, @relais, :id, :name %> </br>
+      <!-- <div class="profile" data-activity-id="<%#= @relai.id %>"> -->
+        <%#= @relai.id %>
+        <%= form.collection_select :relai_id, @relais, :id, :name, {class: ''}, { html_options: 'data-relai-id = #{:relai_id}'} %> </br>
+      <!-- </div> -->
       <%= form.submit 'Purchase', params: {id: @composition.id}, remote: true, class: 'app-form-button' %>
-      <%#= button_to 'Purchase', orders_path, params: {id: @composition.id}, remote: true %>
-      <%#= link_to 'Achat', orders_path, params: {id: @composition.id}, method: :post, remote: true %>
     <% end %><br><br>
       <div id="map"
         style="width: 100%; height: 300px;"
-        data-markers="<%#= @markers.to_json %>"
-        data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
+
   </div>
 </div>
 

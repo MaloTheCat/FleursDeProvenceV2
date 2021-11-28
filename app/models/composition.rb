@@ -3,26 +3,12 @@ class Composition < ApplicationRecord
   belongs_to :florist
   has_many :orders
 
-  monetize :amount_cents
+  # monetize :amount_cents
+  monetize :price_cents
   validates :name, presence: true
   # validates :base_price, presence: true
   # validates :size, presence: true
 
   # accepts_nested_attributes_for :orders
-
-
-
-  # def setPrice(size)
-  #   case size
-  #   when "M"
-  #     price.to_i + 10
-  #   when "L"
-  #     price.to_i + 20
-  #   else
-  #     price.to_i
-  #   end
-  # end
-
-  # scope :desc, composition: ("events.event_at DESC")
 
 end
