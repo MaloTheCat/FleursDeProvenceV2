@@ -13,20 +13,24 @@
         <p>Taille du bouquet</p>
         <p>Guide des tailles</p>
       </div>
-    </div>
 
     <%= form_with(url:orders_path) do |form| %>
       <%= hidden_field_tag 'composition_id', @composition.id %>
       <% @sorted = @compositionsProduct.sort_by { |hash| hash[:nickname] }.reverse %>
-      <% @sorted.map do |compoPrice| %>
-        <%= link_to "#{compoPrice.nickname}", composition_path(compoPrice.id) %>
-      <% end %>
+      <div class="compo-size-letter">
+        <% @sorted.map do |compoPrice| %>
+          <!-- <span> -->
+            <%= link_to "#{compoPrice.nickname}", composition_path(compoPrice.id), class:"size-letter" %>
+          <!-- </span> -->
+        <% end %>
+      </div>
+    </div>
       <p>Sélectionnez votre point de retrait</p>
       <!-- <div class="profile" data-activity-id="<%#= @relai.id %>"> -->
         <%#= @relai.id %>
-        <%= form.collection_select :relai_id, @relais, :id, :name, {class: ''}, { html_options: 'data-relai-id = #{:relai_id}'} %> </br>
+        <%= form.collection_select :relai_id, @relais, :id, :name, {prompt: "Points relais"}, { html_options: 'data-relai-id = #{:relai_id}'} %> </br>
       <!-- </div> -->
-      <%= form.submit 'Purchase', params: {id: @composition.id}, remote: true, class: 'app-form-button' %>
+      <%= form.submit 'Acheter', params: {id: @composition.id}, remote: true, class: 'app-form-button' %>
     <% end %><br><br>
       <div id="map"
         style="width: 100%; height: 300px;"
@@ -40,13 +44,6 @@
       <%#= fields_for :customer do |customer| %>
         <%#= customer.text_field :lastname, placeholder: 'Votre Nom' %>
         <%#= customer.text_field :firstname, placeholder: 'votre Prénom' %>
-      <%# end %>
-
-      <!-- A mettre sur view Home et view Compositions -->
-      <%# if @composition.disponibility == true %>
-        <%#=  %>
-      <%# else %>
-        <%#=  %>
       <%# end %>
 
       <%#= f.fields_for :order do |ff| %>
