@@ -11,7 +11,12 @@
     <div class="compo-size">
       <div class="compo-size-text">
         <p>Taille du bouquet</p>
-        <p>Guide des tailles</p>
+        <a href="#">
+          <p>Guide des tailles</p>
+          <div id="image_guide_size">
+            <%= cl_image_tag('taille-bouquets') %>
+          </div>
+        </a>
       </div>
 
     <%= form_with(url:orders_path) do |form| %>
