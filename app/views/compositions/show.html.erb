@@ -19,9 +19,7 @@
       <% @sorted = @compositionsProduct.sort_by { |hash| hash[:nickname] }.reverse %>
       <div class="compo-size-letter">
         <% @sorted.map do |compoPrice| %>
-          <!-- <span> -->
             <%= link_to "#{compoPrice.nickname}", composition_path(compoPrice.id), class:"size-letter" %>
-          <!-- </span> -->
         <% end %>
       </div>
     </div>
