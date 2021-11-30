@@ -1,20 +1,31 @@
 let sizeGuide;
+let getClassHidden;
+let guideDesTailles;
 
 const doToggle = (e) => {
   e.preventDefault();
-  // sizeGuide.classList.remove('hidden');
-  sizeGuide.classList.toggle('hidden')
+    sizeGuide.classList.toggle('hidden');
+  // if (getClassHidden) {
+    // sizeGuide.classList.remove('hidden');
+  // } else {
+    // sizeGuide.classList.add('hidden')
+  // }
 }
 
 const initModalSize = () => {
   sizeGuide = document.getElementById("image_guide_size");
-  if (sizeGuide) {
+  getClassHidden = document.getElementsByClassName("hidden");
+  guideDesTailles = document.getElementById('guide-size');
+
+  // if (sizeGuide) {
     // (function = (event) => {
-      sizeGuide.addEventListener('click', doToggle);
-      // event.preventDefault();
+      // sizeGuide.addEventListener('click', doToggle);
     // }):
-    // console.log('done');
-  }
+  // } else {
+    guideDesTailles.addEventListener('click', doToggle);
+    // or
+    sizeGuide.addEventListener('click', doToggle);
+  // }
 }
 
 export { initModalSize }
