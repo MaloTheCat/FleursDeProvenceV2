@@ -27,6 +27,7 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'sinatra'
 gem 'stripe'#, '>= 2.8', '< 6.0'
 gem 'money-rails', '~>1.12'
+gem "figaro"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
