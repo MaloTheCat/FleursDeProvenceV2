@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :payments, only: :new
   end
 
+  resources :webhooks
+
   # post "orders/create", to: "orders#create"#, :defaults => { format: 'json' }
 
   get "/thanks_purchase" => "orders#thanksPurchase"
