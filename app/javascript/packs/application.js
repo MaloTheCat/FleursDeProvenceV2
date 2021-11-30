@@ -8,17 +8,17 @@ require("channels")
 
 import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
-// import { initMapbox } from '../plugins/init_mapbox';
+import { initMapbox } from '../plugins/init_mapbox';
 import { initModalSize } from '../plugins/init_modal_size'
-// import { initMapboxRelai } from '../plugins/init_mapbox_relais';
+import { initMapboxRelai } from '../plugins/init_mapbox_relais';
 import "channels";
 
   // Turbolinks.start()
 
 document.addEventListener('turbolinks:load', () => {
   if (document.getElementsByClassName('compositions show').length > 0) {
-    // initMapboxRelai();
+    initMapboxRelai();
     initModalSize()
   };
-  // initMapbox();
+  initMapbox();
 })

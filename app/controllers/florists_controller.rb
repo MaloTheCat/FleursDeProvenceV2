@@ -1,4 +1,6 @@
 class FloristsController < ApplicationController
+  require 'stripe'
+
   def home
     @florists = Florist.all
     @florist = Florist.first
