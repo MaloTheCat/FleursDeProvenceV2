@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
         currency: 'eur',
         quantity: '1'
       }],
-      success_url: root_url,
+      success_url: thanks_purchase_url,
       cancel_url: root_url
     })
     # respond_to :json
