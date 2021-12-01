@@ -12,30 +12,33 @@ const initMapboxRelai = () => {
   };
 
   relai_id.addEventListener('change', (event) => {
-    const relais = [
-      {id: 1, name: "Villa Augusta", longitude: "4.7661659", latitude: "44.3451691" },
-      {id: 2, name: "Maison Buffet gourmet", longitude: "4.774910", latitude: "44.349240" }
-    ];
-    event.preventDefault();
 
-    let relai = relais.find(function (element) {
-      return element.id == event.target.value;
-      relais.find(element => element["id"] == relai);
-    });
-    if (mapElement) {
-      mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-      const map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v10'
-      });
-      const markers = JSON.parse(mapElement.dataset.markers);
-      markers.forEach((marker) => {
-        new mapboxgl.Marker()
-        .setLngLat([ relai.longitude, relai.latitude ])
-        .addTo(map)
-      });
-      fitMapToMarkers(map, markers);
-    };
+    console.log(event.target);
+    // const relais = [
+    //   {id: 1, name: "Villa Augusta", longitude: "4.7661659", latitude: "44.3451691" },
+    //   {id: 2, name: "Maison Buffet gourmet", longitude: "4.774910", latitude: "44.349240" }
+    // ];
+    // event.preventDefault();
+
+    // let relai = relais.find(function (element) {
+    //   return element.id == event.target.value;
+    //   relais.find(element => element["id"] == relai);
+    // });
+    // if (mapElement) {
+    //   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+    //   const map = new mapboxgl.Map({
+    //     container: 'map',
+    //     style: 'mapbox://styles/mapbox/streets-v10'
+    //   });
+    //   const markers = JSON.parse(mapElement.dataset.markers);
+    //   markers.forEach((marker) => {
+    //     new mapboxgl.Marker()
+    //     .setLngLat([ relai.longitude, relai.latitude ])
+    //     .addTo(map)
+    //   });
+    //   fitMapToMarkers(map, markers);
+    // };
   });
 };
+
 export { initMapboxRelai };

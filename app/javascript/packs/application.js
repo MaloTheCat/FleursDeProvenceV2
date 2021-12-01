@@ -13,8 +13,6 @@ import { initModalSize } from '../plugins/init_modal_size'
 import { initMapboxRelai } from '../plugins/init_mapbox_relais';
 import "channels";
 
-  // Turbolinks.start()
-
 document.addEventListener('turbolinks:load', () => {
   if (document.getElementsByClassName('compositions show').length > 0) {
     initMapboxRelai();
