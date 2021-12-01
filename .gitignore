@@ -38,6 +38,7 @@ yarn-debug.log*
 
 .env
 cloudinary.yml
+/config/credentials.yml.enc
 
 # Ignore application configuration
 /config/application.yml
