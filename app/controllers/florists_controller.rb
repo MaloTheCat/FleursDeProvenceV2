@@ -10,7 +10,8 @@ class FloristsController < ApplicationController
     # the `geocoded` scope filters only relais with coordinates (latitude & longitude)
     @markers = @relais.geocoded.map do |f| {
         lat: f.latitude,
-        lng: f.longitude
+        lng: f.longitude,
+        image_url: helpers.asset_url('marker.png')
       }
     end
 

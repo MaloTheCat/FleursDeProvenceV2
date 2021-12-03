@@ -29,8 +29,16 @@ const initMapboxRelai = () => {
         style: 'mapbox://styles/mapbox/streets-v10'
       });
       const markers = JSON.parse(mapElement.dataset.markers);
+
+      const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundImage = `url('https://res.cloudinary.com/dhj5ygysw/image/upload/v1638392415/marker.png')`;
+      element.style.backgroundSize = 'contain';
+      element.style.width = '42px';
+      element.style.height = '50px';
+
       markers.forEach((marker) => {
-        new mapboxgl.Marker()
+        new mapboxgl.Marker(element)
         .setLngLat([ relai.longitude, relai.latitude ])
         .addTo(map)
       });
