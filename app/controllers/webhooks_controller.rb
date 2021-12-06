@@ -30,7 +30,7 @@ class WebhooksController < ApplicationController
         # product.increment!(:sales_count)
       OrderMailer.order_mail(@order).deliver
       # ContactMailer.contact_mail(@session).deliver
-      end
+      # end
     end
 
     render json: { message: 'success' }
