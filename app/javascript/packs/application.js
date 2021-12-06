@@ -17,6 +17,9 @@ document.addEventListener('turbolinks:load', () => {
   if (document.getElementsByClassName('compositions show').length > 0) {
     initMapboxRelai();
     initModalSize()
+  } else if (document.getElementsByClassName('florist home').length > 0) {
+    initMapbox();
+  } else {
+
   };
-  initMapbox();
 })
