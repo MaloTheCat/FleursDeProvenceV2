@@ -8,7 +8,7 @@
 <hr>
 line_items : <%= @order.line_items %> <br>
 <hr>
-line_items :  <% @order.line_items[:data].foreach do |data| %> <br>
+line_items :  <% @order.line_items[:data].each do |data| %> <br>
                 <%= data %>
               <% end %>
 <hr>
