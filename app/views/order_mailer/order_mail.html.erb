@@ -3,15 +3,14 @@
 <h3>Mr/Mme <%= @order.customer.name %>, a commandé sur www.fleursdeprovence.fr !</h3>
 <br>
 -> Email de l'acheteur : <%= @order.customer_details.email %><br>
--> Prix : <%= @order.amount_total/100 %><br>
--> Nom de la composition : <%#= @order.line_items.name %><br>
 <hr>
 line_items : <%= @order.line_items %> <br>
 <hr>
 line_items :  <% @order.line_items[:data].each do |data| %> <br>
-                <%= data.id %>
-                <%= data.description %>
+                Nom de la composition : <%= data.description %> <br>
+                Nickname de la composition : <%= data.price.nickname %> <br>
               <% end %>
+-> Prix : <%= @order.amount_total/100 %><br>
 <hr>
 id composition: <%#= @order.line_items.data.id %> <br>
 <hr>
@@ -22,12 +21,6 @@ price object composition: <%#= @order.line_items.data.price.id %> <br>
 price object composition: <%#= @order.line_items.data.price.object %> <br>
 <hr>
 price nickname composition: <%#= @order.line_items.data.price.nickname %> <br>
-<hr>
-nom composition: <%#= @order.line_items.data[:description] %> <br>
-<hr>
-line_items : <%#= @order.line_items.data[:description][:price] %> <br>
-<hr>
-line_items : <%#= @order.line_items.data[:price][:id] %> <br>
 <hr>
 <!-- Taille de la composition : <%#= @order.line_items. %><br> -->
 Relais choisi : <%#= @order.relai.name %><br>
