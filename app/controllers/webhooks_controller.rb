@@ -32,10 +32,10 @@ class WebhooksController < ApplicationController
 
   private
 
-  def params_webhook
-    params.require(:order).permit(
-      :relai_id,
-      :composition_id
-    )
-  end
+  # def params_webhook
+  #   params.require(:order).permit(
+  #     :relai_id,
+  #     :composition_id
+  #   )
+  # end
 end
