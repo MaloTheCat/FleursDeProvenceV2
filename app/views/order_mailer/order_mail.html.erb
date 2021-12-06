@@ -7,6 +7,8 @@
 -> Nom de la composition : <%#= @order.line_items.name %><br>
 line_items : <%= @order.line_items %> <br>
 <hr>
+line_items : <%= @order.line_items[:data] %> <br>
+<hr>
 id composition: <%#= @order.line_items.data.id %> <br>
 <hr>
 object composition: <%#= @order.line_items.data.object %> <br>
