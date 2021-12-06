@@ -7,21 +7,21 @@
 -> Nom de la composition : <%#= @order.line_items.name %><br>
 line_items : <%= @order.line_items %> <br>
 <hr>
-id composition: <%= @order.line_items.data.id %> <br>
+id composition: <%= @order.id %> <br>
 <hr>
-object composition: <%= @order.line_items.data.object %> <br>
+object composition: <%= @order.object %> <br>
 <hr>
-price object composition: <%= @order.line_items.data.price.id %> <br>
+price object composition: <%= @order.price.id %> <br>
 <hr>
-price object composition: <%= @order.line_items.data.price.object %> <br>
+price object composition: <%= @order.price.object %> <br>
 <hr>
-price nickname composition: <%= @order.line_items.data.price.nickname %> <br>
+price nickname composition: <%= @order.price.nickname %> <br>
 <hr>
-nom composition: <%= @order.line_items.data[:description] %> <br>
+nom composition: <%= @order[:description] %> <br>
 <hr>
-line_items : <%= @order.line_items.data[:description][:price] %> <br>
+line_items : <%= @order[:description][:price] %> <br>
 <hr>
-line_items : <%= @order.line_items.data[:price][:id] %> <br>
+line_items : <%= @order[:price][:id] %> <br>
 <hr>
 <!-- Taille de la composition : <%#= @order.line_items. %><br> -->
 Relais choisi : <%#= @order.relai.name %><br>
