@@ -9,7 +9,8 @@
 line_items : <%= @order.line_items %> <br>
 <hr>
 line_items :  <% @order.line_items[:data].each do |data| %> <br>
-                <%= data %>
+                <%= data.id %>
+                <%= data.description %>
               <% end %>
 <hr>
 id composition: <%#= @order.line_items.data.id %> <br>
