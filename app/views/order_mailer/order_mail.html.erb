@@ -6,16 +6,23 @@
 -> Prix : <%= @order.amount_total/100 %><br>
 -> Nom de la composition : <%#= @order.line_items.name %><br>
 line_items : <%= @order.line_items %> <br>
-order : <%= @order %>
-Taille de la composition : <%#= @order.line_items. %><br>
+<hr>
+nom composition: <%= @order.line_items.data[:description] %> <br>
+<hr>
+line_items : <%= @order.line_items.data[:description][:price] %> <br>
+<hr>
+line_items : <%= @order.line_items.data[:description][:price(price.id)] %> <br>
+<hr>
+<!-- Taille de la composition : <%#= @order.line_items. %><br> -->
 Relais choisi : <%#= @order.relai.name %><br>
 <br>
 Nom de la personne qui a commandé : <%#= @order.billing_details.name %><br>
 Téléphone de l'acheteur : <%#= @order.customer_details.phone %><br>
 
+<%= session %>
 
 
-test @composition: <%= @composition %>
+<!-- test @composition: <%#= @composition %>
 test prix : <%#= @order.line_items.price.id %>
 test image : <%#= @order.line_items.images[0] %>
-test image : <%#= @order.line_items.images.first %>
+test image : <%#= @order.line_items.images.first %> -->
