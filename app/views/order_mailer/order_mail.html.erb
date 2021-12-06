@@ -8,7 +8,9 @@
 <hr>
 line_items : <%= @order.line_items %> <br>
 <hr>
-line_items : <%= @order.line_items[:data(:id)] %> <br>
+line_items :  <% @order.line_items[:data].foreach do |data| %> <br>
+                <%= data %>
+              <% end %>
 <hr>
 id composition: <%#= @order.line_items.data.id %> <br>
 <hr>
