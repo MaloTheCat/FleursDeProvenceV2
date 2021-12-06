@@ -1,15 +1,19 @@
-<h3>Id de la commande : <%= @order.id %></h3><br>
+<h3>ID N° <%= @order.id %></h3><br>
 
-<h3>KB<%= @order.customer_details.email %>, a commandé sur www.fleursdeprovence.fr !</h3>
+<h3>Mr/Mme <%= @order.customer.name %>, a commandé sur www.fleursdeprovence.fr !</h3>
 <br>
 -> Email de l'acheteur : <%= @order.customer_details.email %><br>
 -> Prix : <%= @order.amount_total/100 %><br>
-Nom de la composition : <br>
-Taille de la composition : <%#= @order.size.name %><br>
+Nom de la composition : <%= @order.line_items.name %><br>
+Taille de la composition : <%= @order.line_items. %><br>
 Relais choisi : <%#= @order.relai.name %><br>
 <br>
 Nom de la personne qui a commandé : <%#= @order.billing_details.name %><br>
 Téléphone de l'acheteur : <%#= @order.customer_details.phone %><br>
 
 
-test : <%= @order.customer %>
+
+test @composition: <%= @composition %>
+test prix : <%= @order.line_items.price.id %>
+test image : <%= @order.line_items.images[0] %>
+test image : <%= @order.line_items.images.first %>
