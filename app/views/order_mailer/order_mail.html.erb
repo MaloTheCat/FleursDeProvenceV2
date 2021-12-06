@@ -7,11 +7,21 @@
 -> Nom de la composition : <%#= @order.line_items.name %><br>
 line_items : <%= @order.line_items %> <br>
 <hr>
+id composition: <%= @order.line_items.data.id %> <br>
+<hr>
+object composition: <%= @order.line_items.data.object %> <br>
+<hr>
+price object composition: <%= @order.line_items.data.price.id %> <br>
+<hr>
+price object composition: <%= @order.line_items.data.price.object %> <br>
+<hr>
+price nickname composition: <%= @order.line_items.data.price.nickname %> <br>
+<hr>
 nom composition: <%= @order.line_items.data[:description] %> <br>
 <hr>
 line_items : <%= @order.line_items.data[:description][:price] %> <br>
 <hr>
-line_items : <%#= @order.line_items.data[:description][:price(price.id)] %> <br>
+line_items : <%= @order.line_items.data[:price][:id] %> <br>
 <hr>
 <!-- Taille de la composition : <%#= @order.line_items. %><br> -->
 Relais choisi : <%#= @order.relai.name %><br>
@@ -26,3 +36,4 @@ Téléphone de l'acheteur : <%#= @order.customer_details.phone %><br>
 test prix : <%#= @order.line_items.price.id %>
 test image : <%#= @order.line_items.images[0] %>
 test image : <%#= @order.line_items.images.first %> -->
+jonathan.vanderbosse@wanadoo.fr
