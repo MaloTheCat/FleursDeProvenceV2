@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # post "orders/create", to: "orders#create"#, :defaults => { format: 'json' }
 
   get "/thanks_purchase" => "orders#thanksPurchase"
+  get "/fails_purchase" => "orders#failsPurchase"
   get "/checkout" => "orders#checkout" #, :defaults => { :format => 'json' }
 
   get 'evenement' => 'evenements#index'

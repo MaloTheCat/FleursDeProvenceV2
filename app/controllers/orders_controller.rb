@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
         quantity: '1'
       }],
       success_url: thanks_purchase_url,
-      cancel_url: root_url
+      cancel_url: fails_purchase_url
     })
     # respond_to :json
 
