@@ -23,14 +23,11 @@ class WebhooksController < ApplicationController
     # Handle the event
     case event.type
     when 'checkout.session.completed'
-      @session = event.data.object
-      @order = Stripe::Checkout::Session.retrieve({ id: @session.id, expand: ["line_items"]})
-      # session_with_expand.line_items.data.each do |line_item|
-        # product = Product.find_by(stripe_product_id: line_item.price.product)
-        # product.increment!(:sales_count)
-      OrderMailer.order_mail(@order).deliver
+      session = event.data.object
+      @order = Stripe::Checkout::Session.retrieve({ id: session.id, expand: ["line_items"]})
+
+      # OrderMailer.order_mail(@order).deliver
       # ContactMailer.contact_mail(@session).deliver
-      # end
     end
 
     render json: { message: 'success' }
