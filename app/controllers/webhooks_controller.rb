@@ -29,7 +29,6 @@ class WebhooksController < ApplicationController
       OrderMailer.order_mail(@order).deliver
       # ContactMailer.contact_mail(@session).deliver
     end
-
     render json: { message: 'success' }
   end
 end
