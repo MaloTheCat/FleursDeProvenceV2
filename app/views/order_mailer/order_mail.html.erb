@@ -1,11 +1,11 @@
 <!-- <h3>M/Mme <%#= @order.customer.firstname %>, <%#= @order.customer.lastname %> a commandé sur www.fleursdeprovence.fr !</h3> -->
 
-<h3><%= @order.id %><br>
-Prix : <%= humanized_money(@order.composition.setPrice(@order.size.name)) %><br>
-Taille : <%= @order.size.name %><br>
-Relais: <%= @order.relai.name %> </h3>
+<h3><%#= @order.id %><br>
+Prix : <%#= humanized_money(@order.composition.setPrice(@order.size.name)) %><br>
+Taille : <%#= @order.size.name %><br>
+Relais: <%#= @order.relai.name %> </h3>
 
-email de l'acheteur : <%= @order.customer_details.email %>
-Téléphone de l'acheteur : <%= @order.customer_details.phone %>
-Montant de l'achat : <%= @order.amount_total %>
+email de l'acheteur : <%#= @order.customer_details.email %>
+Téléphone de l'acheteur : <%#= @order.customer_details.phone %>
+Montant de l'achat : <%#= @order.amount_total %>
 
