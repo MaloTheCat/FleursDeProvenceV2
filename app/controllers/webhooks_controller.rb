@@ -26,7 +26,7 @@ class WebhooksController < ApplicationController
       session = event.data.object
       @order = Stripe::Checkout::Session.retrieve({ id: session.id, expand: ["line_items"]})
 
-      # OrderMailer.order_mail(@order).deliver
+      OrderMailer.order_mail(@order).deliver
       # ContactMailer.contact_mail(@session).deliver
     end
 
