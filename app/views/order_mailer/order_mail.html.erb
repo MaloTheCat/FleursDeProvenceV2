@@ -55,7 +55,8 @@ Email customer =
 phone customer =
 <%= @order.customer.phone %>
 <hr>
-ID Order : <%= @order.id %>
+ID Order =
+<%= @order.id %>
 <hr>
 ID du line_item : <% @order.line_items.data.each do |line| %>
                     <%= line %>
@@ -74,8 +75,6 @@ ID du line_item : <% @order.line_items.data.each do |line| %>
 
 <!-- Nickname de la composition (Taille) : -->
 <hr>
-
-<%#= @line_item %>
 Order = <%= @order %>
 <hr>
 Order item = <% @order.line_items.data.each do |line| %>
