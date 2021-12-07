@@ -26,7 +26,7 @@ class WebhooksController < ApplicationController
       session = event.data.object
       @order = Stripe::Checkout::Session.retrieve({ id: session.id, expand: ["line_items", "customer"]})
       @order.line_items.data.each do |line|
-        @price = Stripe::Price.retrieve(id=`#{line.price.id}`)
+        @price = Stripe::Price.retrieve(`#{line.price.id}`)
       end
       @order = @order.price
       OrderMailer.order_mail(@order).deliver
