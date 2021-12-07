@@ -24,7 +24,7 @@ class WebhooksController < ApplicationController
     case event.type
     when 'checkout.session.completed'
       session = event.data.object
-      @order = Stripe::Checkout::Session.retrieve({ id: session.id, expand: ["line_items", "customer"]})
+      order = Stripe::Checkout::Session.retrieve({ id: session.id, expand: ["line_items", "customer"]})
 
       # @order.line_items.data.each do |line|
         # @price = Stripe::Price.list(`#{line.price.id}`)
@@ -32,7 +32,7 @@ class WebhooksController < ApplicationController
       # end
       # @order = @order.price
 
-      OrderMailer.order_mail(@order).deliver
+      OrderMailer.order_mail(order).deliver
     end
     render json: { message: 'success' }
   end
