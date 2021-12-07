@@ -61,26 +61,26 @@ ID Order =
 ID du line_item : <% @order.line_items.data.each do |line| %>
                     <%= line %>
                     <%= line.id %>
+                    <h3> NICKNAME = <%= line.nickname %> </h3>
                     <hr>
                     Nom de la composition : <%= line.description %>
                     <hr>
                     Price ID de la composition : <%= line.price.id %></h3>
                     <hr>
+                    Description : <%= line.description %>
                     <%#= @prix = Stripe::Price.retrieve(id=`#{line.price.id}`) %>
                     <%#= line.nickname %>
                     <hr>
                     <h3>Prix de la Composition : <%= line.price.unit_amount/100 %>€</h3>
                     <hr>
                   <% end %>
+                  <%= @nickname %>
 
 <!-- Nickname de la composition (Taille) : -->
-<hr>
-Order = <%= @order %>
-<hr>
-Order item = <% @order.line_items.data.each do |line| %>
-<%= line.description %>
-<%= line.amount_total %>
-<% end %>
+<!-- <hr> -->
+<!-- Order = <%#= @order %> -->
+<!-- <hr> -->
+
 
 
 
