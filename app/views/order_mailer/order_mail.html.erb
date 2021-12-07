@@ -1,17 +1,17 @@
-<h3> => ID N° <%= @order.id %></h3>
-<h3>=> Mr/Mme <%= @order.customer.name %>, a commandé sur www.fleursdeprovence.fr !</h3>
+<!-- <h3> => ID N° <%#= @order.id %></h3>
+<h3>=> Mr/Mme <%#= @order.customer.name %>, a commandé sur www.fleursdeprovence.fr !</h3>
 <br>
-<h3>=> Email de l'acheteur : <%= @order.customer_details.email %></h3><br>
-<hr>
+<h3>=> Email de l'acheteur : <%#= @order.customer_details.email %></h3><br>
+<hr> -->
 <!-- line_items : <%#= @order.line_items %><br> -->
-<hr>
-<hr>
-line_items<% @order.line_items[:data].each do |data| %> <br>
-  => Nom de la composition : <%= data.description %> <br>
-  Nickname de la composition : <%= data.price.nickname %> <br>
-  ID price de la composition : <%= data.price.id %> <br>
-<% end %>
-=> Prix : <%= @order.amount_total/100 %><br>
+<!-- <hr> -->
+<!-- <hr> -->
+<!-- line_items<%# @order.line_items[:data].each do |data| %> <br>
+  => Nom de la composition : <%#= data.description %> <br>
+  Nickname de la composition : <%#= data.price.nickname %> <br>
+  => ID price de la composition : <%#= data.price.id %> <br>
+<%# end %>
+=> Prix : <%#= @order.amount_total/100 %><br> -->
 <!-- <hr>
 id composition: <%#= @order.line_items.data.id %> <br>
 <hr>
@@ -36,9 +36,34 @@ test image : <%#= @order.line_items.images[0] %>
 test image : <%#= @order.line_items.images.first %> -->
 
 <%#= params[:id] %>
+<!-- <hr> -->
+<%#= @order %>
+<!-- <hr> -->
+
+
+Montant total : <%= @order.amount_total %>
 <hr>
-<%= @order %>
+Email customer : <%= @order.customer.email %>
 <hr>
+nom customer : <%= @order.customer.name %>
+<hr>
+phone customer : <%= @order.customer.phone %>
+<hr>
+ID Order : <%= @order.id %>
+<hr>
+ID du line_item : <% @order.line_items.data.each do |line| %>
+                    <%= line.id %>
+                    <hr>
+                    Nom de la composition : <%= line.description %>
+                    <hr>
+                    ID du prix de la composition : <%= line.price.id %>
+                    <hr>
+                    Nickname de la composition (Taille) : <%= line.price.nickname %>
+                    <hr>
+                    Prix de la Composition : <%= line.price.unit_amount %>
+                    <hr>
+                  <% end %>
+
 
 
 
