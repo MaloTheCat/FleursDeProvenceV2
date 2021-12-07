@@ -25,6 +25,10 @@ class WebhooksController < ApplicationController
     when 'checkout.session.completed'
       session = event.data.object
       @order = Stripe::Checkout::Session.retrieve({ id: session.id, expand: ["line_items", "customer"]})
+      @order.line_items.data.each do |line|
+        @price = Stripe::Price.retrieve(id=`#{line.price.id}`)
+      end
+      @order = @order.price
       OrderMailer.order_mail(@order).deliver
     end
     render json: { message: 'success' }
