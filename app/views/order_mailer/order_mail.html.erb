@@ -40,13 +40,20 @@ test image : <%#= @order.line_items.images.first %> -->
 
 
 
-<h3>Montant total : <%= @order.amount_total/100 %>€
+<h3>Montant total =
+<%= @order.amount_total/100 %>€
 <hr>
-Email customer : <%= @order.customer.email %>
+Order Customer ID =
+<%= @order.customer.id %>
 <hr>
-nom customer : <%= @order.customer.name %>
+nom customer =
+<%= @order.customer.name %>
 <hr>
-phone customer : <%= @order.customer.phone %>
+Email customer =
+<%= @order.customer.email %>
+<hr>
+phone customer =
+<%= @order.customer.phone %>
 <hr>
 ID Order : <%= @order.id %>
 <hr>
@@ -70,10 +77,6 @@ ID du line_item : <% @order.line_items.data.each do |line| %>
 
 <%#= @line_item %>
 Order = <%= @order %>
-<hr>
-Order ID = <%= @order.id %>
-<hr>
-Order Customer ID = <%= @order.customer.id %>
 <hr>
 Order item = <% @order.line_items.data.each do |line| %>
 <%= line.description %>

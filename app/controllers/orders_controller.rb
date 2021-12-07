@@ -16,7 +16,8 @@ class OrdersController < ApplicationController
       line_items: [{
         name: Stripe::Product.retrieve(@composition.product).name,
         images: [Stripe::Product.retrieve(@composition.product).images.first],
-        # size: @composition.nickname,
+        # nickname: Stripe::Price.list({limit:15, expand: ['data.product']}).map do |price| price.nickname end
+        nickname: @composition.nickname,
         amount: @composition.unit_amount,
         currency: 'eur',
         quantity: '1'
