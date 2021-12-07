@@ -1,17 +1,18 @@
-<h3>ID N° <%= @order.id %></h3><br>
-
-<h3>Mr/Mme <%= @order.customer.name %>, a commandé sur www.fleursdeprovence.fr !</h3>
+<h3> => ID N° <%= @order.id %></h3>
+<h3>=> Mr/Mme <%= @order.customer.name %>, a commandé sur www.fleursdeprovence.fr !</h3>
 <br>
--> Email de l'acheteur : <%= @order.customer_details.email %><br>
+<h3>=> Email de l'acheteur : <%= @order.customer_details.email %></h3><br>
 <hr>
-line_items : <%= @order.line_items %> <br>
+<!-- line_items : <%#= @order.line_items %><br> -->
 <hr>
-line_items :  <% @order.line_items[:data].each do |data| %> <br>
-                Nom de la composition : <%= data.description %> <br>
-                Nickname de la composition : <%= data.price.nickname %> <br>
-              <% end %>
--> Prix : <%= @order.amount_total/100 %><br>
 <hr>
+line_items<% @order.line_items[:data].each do |data| %> <br>
+  => Nom de la composition : <%= data.description %> <br>
+  Nickname de la composition : <%= data.price.nickname %> <br>
+  ID price de la composition : <%= data.price.id %> <br>
+<% end %>
+=> Prix : <%= @order.amount_total/100 %><br>
+<!-- <hr>
 id composition: <%#= @order.line_items.data.id %> <br>
 <hr>
 object composition: <%#= @order.line_items.data.object %> <br>
@@ -22,16 +23,29 @@ price object composition: <%#= @order.line_items.data.price.object %> <br>
 <hr>
 price nickname composition: <%#= @order.line_items.data.price.nickname %> <br>
 <hr>
-<!-- Taille de la composition : <%#= @order.line_items. %><br> -->
+Taille de la composition : <%#= @order.line_items. %><br>
 Relais choisi : <%#= @order.relai.name %><br>
 <br>
-Nom de la personne qui a commandé : <%#= @order.billing_details.name %><br>
 Téléphone de l'acheteur : <%#= @order.customer_details.phone %><br>
-
+ -->
 
 <%#= session %>
 <!-- test @composition: <%#= @composition %>
 test prix : <%#= @order.line_items.price.id %>
 test image : <%#= @order.line_items.images[0] %>
 test image : <%#= @order.line_items.images.first %> -->
+
+<%= params[:id] %>
+<hr>
+<%= @order %>
+<hr>
+
+
+
+
+
+
+
+
+
 jonathan.vanderbosse@wanadoo.fr
