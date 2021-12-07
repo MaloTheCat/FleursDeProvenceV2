@@ -36,9 +36,9 @@ class WebhooksController < ApplicationController
       # @size = Stripe::Checkout.retrieve()
 
       # @line_item = Stripe::Checkout::Session.list_line_items('#{@order.id}', {limit: 5})
-      @order.line_items.data.each do |line|
-        @nickname = line.nickname
-      end
+      # @order.line_items.data.each do |line|
+      #   @nickname = line.nickname
+      # end
 
       OrderMailer.order_mail(@order).deliver
     end
