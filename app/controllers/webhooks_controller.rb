@@ -30,9 +30,8 @@ class WebhooksController < ApplicationController
         # @price = Stripe::Price.list(`#{line.price.id}`)
         # @toto = Stripe::Price.retrieve(`#{line.price.id}`).nickname
       # end
+      # @order = @order.price
 
-
-      @order = @order.price
       OrderMailer.order_mail(@order).deliver
     end
     render json: { message: 'success' }
