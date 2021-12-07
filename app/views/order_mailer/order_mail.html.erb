@@ -37,21 +37,21 @@ test image : <%#= @order.line_items.images.first %> -->
 
 <%#= params[:id] %>
 <hr>
-<%= order %>
+<%= @order %>
 <hr>
 
 
-<h3>Montant total : <%= order.amount_total/100 %>€
+<h3>Montant total : <%= @order.amount_total/100 %>€
 <hr>
-Email customer : <%= order.customer.email %>
+Email customer : <%= @order.customer.email %>
 <hr>
-nom customer : <%= order.customer.name %>
+nom customer : <%= @order.customer.name %>
 <hr>
-phone customer : <%= order.customer.phone %>
+phone customer : <%= @order.customer.phone %>
 <hr>
-ID Order : <%= order.id %>
+ID Order : <%= @order.id %>
 <hr>
-ID du line_item : <% order.line_items.data.each do |line| %>
+ID du line_item : <% @order.line_items.data.each do |line| %>
                     <%= line %>
                     <%= line.id %>
                     <hr>
@@ -66,9 +66,10 @@ ID du line_item : <% order.line_items.data.each do |line| %>
                     <hr>
                   <% end %>
 
-Nickname de la composition (Taille) :
+<!-- Nickname de la composition (Taille) : -->
 <hr>
 
+<%= @line_item %>
 
 
 

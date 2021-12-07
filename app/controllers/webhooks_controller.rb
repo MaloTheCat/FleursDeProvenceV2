@@ -24,13 +24,18 @@ class WebhooksController < ApplicationController
     case event.type
     when 'checkout.session.completed'
       session = event.data.object
-      order = Stripe::Checkout::Session.retrieve({ id: session.id, expand: ["line_items", "customer"]})
-
+      @order = Stripe::Checkout::Session.retrieve({ id: session.id, expand: ["line_items", "customer"]})
+      # @order = Stripe::Checkout::Session.retrieve({})
       # @order.line_items.data.each do |line|
         # @price = Stripe::Price.list(`#{line.price.id}`)
         # @toto = Stripe::Price.retrieve(`#{line.price.id}`).nickname
       # end
       # @order = @order.price
+
+      # line_items[0].price: 'price_1JxC8kFE4oPSz5YOc391IZ9I' # price choose
+      # @size = Stripe::Checkout.retrieve()
+
+      @line_item = Stripe::Checkout::Session.list_line_items(@order, {limit: 5})
 
       OrderMailer.order_mail(order).deliver
     end
