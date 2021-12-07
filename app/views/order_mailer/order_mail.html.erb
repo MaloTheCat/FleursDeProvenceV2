@@ -36,12 +36,12 @@ test image : <%#= @order.line_items.images[0] %>
 test image : <%#= @order.line_items.images.first %> -->
 
 <%#= params[:id] %>
-<!-- <hr> -->
-<%#= @order %>
-<!-- <hr> -->
+<hr>
+<%= @order %>
+<hr>
 
 
-Montant total : <%= @order.amount_total %>
+<h3>Montant total : <%= @order.amount_total/100 %>€
 <hr>
 Email customer : <%= @order.customer.email %>
 <hr>
@@ -56,11 +56,11 @@ ID du line_item : <% @order.line_items.data.each do |line| %>
                     <hr>
                     Nom de la composition : <%= line.description %>
                     <hr>
-                    ID du prix de la composition : <%= line.price.id %>
+                    ID du prix de la composition : <%= line.price.id %></h3>
                     <hr>
                     Nickname de la composition (Taille) : <%= line.price.nickname %>
                     <hr>
-                    Prix de la Composition : <%= line.price.unit_amount %>
+                    <h3>Prix de la Composition : <%= line.price.unit_amount/100 %>€</h3>
                     <hr>
                   <% end %>
 

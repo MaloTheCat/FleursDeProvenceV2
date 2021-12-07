@@ -21,6 +21,9 @@ class OrdersController < ApplicationController
         currency: 'eur',
         quantity: '1'
       }],
+      phone_number_collection: {
+        enabled: true
+      },
       success_url: thanks_purchase_url,
       cancel_url: fails_purchase_url
     })
