@@ -58,7 +58,7 @@ ID du line_item : <% @order.line_items.data.each do |line| %>
                     <hr>
                     Price ID de la composition : <%= line.price.id %></h3>
                     <hr>
-                    <%= @prix = Stripe::Price.retrieve(id='#{line.price.id}') %>
+                    <%= @prix = Stripe::Price.retrieve(id=`#{line.price.id}`) %>
                     <%= @prix.nickname %>
                     <hr>
                     <h3>Prix de la Composition : <%= line.price.unit_amount/100 %>€</h3>
