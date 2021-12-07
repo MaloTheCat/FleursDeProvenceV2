@@ -52,6 +52,7 @@ phone customer : <%= @order.customer.phone %>
 ID Order : <%= @order.id %>
 <hr>
 ID du line_item : <% @order.line_items.data.each do |line| %>
+                    <%= line %>
                     <%= line.id %>
                     <hr>
                     Nom de la composition : <%= line.description %>
@@ -59,7 +60,7 @@ ID du line_item : <% @order.line_items.data.each do |line| %>
                     Price ID de la composition : <%= line.price.id %></h3>
                     <hr>
                     <%#= @prix = Stripe::Price.retrieve(id=`#{line.price.id}`) %>
-                    <%= line.nickname %>
+                    <%#= line.nickname %>
                     <hr>
                     <h3>Prix de la Composition : <%= line.price.unit_amount/100 %>€</h3>
                     <hr>
