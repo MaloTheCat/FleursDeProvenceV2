@@ -35,7 +35,7 @@ class WebhooksController < ApplicationController
       # line_items[0].price: 'price_1JxC8kFE4oPSz5YOc391IZ9I' # price choose
       # @size = Stripe::Checkout.retrieve()
 
-      @line_item = Stripe::Checkout::Session.list_line_items(`#{@order.id}`, {limit: 5})
+      # @line_item = Stripe::Checkout::Session.list_line_items('#{@order.id}', {limit: 5})
 
       OrderMailer.order_mail(@order).deliver
     end
