@@ -29,10 +29,10 @@ class WebhooksController < ApplicationController
         expand: ["line_items", "customer"]
       })
 
-      @order.line_items.data.each do |line|
-        return order_name = line.description
-        return order_price = line.price.unit_amount
-      end
+      # @order.line_items.data.each do |line|
+      #   return order_name = line.description
+      #   return order_price = line.price.unit_amount
+      # end
 
 
       # @customer = @order.customer.id
