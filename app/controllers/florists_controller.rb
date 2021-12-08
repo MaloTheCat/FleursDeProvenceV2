@@ -8,6 +8,7 @@ class FloristsController < ApplicationController
     @relais = Relai.all
     # @composition = Stripe::Price.retrieve('price_1JxC8kFE4oPSz5YOc391IZ9I')
 
+
     # @line_item = Stripe::Checkout::Session.list_line_items('cs_test_a1E208XLIVgaAlAUpzjqmEu4rsNJ6pnvNx9PnbllkbkEfPrFB6SvJ3lj1O', {limit: 5})
     # @line_items = Stripe::Checkout::Session.list_line_items('cs_test_a1tslb325FxOS0A94HDfANoPXGxySN6KWyISQTQ70DpBXgEWY5IfzrYzZP', {limit: 5})
 

@@ -9,15 +9,18 @@ class OrdersController < ApplicationController
 
   def create
     @composition = Stripe::Price.retrieve(params[:composition_id])
+    @composition_name = Stripe::Product.retrieve(@composition.product).name
+    @composition_image = Stripe::Product.retrieve(@composition.product).images.first
+
     @relais = Relai.all
     @relai = Relai.find(params[:relai_id])
     @session = Stripe::Checkout::Session.create({
       payment_method_types: ['card'],
       line_items: [{
-        name: Stripe::Product.retrieve(@composition.product).name,
-        images: [Stripe::Product.retrieve(@composition.product).images.first],
+        name: @composition_name,
+        images: [@composition_image],
         # nickname: Stripe::Price.list({limit:15, expand: ['data.product']}).map do |price| price.nickname end
-        # nickname: @composition.nickname,
+        nickname: @composition.nickname,
         price: @composition_id,
         amount: @composition.unit_amount,
         currency: 'eur',

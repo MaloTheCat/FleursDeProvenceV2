@@ -20,7 +20,6 @@
           </div>
         </a>
       </div>
-
     <%= form_with(url:orders_path) do |form| %>
       <%= hidden_field_tag 'composition_id', @composition.id %>
       <% @sorted = @compositionsProduct.sort_by { |hash| hash[:nickname] }.reverse %>
@@ -42,6 +41,15 @@
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
+<!-- <%#= @composition.product %>
+<%#= @compositionsProduct %>
+<hr>
+<%#= @composition.id %>
+<hr>
+<%#= @composition.nickname %>
+<hr>
+<%#= @composition.product.name %> -->
+
 
   </div>
 </div>

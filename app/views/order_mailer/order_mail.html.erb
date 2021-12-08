@@ -36,9 +36,9 @@ test image : <%#= @order.line_items.images[0] %>
 test image : <%#= @order.line_items.images.first %> -->
 
 <%#= params[:id] %>
- <hr>
+ <!-- <hr> -->
 
-------------------------
+<!-- ------------------------ -->
 
 <h3>Montant total =
 <%= @order.amount_total/100 %>€
@@ -60,7 +60,7 @@ ID Order =
 <hr>
 ID du line_item : <% @order.line_items.data.each do |line| %>
                     <%= line %>
-                    <h3> NICKNAME = <%#= line.price.nickname %> </h3>
+                    <h3> NICKNAME = <%= line.price.nickname %> </h3>
                     <hr>
                     <h1>Nom de la composition : <%= line.description %></h1>
                     <hr>
