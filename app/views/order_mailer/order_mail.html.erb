@@ -85,7 +85,7 @@ prix total = <%= @order.amount_total/100 %>€<hr>
 Id du client = <%= @order.customer.id %><hr>
 Email du client = <%= @order.customer.email %><hr>
 Téléphone du client = <%= @order.customer.phone %><hr>
-<% @order.line_items.data do |line| %>
+<%= @order.line_items.data do |line| %>
   Prix unitaire = <%= line.amount_total %><hr>
   Nom de la composition : <%= line.description %><hr>
   Taille de la composition : <%= line.nickname %><hr>
