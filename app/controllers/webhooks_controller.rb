@@ -28,51 +28,6 @@ class WebhooksController < ApplicationController
         id: session.id,
         expand: ["line_items", "customer"]
       })
-
-
-
-      # @order.line_items.data.each { |item|
-      #   @item_description = item.description, # => Soleil Levant
-      #   @item_amount = item.price.unit_amount # => 4000
-      # end
-
-      # # @composition = Stripe::Price.retrieve({id: params[:id], expand: ['product']})
-      # @compositionsProduct = Stripe::Price.list(product: @composition.product, expand: ['data.product'])
-      # @compositionsProduct.each { |composition|
-      #   composition.id # => Price ID: price_1JxC8kFE4oPSz5YOc391IZ9I
-      #   composition.product.id # => Product ID: prod_KcR0HgpfzldOj8
-      #   composition.nickname # => S
-      #   composition.product.name # => Nom: Soleil Levant
-      # }
-
-      # @order.nickname = Stripe::Price.retrieve({name: @item_description && price: @item_amount })
-
-
-
-
-
-
-
-      # Stripe::Price.list()
-
-      # @customer = @order.customer.id
-      # @invoice = Stripe::Invoice.create({ customer: @order.customer.id })
-
-      # @order = Stripe::Checkout::Session.retrieve({})
-      # @order.line_items.data.each do |line|
-        # @price = Stripe::Price.list(`#{line.price.id}`)
-        # @toto = Stripe::Price.retrieve(`#{line.price.id}`).nickname
-      # end
-      # @order = @order.price
-
-      # line_items[0].price: 'price_1JxC8kFE4oPSz5YOc391IZ9I' # price choose
-      # @size = Stripe::Checkout.retrieve()
-
-      # @line_item = Stripe::Checkout::Session.list_line_items('#{@order.id}', {limit: 5})
-      # @order.line_items.data.each do |line|
-      #   @nickname = line.nickname
-      # end
-
       OrderMailer.order_mail(@order).deliver
     end
     render json: { message: 'success' }
