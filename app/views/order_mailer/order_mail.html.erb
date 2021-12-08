@@ -40,35 +40,40 @@ test image : <%#= @order.line_items.images.first %> -->
 
 <!-- ------------------------ -->
 
-<h3>Montant total =
-<%= @order.amount_total/100 %>€
-<hr>
-Order Customer ID =
-<%= @order.customer.id %>
-<hr>
-nom customer =
-<%= @order.customer.name %>
-<hr>
-Email customer =
-<%= @order.customer.email %>
-<hr>
-phone customer =
-<%= @order.customer.phone %>
-<hr>
-ID Order =
-<%= @order.id %>
-<hr>
-ID du line_item : <% @order.line_items.data.each do |line| %>
-                    <%= line %>
-                    <h3> NICKNAME = <%= line.price.nickname %> </h3>
-                    <hr>
-                    <h1>Nom de la composition : <%= line.description %></h1>
-                    <hr>
-                    Price ID de la composition : <%= line.price.id %></h3>
-                    <hr>
-                    <h3>Prix de la Composition : <%= line.price.unit_amount/100 %>€</h3>
-                    <hr>
-                  <% end %>
+<h3>Montant total =</h3>
+<%= @order.amount_total/100 %>€<hr>
+
+<h3>Order Customer ID =</h3>
+<%= @order.customer.id %><hr>
+
+<h3>nom customer =</h3>
+<%= @order.customer.name %><hr>
+
+<h3>Email customer =</h3>
+<%= @order.customer.email %><hr>
+
+<h3>phone customer =</h3>
+<%= @order.customer.phone %><hr>
+
+<h3>ID Order =</h3>
+<%= @order.id %><hr>
+
+<h3>ID du line_item : </h3>
+<% @order.line_items.data.each do |line| %>
+  <%= line %>
+  <h3>NICKNAME =</h3>
+  <%= line.price.nickname %><hr>
+
+  <h3>Nom de la composition :</h3>
+  <%= line.description %><hr>
+
+  <h3>Price ID de la composition :</h3>
+  <%= line.price.id %><hr>
+
+  <h3>Prix de la Composition :</h3>
+  <%= line.price.unit_amount/100 %>€<hr>
+
+<% end %>
 
 
 <!-- Nickname de la composition (Taille) : -->
