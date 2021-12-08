@@ -21,15 +21,15 @@ class OrdersController < ApplicationController
         # images: [@composition_image],
         # nickname: Stripe::Price.list({limit:15, expand: ['data.product']}).map do |price| price.nickname end
         # nickname: @composition.nickname, # Pas de nickname dans line_items
-        price: @composition_id,
+        price: @composition.id,
         # amount: @composition.unit_amount,
         # currency: 'eur',
-        # quantity: '1'
+        quantity: '1'
       }],
-      mode: 'payment',
       phone_number_collection: {
         enabled: true
       },
+      mode: 'payment',
       success_url: thanks_purchase_url,
       cancel_url: fails_purchase_url
     })
