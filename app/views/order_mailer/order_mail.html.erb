@@ -89,6 +89,6 @@ Téléphone du client = <%= @order.customer.phone %><hr>
 <%#= line %>
   Prix unitaire = <%= line.amount_total %><hr>
   Nom de la composition : <%= line.description %><hr>
-  Taille de la composition : <%= line.nickname %><hr>
+  Taille de la composition : <%= line.price.nickname %><hr>
 <% end %>
 
