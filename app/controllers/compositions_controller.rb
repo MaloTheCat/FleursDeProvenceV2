@@ -10,6 +10,7 @@ class CompositionsController < ApplicationController
     @composition = Stripe::Price.retrieve({id: params[:id], expand: ['product']})
     @compositionsProduct = Stripe::Price.list(product: @composition.product)
 
+    # @compositionsProductExpand = Stripe::Price.list(product: @composition.product, expand: ['data.product'])
     # @composition = Stripe::Price.retrieve(params[:composition_id])
 
     @relais = Relai.all

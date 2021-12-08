@@ -29,14 +29,29 @@ class WebhooksController < ApplicationController
         expand: ["line_items", "customer"]
       })
 
+
+
       # @order.line_items.data.each { |item|
       #   @item_description = item.description, # => Soleil Levant
       #   @item_amount = item.price.unit_amount # => 4000
       # end
 
-      # @composition = Stripe::Price.retrieve({id: params[:id], expand: ['product']})
+      # # @composition = Stripe::Price.retrieve({id: params[:id], expand: ['product']})
+      # @compositionsProduct = Stripe::Price.list(product: @composition.product, expand: ['data.product'])
+      # @compositionsProduct.each { |composition|
+      #   composition.id # => Price ID: price_1JxC8kFE4oPSz5YOc391IZ9I
+      #   composition.product.id # => Product ID: prod_KcR0HgpfzldOj8
+      #   composition.nickname # => S
+      #   composition.product.name # => Nom: Soleil Levant
+      # }
 
       # @order.nickname = Stripe::Price.retrieve({name: @item_description && price: @item_amount })
+
+
+
+
+
+
 
       # Stripe::Price.list()
 

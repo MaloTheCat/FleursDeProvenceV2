@@ -26,6 +26,7 @@
       <div class="compo-size-letter">
         <% @sorted.map do |compoPrice| %>
             <%= link_to "#{compoPrice.nickname}", composition_path(compoPrice.id), class:"size-letter" %>
+            <hr>
         <% end %>
       </div>
     </div>
