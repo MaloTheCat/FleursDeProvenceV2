@@ -40,41 +40,53 @@ test image : <%#= @order.line_items.images.first %> -->
 
 <!-- ------------------------ -->
 
-<h1><%= @order %></h1>
+<!-- <h1><%#= @order %></h1>
 <hr>
 
 <h3>Montant total =</h3>
-<%= @order.amount_total/100 %>€<hr>
+<%#= @order.amount_total/100 %>€<hr>
 
 <h3>Order Customer ID =</h3>
-<%= @order.customer.id %><hr>
+<%#= @order.customer.id %><hr>
 
 <h3>nom customer =</h3>
-<%= @order.customer.name %><hr>
+<%#= @order.customer.name %><hr>
 
 <h3>Email customer =</h3>
-<%= @order.customer.email %><hr>
+<%#= @order.customer.email %><hr>
 
 <h3>phone customer =</h3>
-<%= @order.customer.phone %><hr>
+<%#= @order.customer.phone %><hr>
 
 <h3>ID Order =</h3>
-<%= @order.id %><hr>
+<%#= @order.id %><hr>
 
 <h3>ID du line_item : </h3>
-<% @order.line_items.data.each do |line| %>
-  <%= line %>
+<%# @order.line_items.data.each do |line| %>
+  <%#= line %>
   <h3>NICKNAME =</h3>
-  <%#= line.price.nickname %><hr>
+  <%##= line.price.nickname %><hr>
 
   <h3>Nom de la composition :</h3>
-  <%= line.description %><hr>
+  <%#= line.description %><hr>
 
   <h3>Price ID de la composition :</h3>
-  <%= line.price.id %><hr>
+  <%#= line.price.id %><hr>
 
   <h3>Prix de la Composition :</h3>
-  <%= line.price.unit_amount/100 %>€<hr>
+  <%#= line.price.unit_amount/100 %>€<hr>
 
+<%# end %>
+
+ -->
+
+
+prix total = <%= @order.amount_total/100 %>€<hr>
+Id du client = <%= @order.customer.id %><hr>
+Email du client = <%= @order.customer.email %><hr>
+Téléphone du client = <%= @order.customer.phone %><hr>
+<% @order.line_items.data do |line| %>
+  Prix unitaire = <%= line.amount_total %><hr>
+  Nom de la composition : <%= line.description %><hr>
+  Taille de la composition : <%= line.nickname %><hr>
 <% end %>
-
