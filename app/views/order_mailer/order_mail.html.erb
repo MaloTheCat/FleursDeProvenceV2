@@ -62,7 +62,8 @@ test image : <%#= @order.line_items.images.first %> -->
 <% @order.line_items.data.each do |line| %>
   <%= line %>
   <h3>NICKNAME =</h3>
-  <%= line.price.nickname %><hr>
+  <%#= line.price.nickname %><hr>
+  <%= @order.nickname %><hr>
 
   <h3>Nom de la composition :</h3>
   <%= line.description %><hr>
@@ -75,7 +76,7 @@ test image : <%#= @order.line_items.images.first %> -->
 
 <% end %>
 
-
+composition : <%= @composition %>
 <!-- Nickname de la composition (Taille) : -->
 <!-- <hr> -->
 <!-- Order = <%#= @order %> -->
@@ -88,5 +89,3 @@ test image : <%#= @order.line_items.images.first %> -->
 
 <!-- order name : <%#= order_name %> -->
 <!-- order price : <%#= order_price %> -->
-
-jonathan.vanderbosse@wanadoo.fr

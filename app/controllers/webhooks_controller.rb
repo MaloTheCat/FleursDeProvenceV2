@@ -29,11 +29,14 @@ class WebhooksController < ApplicationController
         expand: ["line_items", "customer"]
       })
 
-      # @order.line_items.data.each do |line|
-      #   return order_name = line.description
-      #   return order_price = line.price.unit_amount
+      # @order.line_items.data.each { |item|
+      #   @item_description = item.description, # => Soleil Levant
+      #   @item_amount = item.price.unit_amount # => 4000
       # end
 
+      # @order.nickname = Stripe::Price.retrieve({name: @item_description && price: @item_amount })
+
+      # Stripe::Price.list()
 
       # @customer = @order.customer.id
       # @invoice = Stripe::Invoice.create({ customer: @order.customer.id })
