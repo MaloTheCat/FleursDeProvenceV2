@@ -30,8 +30,8 @@ class WebhooksController < ApplicationController
       })
 
       @order.line_items.data.each do |line|
-        @order_name = line.description
-        @order_price = line.price.unit_amount
+        return order_name = line.description
+        return order_price = line.price.unit_amount
       end
 
 
