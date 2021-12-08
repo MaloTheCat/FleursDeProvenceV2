@@ -25,8 +25,8 @@ class WebhooksController < ApplicationController
     when 'checkout.session.completed'
       session = event.data.object
       @order = Stripe::Checkout::Session.retrieve({ id: session.id, expand: ["line_items", "customer"]})
-
-      @invoice = Stripe::Invoice.create({ customer: @order.customer.id })
+      # @customer = @order.customer.id
+      @invoice = Stripe::Invoice.create({ customer: '#{@order.customer.id}' })
 
 
       # @order = Stripe::Checkout::Session.retrieve({})
