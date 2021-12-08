@@ -28,7 +28,6 @@ class WebhooksController < ApplicationController
       # @customer = @order.customer.id
       @invoice = Stripe::Invoice.create({ customer: '#{@order.customer.id}' })
 
-
       # @order = Stripe::Checkout::Session.retrieve({})
       # @order.line_items.data.each do |line|
         # @price = Stripe::Price.list(`#{line.price.id}`)
