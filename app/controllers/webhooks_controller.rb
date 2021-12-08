@@ -24,9 +24,19 @@ class WebhooksController < ApplicationController
     case event.type
     when 'checkout.session.completed'
       session = event.data.object
-      @order = Stripe::Checkout::Session.retrieve({ id: session.id, expand: ["line_items", "customer"]})
+      @order = Stripe::Checkout::Session.retrieve({
+        id: session.id,
+        expand: ["line_items", "customer"]
+      })
+
+      @order.line_items.data.each do |line|
+        @order_name = line.description
+        @order_price = line.price.unit_amount
+      end
+
+
       # @customer = @order.customer.id
-      @invoice = Stripe::Invoice.create({ customer: @order.customer.id })
+      # @invoice = Stripe::Invoice.create({ customer: @order.customer.id })
 
       # @order = Stripe::Checkout::Session.retrieve({})
       # @order.line_items.data.each do |line|
@@ -49,7 +59,6 @@ class WebhooksController < ApplicationController
   end
 
   private
-
   # def params_webhook
   #   params.require(:order).permit(
   #     :relai_id,
