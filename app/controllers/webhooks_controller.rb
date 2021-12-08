@@ -34,6 +34,8 @@ class WebhooksController < ApplicationController
       #   @item_amount = item.price.unit_amount # => 4000
       # end
 
+      # @composition = Stripe::Price.retrieve({id: params[:id], expand: ['product']})
+
       # @order.nickname = Stripe::Price.retrieve({name: @item_description && price: @item_amount })
 
       # Stripe::Price.list()

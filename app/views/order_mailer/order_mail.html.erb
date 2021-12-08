@@ -40,6 +40,8 @@ test image : <%#= @order.line_items.images.first %> -->
 
 <!-- ------------------------ -->
 
+<h1><%= @order %></h1>
+<hr>
 <h3>Montant total =</h3>
 <%= @order.amount_total/100 %>€<hr>
 
@@ -75,16 +77,3 @@ test image : <%#= @order.line_items.images.first %> -->
 
 <% end %>
 
-composition : <%= @composition %>
-<!-- Nickname de la composition (Taille) : -->
-<!-- <hr> -->
-<!-- Order = <%#= @order %> -->
-<!-- <hr> -->
-
-
-<%#= @invoice %>
-
-<!-- ------------------ -->
-
-<!-- order name : <%#= order_name %> -->
-<!-- order price : <%#= order_price %> -->
