@@ -61,7 +61,7 @@ ID Order =
 ID du line_item : <% @order.line_items.data.each do |line| %>
                     <%= line %>
                     <%= line.id %>
-                    <h3> NICKNAME = <%= line.nickname %> </h3>
+                    <h3> NICKNAME = <%#= line.nickname %> </h3>
                     <hr>
                     Nom de la composition : <%= line.description %>
                     <hr>
