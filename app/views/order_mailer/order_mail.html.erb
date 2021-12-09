@@ -1,7 +1,9 @@
-prix total = <%= @order.amount_total/100 %>€<hr>
+Id de la commande = <%= @order.id %><hr>
+Prix total = <%= @order.amount_total/100 %>€<hr>
 Id du client = <%= @order.customer.id %><hr>
-Email du client = <%= @order.customer.email %><hr>
-Téléphone du client = <%= @order.customer.phone %><hr>
+Nom du client : <%= @order.customer.name %><hr>
+Email du client : <%= @order.customer.email %><hr>
+Téléphone du client : <%= @order.customer.phone %><hr>
 <% @order.line_items.data.each do |line| %>
   Prix unitaire = <%= line.amount_total %><hr>
   Nom de la composition : <%= line.description %><hr>
@@ -9,4 +11,4 @@ Téléphone du client = <%= @order.customer.phone %><hr>
 <% end %>
 
 <hr>
-<%#= @relai %>
+Relai choisi = <%#= @relai %>
