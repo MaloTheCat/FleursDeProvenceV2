@@ -17,13 +17,7 @@ class OrdersController < ApplicationController
     @session = Stripe::Checkout::Session.create({
       payment_method_types: ['card'],
       line_items: [{
-        # name: @composition_name,
-        # images: [@composition_image],
-        # nickname: Stripe::Price.list({limit:15, expand: ['data.product']}).map do |price| price.nickname end
-        # nickname: @composition.nickname, # Pas de nickname dans line_items
         price: @composition.id,
-        # amount: @composition.unit_amount,
-        # currency: 'eur',
         quantity: '1'
       }],
       phone_number_collection: {

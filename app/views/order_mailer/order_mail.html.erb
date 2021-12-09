@@ -3,9 +3,10 @@ Id du client = <%= @order.customer.id %><hr>
 Email du client = <%= @order.customer.email %><hr>
 Téléphone du client = <%= @order.customer.phone %><hr>
 <% @order.line_items.data.each do |line| %>
-<%#= line %>
   Prix unitaire = <%= line.amount_total %><hr>
   Nom de la composition : <%= line.description %><hr>
   Taille de la composition : <%= line.price.nickname %><hr>
 <% end %>
 
+<hr>
+<%#= @relai %>
