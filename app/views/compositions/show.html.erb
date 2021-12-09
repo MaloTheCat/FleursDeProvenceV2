@@ -31,10 +31,7 @@
       </div>
     </div>
       <p>Sélectionnez votre point de retrait</p>
-      <!-- <div class="profile" data-activity-id="<%#= @relai.id %>"> -->
-        <%#= @relai.id %>
-        <%= form.collection_select :relai_id, @relais, :id, :name, {prompt: "Points relais"}, { html_options: 'data-relai-id = #{:relai_id}'} %> </br>
-      <!-- </div> -->
+      <%= form.collection_select :relai_id, @relais, :id, :name, {prompt: "Points relais"}, { html_options: 'data-relai-id = #{:relai_id}'} %> </br>
       <%= form.submit 'Acheter', params: {id: @composition.id}, remote: true, class: 'app-form-button' %>
     <% end %><br><br>
       <div id="map"
@@ -42,7 +39,6 @@
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-
   </div>
 </div>
 
