@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
         price: @composition.id,
         quantity: '1'
       }],
-      metadata: {relai: @relai},
+      metadata: {relai: @relai.id},
       phone_number_collection: {
         enabled: true
       },
