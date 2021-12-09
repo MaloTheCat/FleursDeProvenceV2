@@ -10,4 +10,7 @@ Téléphone du client : <%= @order.customer.phone %><hr>
   Taille de la composition : <%= line.price.nickname %><hr>
 <% end %>
 
-Relai choisi = <%= @order.metadata.relai.class %>
+Relai choisi = <%= @order.metadata.relai %>
+Class de l'object = <%= @order.metadata.relai.class %>
+<%= @order.metadata.relai.select(:id) %>
+<%= @order.metadata.relai.select(:relai) %>
