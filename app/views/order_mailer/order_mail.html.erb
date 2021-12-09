@@ -9,10 +9,4 @@ Téléphone du client : <%= @order.customer.phone %><hr>
   Nom de la composition : <%= line.description %><hr>
   Taille de la composition : <%= line.price.nickname %><hr>
 <% end %>
-
-Metadata Relai = <%= @order.metadata %>
-Relai = <%= @order.metadata.relai %>
-<!-- Relai = <%#= @order.metadata.relai.id %> --> <!-- A tester -->
-Class de l'object = <%= @order.metadata.relai.class %>
-<!-- Id relai with select = <%#= @order.metadata.relai.select(:id) %> -->
-<!-- Select relai with select = <%#= @order.metadata.relai.select(:relai) %> -->
+Relai choisi : <%= @order.metadata.relai %>
