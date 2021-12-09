@@ -1,8 +1,5 @@
 class OrdersController < ApplicationController
 
-  # before_action :find_florist, only: [:index, :show, :new]
-  # before_action :composition_params, only: [:new]
-
   def show
     @order = Order.find(params[:id])
   end
@@ -20,6 +17,7 @@ class OrdersController < ApplicationController
         price: @composition.id,
         quantity: '1'
       }],
+      metadata: {relai: @relai},
       phone_number_collection: {
         enabled: true
       },
@@ -27,28 +25,11 @@ class OrdersController < ApplicationController
       success_url: thanks_purchase_url,
       cancel_url: fails_purchase_url
     })
-    # respond_to :json
-
-    # @url = @session.url
-    # fetch(@url).then(response => response.json())
-
-    # respond_to do |format|
-      # format.html
-      # format.json { render json: @session.url }
-      # format.xml { render xml: @session }
-    # end
-
-    # render json: @session.url
-    # render html: @session.url
-
     redirect_to(@session.url)
   end
 
   def thanksPurchase
   end
-
-  # def checkout
-  # end
 
   private
 
@@ -60,3 +41,15 @@ class OrdersController < ApplicationController
   # end
 
 end
+
+# respond_to :json
+    # @url = @session.url
+    # fetch(@url).then(response => response.json())
+    # respond_to do |format|
+      # format.html
+      # format.json { render json: @session.url }
+      # format.xml { render xml: @session }
+    # end
+
+    # render json: @session.url
+    # render html: @session.url
