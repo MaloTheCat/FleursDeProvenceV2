@@ -1,8 +1,9 @@
 <div id="navbar">
   <ul>
-    <a href="#">
-      <%= cl_image_tag("logo_zxaijj") %>
-      <%#=image_tag('logo', alt: "Logo Fleurs de Provence")%>
+    <!-- <a href="#{root_path}"> -->
+      <%= link_to root_path do %>
+        <%= cl_image_tag("logo_fdp") %>
+      <% end %>
     </a>
     <div class="page_links">
       <%= link_to "Accueil", root_path %>
