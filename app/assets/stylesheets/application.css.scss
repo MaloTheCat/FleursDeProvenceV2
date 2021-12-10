@@ -1,3 +1,4 @@
+/* GLOBALE */
 /*
 
  *= require_tree .
@@ -15,42 +16,63 @@ a {
   color: black;
 }
 
-body {
-  padding: 25px;
-}
-
 li {
   list-style: none;
 }
 
+.spacing-page {
+  padding-top: 0px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 25px;
+}
+
 /* NAVBAR */
 
-#navbar img {
-  height: 75px;
-}
-
 #navbar {
-  padding: 10px 25px;
-}
-
-ul {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  background-color: #fff;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 25px;
+  margin-bottom: 15px;
+}
+
+#logo_header {
+  justify-content: left;
+}
+
+#logo {
+  display: none;
+}
+
+#logo_fdp {
+  display: none;
+}
+
+#logo_inline {
+  width: 250px;
 }
 
 .page_links {
   display: flex;
+  justify-self: flex-end;
+  align-items: center;
 }
 
 .page_links a {
   font-family: poppins;
+  margin: 0px 20px;
   font-weight: 300;
-  width: 150px;
-  height: 35px;
-  text-align: center;
-  border-bottom: 1px solid black;
+  /*width: 110px;*/
+  display: flex;
   position: relative;
+  justify-content: center;
 }
 
 .page_links a::before {
@@ -72,7 +94,7 @@ ul {
   left: 0;
   background-color: red;
   height: 4px;
-  width: 150px;
+  width: 100%;
   margin-top: 31px;
 }
 
@@ -84,7 +106,6 @@ ul {
 /* FOOTER */
 
 footer {
-  /*border: 2px solid black;*/
   text-align: center;
   font-family: poppins;
   font-weight: 200;
@@ -112,6 +133,7 @@ footer {
   background-color: red;
   transition: .3s ease;
 }
+
 .part_0 {
   flex: 0 0 250px;
   text-align: center;
@@ -119,16 +141,64 @@ footer {
 
 .part_0 img {
   height: 7em;
+  padding-bottom: 10px;
 }
 
 .part_0 > p {
-  /*font-size: 0.8em;*/
+  max-width: 300px;
   font-size: 10px;
   font-weight: light;
+  margin: auto;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 850px) {
+  #logo_inline {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 700px) and (max-width: 850px) {
+  #logo_fdp {
+    display: flex;
+    height: 75px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #navbar {
+    height: 100px;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    height: 85px;
+    border-bottom: 1px solid black;
+  }
+
+  #logo_header {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .page_links {
+    display: none;
+  }
+
+  #logo_fdp {
+    display: none;
+  }
+
+  #logo {
+    display: flex;
+    height: 75px;
+  }
+
   .placing_footer {
     flex-direction: column;
+  }
+
+  .part_0 {
+    margin-bottom: -20px;
   }
 }
