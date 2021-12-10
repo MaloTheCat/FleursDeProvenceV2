@@ -1,15 +1,17 @@
 <div id="navbar">
-  <ul>
-    <!-- <a href="#{root_path}"> -->
-      <%= link_to root_path do %>
-        <%= cl_image_tag("logo_fdp") %>
-      <% end %>
-    </a>
-    <div class="page_links">
-      <%= link_to "Accueil", root_path %>
-      <%= link_to "Compositions", compositions_path %>
-      <%= link_to "Évènement", evenement_path %>
-      <%= link_to "Contact", new_contact_path %>
-    </div>
+  <div id="logo_header">
+    <%= link_to root_path do %>
+      <%= cl_image_tag("logo", id:'logo')%>
+      <%= cl_image_tag("logo_fdp", id:'logo_fdp')%>
+      <%= cl_image_tag("logo_inline", id:'logo_inline')%>
+    <% end %>
+  </div>
+
+  <ul class="page_links">
+    <li><%= link_to "Accueil", root_path %></li>
+    <li><%= link_to "Compositions", compositions_path %></li>
+    <li><%= link_to "Évènement", evenement_path %></li>
+    <li><%= link_to "Contact", new_contact_path %></li>
   </ul>
+
 </div>
