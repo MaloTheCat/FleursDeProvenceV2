@@ -4,7 +4,7 @@ class FloristsController < ApplicationController
   def home
     @florists = Florist.all
     @florist = Florist.first
-    @compositions = Stripe::Price.list({limit:15, expand: ['data.product']})
+    @compositions = Stripe::Price.list({limit:21, expand: ['data.product']})
     @relais = Relai.all
 
     # the `geocoded` scope filters only relais with coordinates (latitude & longitude)

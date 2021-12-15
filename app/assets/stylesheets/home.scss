@@ -65,7 +65,9 @@ h2 {
 
 .home-section-3 {
   width: 100%;
-  background-color: #ECECEC;
+  /*background-color: red;*/
+/*  background-image: asset-url('wave');
+  background-size: cover;*/
   display: flex;
   padding: 25px 0px;
 }
@@ -86,33 +88,41 @@ h2 {
 
 .green-border-card {
   display: flex;
+  justify-content: flex-start;
   flex-direction: column;
-  justify-content: center;
+  /*justify-content: center;*/
   position: relative;
   height: 350px;
-  width: 200px;
+  width: 230px;
   border: 2px solid #D7E15E;
   border-radius: 28px;
   margin: 20px 0;
 }
 
+.green-border-card > h3 {
+  padding: 0px 10px;
+  margin-bottom: 5px;
+}
+
 .green-border-card img {
   box-sizing: border-box; /* Forcer l'image à être dans la card */
   display: flex;
-  width: 100%;
   height: 250px;
   z-index: 2;
+  border-radius: 25px 25px 0px 0px;
+  margin-bottom: 10px;
 }
 
 .green-square {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 175px;
-  border-radius: 25px;
+  height: 103px;
+  border-radius: 0px 0px 25px 25px;
   background-color: #D7E15E;
   transition: all .4s linear;
 }
+
 .card-wrap > a:hover {
   .green-square {
     position: absolute;
@@ -120,23 +130,31 @@ h2 {
     width: 100%;
     height: 350px;
     border-radius: 25px;
-    background-color: #D7E15E;
+    background-color: #88BF47;
+  }
+
+  .green-border-card {
+    border: 2px solid #88BF47;
   }
 }
 
 h3 {
   z-index: 2;
   text-align: center;
-  font-family: poppins;
-  font-weight: 600;
+  font-family: 'Dancing Script', cursive;
+  /*font-family: poppins;*/
+  /*font-weight: 600;*/
+  font-size: 1.6em;
 }
 
 .card-price {
   text-align: center;
   z-index: 2;
-  font-family: poppins;
-  font-weight: 500;
-  font-size:  1.7em;
+  /*font-family: poppins;*/
+/*  font-weight: 500;
+  font-size:  1.7em;*/
+  font-family: 'Dancing Script';
+  font-size: 1.7em;
 }
 
 .green-border-card > p {

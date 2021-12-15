@@ -3,7 +3,7 @@ class CompositionsController < ApplicationController
 
   def index
     # @compositions = @florist.compositions
-    @compositions = Stripe::Price.list({limit:15, expand: ['data.product']})
+    @compositions = Stripe::Price.list({limit:21, expand: ['data.product']})
   end
 
   def show
