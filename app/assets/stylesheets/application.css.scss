@@ -39,8 +39,13 @@ li {
   border-bottom: 1px solid black;
   padding-bottom: 10px;
   padding-top: 10px;
-  padding-left: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
   margin-bottom: 15px;
+}
+
+#mobile-nav {
+  display: none;
 }
 
 #logo_header {
@@ -167,12 +172,23 @@ footer {
 @media screen and (max-width: 700px) {
   #navbar {
     height: 100px;
-    margin-left: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
     height: 85px;
     border-bottom: 1px solid black;
+  }
+
+  #mobile-nav {
+    display: flex;
+    /*clip-path: ellipse(30px 30px at 28% 40%);*/
+  }
+
+  #mobile-nav > svg {
+    width: 40px;
+    margin-left: 25px;
   }
 
   #logo_header {
@@ -192,6 +208,24 @@ footer {
   #logo {
     display: flex;
     height: 75px;
+  }
+
+  .bck-img {
+    margin-bottom: 25px;
+  }
+
+  .home-section-2 {
+    flex-direction: column;
+    padding: 25px 0px;
+  }
+
+  .home-s2-left,
+  .home-s2-right {
+    width: 100%;
+  }
+
+  .home-s2-right {
+    margin-top: 20px;
   }
 
   .placing_footer {
