@@ -65,11 +65,13 @@ h2 {
 
 .home-section-3 {
   width: 100%;
-  /*background-color: red;*/
+  background-color: #e6e7df;
+  clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
+
 /*  background-image: asset-url('wave');
   background-size: cover;*/
   display: flex;
-  padding: 25px 0px;
+  padding: 75px 0px;
 }
 
 .card-wrap {
