@@ -1,7 +1,38 @@
 <div id="navbar">
+  <!-- START Mobile section -->
   <div id="mobile-nav">
     <svg id="burger-leaf" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.7456 39.7456"><defs><style>.cls-1,.cls-2{fill:none;stroke:#e52521;stroke-linecap:round;stroke-width:1.9843px;}.cls-1{stroke-miterlimit:10;}.cls-2{stroke-linejoin:round;}</style></defs><path class="cls-1" d="M8.32,31.4257s3.6009-6.5016,7.4018-8.6022,9.7024-6.0015,11.0028-8.7021"/><path class="cls-1" d="M31.4255,8.32s.2,16.6042-9.7024,18.8047c-5.0924,1.1317-5.5014-.9-10.5026.1-.4-5.6014-.86-10.2553,5.5014-13.6034C22.4233,10.6205,25.6241,12.521,31.4255,8.32Z"/><rect class="cls-2" x="0.9921" y="0.9921" width="37.7613" height="37.7613" rx="8"/></svg>
   </div>
+    <ul id="mobile-nav-list" class='hidden'>
+      <div class="mobile-nav-el">
+        <%= link_to root_path do %>
+          <li>
+          <%= "Accueil" %>
+          </li>
+        <% end %>
+        <hr>
+        <%= link_to compositions_path do %>
+          <li>
+          <%= "Compositions" %>
+          </li>
+        <% end %>
+        <hr>
+        <%= link_to evenement_path do %>
+          <li>
+          <%= "Évènement" %>
+          </li>
+        <% end %>
+        <hr>
+        <%= link_to new_contact_path do %>
+          <li>
+          <%= "Contact" %>
+          </li>
+        <% end %>
+        <hr>
+      </div>
+    </ul>
+  <!-- END Mobile section -->
+
   <div id="logo_header">
     <%= link_to root_path do %>
       <%= cl_image_tag("logo", id:'logo')%>

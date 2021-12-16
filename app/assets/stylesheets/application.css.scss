@@ -49,7 +49,6 @@ li {
 }
 
 #burger-leaf {
-
 }
 
 #logo_header {
@@ -186,12 +185,14 @@ footer {
 
   #mobile-nav {
     display: flex;
-    /*clip-path: ellipse(30px 30px at 28% 40%);*/
   }
 
   #mobile-nav > svg {
+    height: 40px;
     width: 40px;
     margin-left: 25px;
+    margin-top: 25px;
+    cursor: pointer;
   }
 
   #logo_header {
@@ -202,6 +203,39 @@ footer {
 
   .page_links {
     display: none;
+  }
+
+  #mobile-nav-list {
+    position: absolute;
+    min-width: 150px;
+    max-width: 250px;
+    width: 50vw;
+    top: 95px;
+    left: 0px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    height: 50vh;
+    padding: 25px 25px;
+  }
+
+  .mobile-nav-el > a > li {
+    padding: 20px 0;
+    font-size: 1.7em;
+  }
+
+  .mobile-nav-el > a {
+    color: red;
+    font-family: poppins;
+  }
+
+  .mobile-nav-el > a:hover {
+    color: red;
+    font-family: poppins;
+  }
+
+  .mobile-nav-el > hr {
+    border: 1px solid red;
+    border-radius: 20px;
   }
 
   #logo_fdp {

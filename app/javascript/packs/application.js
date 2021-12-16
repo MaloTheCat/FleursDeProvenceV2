@@ -11,9 +11,11 @@ import Turbolinks from "turbolinks";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initModalSize } from '../plugins/init_modal_size'
 import { initMapboxRelai } from '../plugins/init_mapbox_relais';
+import { initDropdownMenu } from '../plugins/init_dropdown_menu';
 import "channels";
 
 document.addEventListener('turbolinks:load', () => {
+  initDropdownMenu();
   if (document.getElementsByClassName('compositions show').length > 0) {
     initMapboxRelai();
     initModalSize()
