@@ -1,10 +1,8 @@
-<!-- Id de la commande = <%#= @order.id %><hr>
-Prix total = <%#= @order.amount_total/100 %>€<hr>
-<%# @order.line_items.data.each do |line| %>
-  Prix unitaire = <%#= line.amount_total %><hr>
-  Nom de la composition : <%#= line.description %><hr>
-  Taille de la composition : <%#= line.price.nickname %><hr>
-<%# end %>
-Relai choisi : <%#= @order.metadata.relai %> -->
-Order : <%= @order %>
-
+Id de la commande = <%= @order.id %><hr>
+Prix total = <%= @order.amount_total/100 %>€<hr>
+<% @order.line_items.data.each do |line| %>
+  Prix unitaire = <%= line.amount_total %><hr>
+  Nom de la composition : <%= line.description %><hr>
+  Taille de la composition : <%= line.price.nickname %><hr>
+<% end %>
+Relai choisi : <%= @order.metadata.relai %>
