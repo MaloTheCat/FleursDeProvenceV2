@@ -29,7 +29,8 @@ class WebhooksController < ApplicationController
         expand: ["line_items", "customer"]
       })
       OrderMailer.order_mail(@order).deliver
-      CustomerMailer.customer_mail(@order.customer.email).deliver
+      # CustomerMailer.customer_mail(@order.customer.email).deliver
+      CustomerMailer.customer_mail(@order).deliver
     end
     render json: { message: 'success' }
   end
