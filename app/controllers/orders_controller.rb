@@ -31,15 +31,6 @@ class OrdersController < ApplicationController
   def thanksPurchase
   end
 
-  private
-
-  # def order_params
-  #   params.require(:order).permit(
-  #     :relai_id,
-  #     :composition_id
-  #   )
-  # end
-
 end
 
 # respond_to :json
