@@ -1,7 +1,8 @@
 class CustomerMailer < ApplicationMailer
   def customer_mail(contact)
     @customer = contact
-    mail to: @customer, subject: "Résumé de votre commande Fleurs de Provence"
+    @order = @order.id
+    mail to: @customer, subject: "Votre commande Fleurs de Provence"
   end
 end
 
