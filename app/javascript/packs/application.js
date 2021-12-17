@@ -16,11 +16,11 @@ import "channels";
 
 document.addEventListener('turbolinks:load', () => {
   initDropdownMenu();
-  initMapboxRelai();
+  initMapbox();
   if (document.getElementsByClassName('compositions show').length > 0) {
+    initMapboxRelai();
     initModalSize()
-  } else if (document.getElementsByClassName('florist home').length > 0) {
-    initMapbox();
+  // } else if (document.getElementsByClassName('florist home').length > 0) {
   } else {
 
   };
